@@ -1,0 +1,6 @@
+framework module Pods_EggMapTests {
+  umbrella header "Pods-EggMapTests-umbrella.h"
+
+  export *
+  module * { export * }
+}

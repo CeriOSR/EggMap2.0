@@ -1,0 +1,6 @@
+framework module Pods_EggMap {
+  umbrella header "Pods-EggMap-umbrella.h"
+
+  export *
+  module * { export * }
+}

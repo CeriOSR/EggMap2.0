@@ -1,0 +1,35 @@
+/* 
+  Localizable.strings
+  EggMap
+
+  Created by Rey Cerio on 2018-09-10.
+  Copyright © 2018 Rey Cerio. All rights reserved.
+*/
+"username" = "用戶名";
+"password" = "密碼";
+"Remember me:" = "記住我:";
+"Login" = "登錄";
+"Menu" = "Menu";
+"Ready For Pickup" = "Ready For Pickup";
+"Delivered" = "Delivered";
+"Edit Profile" = "Edit Profile";
+"Order Summary" = "Order Summary";
+"XBO Market Shop" = "XBO Market Shop";
+"Earnings Summary" = "Earnings Summary";
+"Scan Tool" = "Scan Tool";
+"Logout" = "Logout";
+"Location:" = "Location:";
+"Status:" = "Status:";
+"Available" = "Available";
+"Unavailable" = "Unavailable";
+"Edit Hours" = "Edit Hours";
+"Monday" = "Monday";
+"Tuesday" = "Tuesday";
+"Wednesday" = "Wednesday";
+"Thursday" = "Thursday";
+"Friday" = "Friday";
+"Saturday" = "Saturday";
+"Sunday" = "Sunday";
+"Email" = "Email";
+"Phone" = "Phone";
+"Address" = "Address";

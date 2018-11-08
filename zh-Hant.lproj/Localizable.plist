@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>username</key>
+	<dict>
+		<key>value</key>
+		<string>用戶名</string>
+		<key>comment</key>
+		<string>username placeholder for login controller</string>
+	</dict>
+	<key>password</key>
+	<dict>
+		<key>value</key>
+		<string>密碼</string>
+		<key>comment</key>
+		<string>password placeholder for login controller</string>
+	</dict>
+	<key>rememberMe</key>
+	<dict>
+		<key>value</key>
+		<string>記住我:</string>
+		<key>comment</key>
+		<string>remember me label in login controller</string>
+	</dict>
+	<key>login</key>
+	<dict>
+		<key>value</key>
+		<string>登錄</string>
+		<key>comment</key>
+		<string>login button title for login controller</string>
+	</dict>
+	<key>menu</key>
+	<dict>
+		<key>value</key>
+		<string>菜單
+菜單
+菜單
+</string>
+		<key>comment</key>
+		<string>Slide in menu navigation bar title</string>
+	</dict>
+	<key>readyForPickup</key>
+	<dict>
+		<key>value</key>
+		<string>準備好接</string>
+		<key>comment</key>
+		<string>Ready for pick up choice in segment controller in order summary controller</string>
+	</dict>
+	<key>delivered</key>
+	<dict>
+		<key>value</key>
+		<string>交付
+</string>
+		<key>comment</key>
+		<string>Delivered option in segment controller in order summary controller</string>
+	</dict>
+	<key>editProfile</key>
+	<dict>
+		<key>value</key>
+		<string>編輯個人資料</string>
+		<key>comment</key>
+		<string>Edit Profile button in agent and client profile view controller</string>
+	</dict>
+	<key>orderSummary</key>
+	<dict>
+		<key>value</key>
+		<string>訂單摘要</string>
+		<key>comment</key>
+		<string>Order Summary option slide in menu</string>
+	</dict>
+	<key>xboMarketShop</key>
+	<dict>
+		<key>value</key>
+		<string>XBO 市場商店</string>
+		<key>comment</key>
+		<string>XBO Market Shop option in slide in menu</string>
+	</dict>
+	<key>earningsSummary</key>
+	<dict>
+		<key>value</key>
+		<string>收益摘要</string>
+		<key>comment</key>
+		<string>Earnings Summary in agent side slide in menu</string>
+	</dict>
+	<key>scanTool</key>
+	<dict>
+		<key>value</key>
+		<string>掃描工具</string>
+		<key>comment</key>
+		<string>Scan Tool option in agent side slide in menu</string>
+	</dict>
+	<key>logout</key>
+	<dict>
+		<key>value</key>
+		<string>登出</string>
+		<key>comment</key>
+		<string>Logout option in slide in menu</string>
+	</dict>
+	<key>location</key>
+	<dict>
+		<key>value</key>
+		<string>位置:</string>
+		<key>comment</key>
+		<string>Location: in agent profile controller</string>
+	</dict>
+	<key>tapHere</key>
+	<dict>
+		<key>value</key>
+		<string>點按此處選擇位置</string>
+		<key>comment</key>
+		<string>Tap Here gesture inside location view box in Agent profile view controller</string>
+	</dict>
+	<key>status</key>
+	<dict>
+		<key>value</key>
+		<string>狀態:</string>
+		<key>comment</key>
+		<string>Status: in agent profile controller</string>
+	</dict>
+	<key>available</key>
+	<dict>
+		<key>value</key>
+		<string>可得到</string>
+		<key>comment</key>
+		<string>Available option in segment controller in agent profile view controller</string>
+	</dict>
+	<key>unavailable</key>
+	<dict>
+		<key>value</key>
+		<string>不可用</string>
+		<key>comment</key>
+		<string>Unavailable option in segment controller in agent profile view controller</string>
+	</dict>
+	<key>editHours</key>
+	<dict>
+		<key>value</key>
+		<string>編輯時間</string>
+		<key>comment</key>
+		<string>Edit Hours button in agent profile view controller</string>
+	</dict>
+	<key>monday</key>
+	<dict>
+		<key>value</key>
+		<string>星期一</string>
+		<key>comment</key>
+		<string>Monday label in agent profile view controller</string>
+	</dict>
+	<key>tuesday</key>
+	<dict>
+		<key>value</key>
+		<string>星期二</string>
+		<key>comment</key>
+		<string>Tuesday label in agent profile view controller</string>
+	</dict>
+	<key>wednesday</key>
+	<dict>
+		<key>value</key>
+		<string>星期三</string>
+		<key>comment</key>
+		<string>Wednesday label in agent profile view controller</string>
+	</dict>
+	<key>thursday</key>
+	<dict>
+		<key>value</key>
+		<string>星期四</string>
+		<key>comment</key>
+		<string>Thursday label in agent profile view controller</string>
+	</dict>
+	<key>friday</key>
+	<dict>
+		<key>value</key>
+		<string>星期五</string>
+		<key>comment</key>
+		<string>Friday label in agent profile view controller</string>
+	</dict>
+	<key>saturday</key>
+	<dict>
+		<key>value</key>
+		<string>星期六</string>
+		<key>comment</key>
+		<string>Saturday label in agent profile view controller</string>
+	</dict>
+	<key>sunday</key>
+	<dict>
+		<key>value</key>
+		<string>星期日</string>
+		<key>comment</key>
+		<string>Sunday label in agent profile view controller</string>
+	</dict>
+	<key>close</key>
+	<dict>
+		<key>value</key>
+		<string>關</string>
+		<key>comment</key>
+		<string>Closed text on the days if they are closed those days. this is in the agent profile controller.</string>
+	</dict>
+	<key>email</key>
+	<dict>
+		<key>value</key>
+		<string>電子郵件:</string>
+		<key>comment</key>
+		<string>Email label in client profile view controller</string>
+	</dict>
+	<key>phone</key>
+	<dict>
+		<key>value</key>
+		<string>電話:</string>
+		<key>comment</key>
+		<string>Phone label in client profile view controller</string>
+	</dict>
+	<key>address</key>
+	<dict>
+		<key>value</key>
+		<string>地址：</string>
+		<key>comment</key>
+		<string>Address label in client profile view controller</string>
+	</dict>
+	<key>copy</key>
+	<dict>
+		<key>value</key>
+		<string>複製</string>
+		<key>comment</key>
+		<string>button in alert controller in the QR view controller</string>
+	</dict>
+	<key>retake</key>
+	<dict>
+		<key>value</key>
+		<string>重拍</string>
+		<key>comment</key>
+		<string>button in alert controller in the QR view controller</string>
+	</dict>
+	<key>qrCode</key>
+	<dict>
+		<key>value</key>
+		<string>二維碼</string>
+		<key>comment</key>
+		<string>alert title of alert controller in the QR view controller</string>
+	</dict>
+</dict>
+</plist>

@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>username</key>
+	<dict>
+		<key>value</key>
+		<string>username</string>
+		<key>comment</key>
+		<string>username placeholder for login controller</string>
+	</dict>
+	<key>password</key>
+	<dict>
+		<key>value</key>
+		<string>password</string>
+		<key>comment</key>
+		<string>password placeholder for login controller</string>
+	</dict>
+	<key>rememberMe</key>
+	<dict>
+		<key>value</key>
+		<string>Remember me:</string>
+		<key>comment</key>
+		<string>remember me label in login controller</string>
+	</dict>
+	<key>login</key>
+	<dict>
+		<key>value</key>
+		<string>Login</string>
+		<key>comment</key>
+		<string>login button title for login controller</string>
+	</dict>
+	<key>menu</key>
+	<dict>
+		<key>value</key>
+		<string>Menu</string>
+		<key>comment</key>
+		<string>Slide in menu navigation bar title</string>
+	</dict>
+	<key>readyForPickup</key>
+	<dict>
+		<key>value</key>
+		<string>Ready For Pickup</string>
+		<key>comment</key>
+		<string>Ready for pick up choice in segment controller in order summary controller</string>
+	</dict>
+	<key>delivered</key>
+	<dict>
+		<key>value</key>
+		<string>Delivered</string>
+		<key>comment</key>
+		<string>Delivered option in segment controller in order summary controller</string>
+	</dict>
+	<key>editProfile</key>
+	<dict>
+		<key>value</key>
+		<string>Edit Profile</string>
+		<key>comment</key>
+		<string>Edit Profile button in agent and client profile view controller</string>
+	</dict>
+	<key>orderSummary</key>
+	<dict>
+		<key>value</key>
+		<string>Order Summary</string>
+		<key>comment</key>
+		<string>Order Summary option slide in menu</string>
+	</dict>
+	<key>xboMarketShop</key>
+	<dict>
+		<key>value</key>
+		<string>XBO Market Shop</string>
+		<key>comment</key>
+		<string>XBO Market Shop option in slide in menu</string>
+	</dict>
+	<key>earningsSummary</key>
+	<dict>
+		<key>value</key>
+		<string>Earnings Summary</string>
+		<key>comment</key>
+		<string>Earnings Summary in agent side slide in menu</string>
+	</dict>
+	<key>scanTool</key>
+	<dict>
+		<key>value</key>
+		<string>Scan Tool</string>
+		<key>comment</key>
+		<string>Scan Tool option in agent side slide in menu</string>
+	</dict>
+	<key>logout</key>
+	<dict>
+		<key>value</key>
+		<string>Logout</string>
+		<key>comment</key>
+		<string>Logout option in slide in menu</string>
+	</dict>
+	<key>location</key>
+	<dict>
+		<key>value</key>
+		<string>Location:</string>
+		<key>comment</key>
+		<string>Location: in agent profile controller</string>
+	</dict>
+	<key>tapHere</key>
+	<dict>
+		<key>value</key>
+		<string>Tap here to choose location</string>
+		<key>comment</key>
+		<string>Tap Here gesture inside location view box in Agent profile view controller</string>
+	</dict>
+	<key>status</key>
+	<dict>
+		<key>value</key>
+		<string>Status:</string>
+		<key>comment</key>
+		<string>Status: in agent profile controller</string>
+	</dict>
+	<key>available</key>
+	<dict>
+		<key>value</key>
+		<string>Available</string>
+		<key>comment</key>
+		<string>Available option in segment controller in agent profile view controller</string>
+	</dict>
+	<key>unavailable</key>
+	<dict>
+		<key>value</key>
+		<string>Unavailable</string>
+		<key>comment</key>
+		<string>Unavailable option in segment controller in agent profile view controller</string>
+	</dict>
+	<key>editHours</key>
+	<dict>
+		<key>value</key>
+		<string>Edit Hours</string>
+		<key>comment</key>
+		<string>Edit Hours button in agent profile view controller</string>
+	</dict>
+	<key>monday</key>
+	<dict>
+		<key>value</key>
+		<string>Monday</string>
+		<key>comment</key>
+		<string>Monday label in agent profile view controller</string>
+	</dict>
+	<key>tuesday</key>
+	<dict>
+		<key>value</key>
+		<string>Tuesday</string>
+		<key>comment</key>
+		<string>Tuesday label in agent profile view controller</string>
+	</dict>
+	<key>wednesday</key>
+	<dict>
+		<key>value</key>
+		<string>Wednesday</string>
+		<key>comment</key>
+		<string>Wednesday label in agent profile view controller</string>
+	</dict>
+	<key>thursday</key>
+	<dict>
+		<key>value</key>
+		<string>Thursday</string>
+		<key>comment</key>
+		<string>Thursday label in agent profile view controller</string>
+	</dict>
+	<key>friday</key>
+	<dict>
+		<key>value</key>
+		<string>Friday</string>
+		<key>comment</key>
+		<string>Friday label in agent profile view controller</string>
+	</dict>
+	<key>saturday</key>
+	<dict>
+		<key>value</key>
+		<string>Saturday</string>
+		<key>comment</key>
+		<string>Saturday label in agent profile view controller</string>
+	</dict>
+	<key>sunday</key>
+	<dict>
+		<key>value</key>
+		<string>Sunday</string>
+		<key>comment</key>
+		<string>Sunday label in agent profile view controller</string>
+	</dict>
+	<key>close</key>
+	<dict>
+		<key>value</key>
+		<string>Close</string>
+		<key>comment</key>
+		<string>Closed text on the days if they are closed those days. this is in the agent profile controller.</string>
+	</dict>
+	<key>email</key>
+	<dict>
+		<key>value</key>
+		<string>Email:</string>
+		<key>comment</key>
+		<string>Email label in client profile view controller</string>
+	</dict>
+	<key>phone</key>
+	<dict>
+		<key>value</key>
+		<string>Phone:</string>
+		<key>comment</key>
+		<string>Phone label in client profile view controller</string>
+	</dict>
+	<key>address</key>
+	<dict>
+		<key>value</key>
+		<string>Address:</string>
+		<key>comment</key>
+		<string>Address label in client profile view controller</string>
+	</dict>
+	<key>copy</key>
+	<dict>
+		<key>value</key>
+		<string>Copy</string>
+		<key>comment</key>
+		<string>button in alert controller in the QR view controller</string>
+	</dict>
+	<key>retake</key>
+	<dict>
+		<key>value</key>
+		<string>Retake</string>
+		<key>comment</key>
+		<string>button in alert controller in the QR view controller</string>
+	</dict>
+	<key>qrCode</key>
+	<dict>
+		<key>value</key>
+		<string>QR Code</string>
+		<key>comment</key>
+		<string>alert title of alert controller in the QR view controller</string>
+	</dict>
+</dict>
+</plist>
