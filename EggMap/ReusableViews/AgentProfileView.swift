@@ -23,6 +23,7 @@ class AgentProfileView: UIView {
         button.layer.borderColor = UIColor(r: 60, g: 172, b: 252, a: 1).cgColor
         button.layer.cornerRadius = ScreenSize.width * 0.01
         button.layer.masksToBounds = true
+//        button.addTarget(<#T##target: Any?##Any?#>, action: <#T##Selector#>, for: <#T##UIControl.Event#>)
         return button
     }()
     

@@ -8,6 +8,9 @@
 
 import UIKit
 
+let nSpacing = 8.0
+//let nStarSize = 44.0
+let nStarSize = 20.0
 class FiveStarRatingNonInteractiveImage: UIStackView {
     
     private var starImages = [UIImageView]()
@@ -19,7 +22,7 @@ class FiveStarRatingNonInteractiveImage: UIStackView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        spacing = CGFloat(kSpacing)
+        spacing = CGFloat(nSpacing)
         setupImages()
     }
     
@@ -40,8 +43,8 @@ class FiveStarRatingNonInteractiveImage: UIStackView {
             
             image.accessibilityLabel = "\(i)"
             
-            image.heightAnchor.constraint(equalToConstant: CGFloat(kStarSize)).isActive = true
-            image.widthAnchor.constraint(equalToConstant: CGFloat(kStarSize)).isActive = true
+            image.heightAnchor.constraint(equalToConstant: CGFloat(nStarSize)).isActive = true
+            image.widthAnchor.constraint(equalToConstant: CGFloat(nStarSize)).isActive = true
             
             addArrangedSubview(image)
             starImages.append(image)

@@ -13,13 +13,17 @@ class WaitingForAgentsController: UIViewController {
     let localizer = LocalizedPListStringGetter()
     var slideInMenu = SlideInMenu()
     var blackScreen = UIView()
-    var starRating = FiveStarRatingNonInteractiveImage(frame: CGRect(x: (CGFloat(UIScreen.main.bounds.width) - CGFloat((5 * kStarSize) + (4 * kSpacing))) / 2
-        , y: ScreenSize.height * 0.15, width: CGFloat((5 * kStarSize) + (4 * kSpacing)), height: CGFloat(kStarSize) ))
+    var starRating = FiveStarRatingNonInteractiveImage(frame: CGRect(x: (CGFloat(UIScreen.main.bounds.width) - CGFloat((5 * nStarSize) + (4 * nSpacing))) / 2
+        , y: ScreenSize.height * 0.15, width: CGFloat((5 * nStarSize) + (4 * nSpacing)), height: CGFloat(nStarSize) ))
     
-    let requestView : UIView = {
+    lazy var requestView : UIView = {
         let view = UIView()
         view.layer.borderWidth = 1
         view.layer.borderColor = UIColor.gray.cgColor
+        view.isUserInteractionEnabled = true
+        let tap = UITapGestureRecognizer(target: self, action: #selector(handleRequestViewTapped))
+        view.addGestureRecognizer(tap)
+        view.isHidden = false
         return  view
     }()
     
@@ -53,17 +57,27 @@ class WaitingForAgentsController: UIViewController {
         return label
     }()
     
-    let rotatingArrowImage: UIImageView = {
+    lazy var rotatingArrowImage: UIImageView = {
         let image = UIImageView()
         image.image = #imageLiteral(resourceName: "Cartoon Egg").withRenderingMode(.alwaysOriginal)
         image.contentMode = .scaleAspectFill
         return image
     }()
     
+    lazy var messageBtn: UIButton = {
+        let btn = UIButton(type: .system)
+        btn.setTitle("Message Gavin Benson", for: .normal)
+        btn.addTarget(self, action: #selector(handleMessageBtnTapped), for: .touchUpInside)
+        btn.isHidden = true
+        return btn
+    }()
+    
     let waitingLbl: UILabel = {
         let lbl = UILabel()
         lbl.text = "Waiting for agents..."
         lbl.font = UIFont.boldSystemFont(ofSize: 25)
+        lbl.translatesAutoresizingMaskIntoConstraints = false
+        lbl.isUserInteractionEnabled = true
         return lbl
     }()
     
@@ -116,6 +130,11 @@ class WaitingForAgentsController: UIViewController {
     private func setupViews() {
         title = "Waiting for Agents..."
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Abort", style: .plain, target: self, action: #selector(handleRightBarButtonTapped))
+        
+        //delete this after test
+        let tap = UITapGestureRecognizer(target: self, action: #selector(handleWaitingLblTapped))
+        self.waitingLbl.addGestureRecognizer(tap)
+
         setupSlideInMenu()
         view.addSubview(starRating)
         view.addSubview(myRatingsLbl)
@@ -124,6 +143,7 @@ class WaitingForAgentsController: UIViewController {
         view.addSubview(warningLabel)
         view.addSubview(rotatingArrowImage)
         view.addSubview(waitingLbl)
+        view.addSubview(messageBtn)
         view.addSubview(requestView)
         requestView.addSubview(requestInstructions)
         requestView.addSubview(requestTimeLbl)
@@ -142,6 +162,8 @@ class WaitingForAgentsController: UIViewController {
         rotatingArrowImage.anchor(warningLabel.bottomAnchor, left: warningLabel.leftAnchor, bottom: nil, right: nil, topConstant: ScreenSize.height * 0.05, leftConstant: 0, bottomConstant: 0, rightConstant: 0, widthConstant: ScreenSize.height * 0.05, heightConstant: ScreenSize.height * 0.05)
         
         waitingLbl.anchor(warningLabel.bottomAnchor, left: rotatingArrowImage.rightAnchor, bottom: nil, right: nil, topConstant: ScreenSize.height * 0.05, leftConstant: ScreenSize.width * 0.05, bottomConstant: 0, rightConstant: 0, widthConstant: ScreenSize.width * 0.7, heightConstant: ScreenSize.height * 0.05)
+        
+        messageBtn.anchor(waitingLbl.bottomAnchor, left: waitingLbl.leftAnchor, bottom: nil, right: waitingLbl.rightAnchor, topConstant: 20, leftConstant: 4, bottomConstant: 0, rightConstant: 4, widthConstant: 0, heightConstant: ScreenSize.height * 0.05)
         
         requestView.anchor(waitingLbl.bottomAnchor, left: self.view.safeAreaLayoutGuide.leftAnchor, bottom: nil, right: view.safeAreaLayoutGuide.rightAnchor, topConstant: 20, leftConstant: 4, bottomConstant: 0, rightConstant: 4, widthConstant: 0, heightConstant: ScreenSize.height * 0.2)
         
@@ -173,6 +195,36 @@ class WaitingForAgentsController: UIViewController {
         }
     }
     
+    //remove after test, not an actual functionality
+    @objc func handleWaitingLblTapped() {
+        rotatingArrowImage.isHidden = true
+        waitingLbl.text = "Gavin Benson accepted"
+        waitingLbl.textAlignment = .center
+        waitingLbl.leftAnchor.constraint(equalTo: warningLabel.leftAnchor, constant: 0).isActive = true
+        requestView.isHidden = true
+        messageBtn.isHidden = false
+    }
+    
+    @objc func handleMessageBtnTapped() {
+        print("Message button tapped")
+    }
+    
+    //need to also get store/agent locations
+    @objc func handleRequestViewTapped() {
+        print("Segue back to map to change delivery options")
+        let id = "73DBE3A6-6783-4A98-A681-B9020E864080"
+        let gmsMapController = ClientSideOrderAvailabilityMapController()
+        let locationDetailsById = GetLocationDetailsByIDJSON()
+        locationDetailsById.getLocationAndScheduleDetailsById(id: id) { (locationDetails) in
+            print(locationDetails)
+            let addressString = locationDetailsById.formAddressString(location: locationDetails)
+            gmsMapController.addressString = addressString
+        }
+        let navGmsMapController = UINavigationController(rootViewController: gmsMapController)
+        self.present(navGmsMapController, animated: true) {
+            //completion here
+        }
+    }
 }
 
 //This has to do with the slide in menu only

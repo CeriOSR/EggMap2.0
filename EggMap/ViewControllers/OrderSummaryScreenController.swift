@@ -141,8 +141,6 @@ class OrderSummaryScreenController: UIViewController {
     
     //change this to didselect to show where the availability is...
     @objc func handleMapButtonTapped() {
-//        let gmsMapController = GMSMapController()
-//        navigationController?.pushViewController(gmsMapController, animated: true)
         let waitingForAgentsController = WaitingForAgentsController()
         navigationController?.pushViewController(waitingForAgentsController, animated: true)
     }
@@ -174,12 +172,14 @@ extension OrderSummaryScreenController: UICollectionViewDelegate, UICollectionVi
             cell.dateLabel.text = readyOrder?.memo
             cell.statusLabel.text = readyOrder?.policyStatusName
             cell.productLabel.text = readyOrder?.id
+            cell.rateBtn.isHidden = true
         } else {
             finishedOrder = finishedOrders[indexPath.item]
             cell.orderLabel.text = finishedOrder?.contractNo
             cell.dateLabel.text = finishedOrder?.memo
             cell.statusLabel.text = finishedOrder?.policyStatusName
             cell.productLabel.text = finishedOrder?.id
+            cell.rateBtn.isHidden = false
         }
         return cell
     }
@@ -195,10 +195,6 @@ extension OrderSummaryScreenController: UICollectionViewDelegate, UICollectionVi
         //test ID
         let id = "73DBE3A6-6783-4A98-A681-B9020E864080"
         
-        
-        
-//        let gmsMapController = AgentSideListOfOrdersMapDisplayController()/*GMSMapController()*/
-//        let gmsMapController = LocationAndDatePickerController()
         let gmsMapController = ClientSideOrderAvailabilityMapController()
         let locationDetailsById = GetLocationDetailsByIDJSON()
         locationDetailsById.getLocationAndScheduleDetailsById(id: id) { (locationDetails) in

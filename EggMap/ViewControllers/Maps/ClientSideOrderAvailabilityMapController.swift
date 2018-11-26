@@ -59,7 +59,6 @@ class ClientSideOrderAvailabilityMapController: UIViewController, CLLocationMana
             locationManager.delegate = self
             locationManager.requestWhenInUseAuthorization()
             locationManager.startUpdatingLocation()
-            locationManager.startUpdatingLocation()
         }
     }
     //    var clientLocation : LocationAndScheduleByIdDataModel? {
@@ -143,7 +142,7 @@ class ClientSideOrderAvailabilityMapController: UIViewController, CLLocationMana
 
 //                let location1 = CLLocation(latitude: 49.1721, longitude: -123.0764)
 //                let location2 = CLLocation(latitude: 49.1844, longitude: -123.1052)
-                self.drawPath(startLocation: coordinates, endLocation: storeMarker.position)
+                self.drawPath2(origin: coordinates, destination: storeMarker.position)
 
             }
         }
@@ -332,7 +331,7 @@ extension ClientSideOrderAvailabilityMapController: GMSMapViewDelegate {
         let origin = "\(startLocation.latitude),\(startLocation.longitude)"
         let destination = "\(endLocation.latitude),\(endLocation.longitude)"
         
-        let prefTravel = "walking"
+        let prefTravel = "driving"
         let apiKey = "AIzaSyAOhiBw8mSPBmmAJQ_fjM79x7ruvMxFmxQ"
     
         let url = URL(string: "https://maps.googleapis.com/maps/api/directions/json?origin=\(origin)&destination=\(destination)&mode=\(prefTravel)&key=" + apiKey)
@@ -363,7 +362,7 @@ extension ClientSideOrderAvailabilityMapController: GMSMapViewDelegate {
         }
     }
     
-    func drawPath(origin: CLLocationCoordinate2D, destination: CLLocationCoordinate2D)
+    func drawPath2(origin: CLLocationCoordinate2D, destination: CLLocationCoordinate2D)
     {
         let origin = "\(origin.latitude),\(origin.longitude)"
         let destination = "\(destination.latitude),\(destination.longitude)"
@@ -380,16 +379,66 @@ extension ClientSideOrderAvailabilityMapController: GMSMapViewDelegate {
             let json = try! JSON(data: response.data!)
             let routes = json["routes"].arrayValue
             
+            //remove this after test
+            print(routes.count)
+            
             for route in routes
             {
                 let routeOverviewPolyline = route["overview_polyline"].dictionary
                 let points = routeOverviewPolyline?["points"]?.stringValue
-                let path = GMSPath.init(fromEncodedPath: points!)
+                let path = GMSMutablePath.init(fromEncodedPath: points!)
                 let polyline = GMSPolyline.init(path: path)
                 polyline.map = self.mapView
             }
         }
     }
+    
+    private func draw3(origin: CLLocationCoordinate2D, destination: CLLocationCoordinate2D) {
+            //Here you need to set your origin and destination points and mode
+//            let url = NSURL(string: "https://maps.googleapis.com/maps/api/directions/json?origin=Machilipatnam&destination=Vijayawada&mode=driving")
+        
+            //OR if you want to use latitude and longitude for source and destination
+//            let url = NSURL(string: "\("https://maps.googleapis.com/maps/api/directions/json")?origin=\("17.521100"),\("78.452854")&destination=\("15.1393932"),\("76.9214428")")
+        
+        let origin = "\(origin.latitude),\(origin.longitude)"
+        let destination = "\(destination.latitude),\(destination.longitude)"
+        
+        let prefTravel = "driving"
+        let apiKey = "AIzaSyAOhiBw8mSPBmmAJQ_fjM79x7ruvMxFmxQ"
+        
+        let url = URL(string: "https://maps.googleapis.com/maps/api/directions/json?origin=\(origin)&destination=\(destination)&mode=\(prefTravel)&key=" + apiKey)
+        
+            let task = URLSession.shared.dataTask(with: url! as URL) { (data, response, error) -> Void in
+        
+                do {
+                    if data != nil {
+                        let dic = try JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.mutableLeaves) as!  [String:AnyObject]
+                        //                        print(dic)
+        
+                        let status = dic["status"] as! String
+                        var routesArray:String!
+                        if status == "OK" {
+                            routesArray = (((dic["routes"]! as! [Any])[0] as! [String:Any])["overview_polyline"] as! [String:Any])["points"] as? String
+                            //                            print("routesArray: \(String(describing: routesArray))")
+                        }
+        
+                        DispatchQueue.main.async {
+                            let path = GMSPath.init(fromEncodedPath: routesArray!)
+                            let singleLine = GMSPolyline.init(path: path)
+                            singleLine.strokeWidth = 6.0
+                            singleLine.strokeColor = .blue
+                            singleLine.map = self.mapView
+                        }
+        
+                    }
+                } catch {
+                    print("Error")
+                }
+            }
+        
+            task.resume()
+    }
+
 
     
 }
