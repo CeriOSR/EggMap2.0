@@ -10,45 +10,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "EggMap/ViewControllers/Maps/ClientSideOrderAvailabilityMapController.swift"
-            timestampString = "564885866.600031"
+            timestampString = "566177280.318642"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "372"
-            endingLineNumber = "372"
-            landmarkName = "unknown"
-            landmarkType = "0">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "EggMap.ClientSideOrderAvailabilityMapController.drawPath2(origin: __C.CLLocationCoordinate2D, destination: __C.CLLocationCoordinate2D) -&gt; ()"
-                  moduleName = "EggMap"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/reycerio/Desktop/EggMap-LocationDatePickerController/EggMap/ViewControllers/Maps/ClientSideOrderAvailabilityMapController.swift"
-                  timestampString = "564885866.772091"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "373"
-                  endingLineNumber = "373"
-                  offsetFromSymbolStart = "1426">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Alamofire.DataResponse&lt;Any&gt;) -&gt; () in EggMap.ClientSideOrderAvailabilityMapController.drawPath2(origin: __C.CLLocationCoordinate2D, destination: __C.CLLocationCoordinate2D) -&gt; ()"
-                  moduleName = "EggMap"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/reycerio/Desktop/EggMap-LocationDatePickerController/EggMap/ViewControllers/Maps/ClientSideOrderAvailabilityMapController.swift"
-                  timestampString = "564885866.774087"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "374"
-                  endingLineNumber = "374"
-                  offsetFromSymbolStart = "79">
-               </Location>
-            </Locations>
+            startingLineNumber = "341"
+            endingLineNumber = "341"
+            landmarkName = "drawPath(startLocation:endLocation:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -58,45 +26,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "EggMap/ViewControllers/Maps/ClientSideOrderAvailabilityMapController.swift"
-            timestampString = "564885866.600341"
+            timestampString = "566177280.319792"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "373"
-            endingLineNumber = "373"
-            landmarkName = "unknown"
-            landmarkType = "0">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "EggMap.ClientSideOrderAvailabilityMapController.drawPath2(origin: __C.CLLocationCoordinate2D, destination: __C.CLLocationCoordinate2D) -&gt; ()"
-                  moduleName = "EggMap"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/reycerio/Desktop/EggMap-LocationDatePickerController/EggMap/ViewControllers/Maps/ClientSideOrderAvailabilityMapController.swift"
-                  timestampString = "564885866.783572"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "373"
-                  endingLineNumber = "373"
-                  offsetFromSymbolStart = "1426">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Alamofire.DataResponse&lt;Any&gt;) -&gt; () in EggMap.ClientSideOrderAvailabilityMapController.drawPath2(origin: __C.CLLocationCoordinate2D, destination: __C.CLLocationCoordinate2D) -&gt; ()"
-                  moduleName = "EggMap"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/reycerio/Desktop/EggMap-LocationDatePickerController/EggMap/ViewControllers/Maps/ClientSideOrderAvailabilityMapController.swift"
-                  timestampString = "564885866.792838"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "374"
-                  endingLineNumber = "374"
-                  offsetFromSymbolStart = "79">
-               </Location>
-            </Locations>
+            startingLineNumber = "349"
+            endingLineNumber = "349"
+            landmarkName = "drawPath(startLocation:endLocation:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -106,13 +42,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "EggMap/ViewControllers/Maps/ClientSideOrderAvailabilityMapController.swift"
-            timestampString = "564885866.600548"
+            timestampString = "566177280.3200409"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "145"
-            endingLineNumber = "145"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            startingLineNumber = "350"
+            endingLineNumber = "350"
+            landmarkName = "drawPath(startLocation:endLocation:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -122,61 +58,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "EggMap/ViewControllers/Maps/ClientSideOrderAvailabilityMapController.swift"
-            timestampString = "564885866.600765"
+            timestampString = "566177280.320268"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "337"
-            endingLineNumber = "337"
-            landmarkName = "unknown"
-            landmarkType = "0">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "EggMap/ViewControllers/Maps/ClientSideOrderAvailabilityMapController.swift"
-            timestampString = "564885866.6009721"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "346"
-            endingLineNumber = "346"
-            landmarkName = "unknown"
-            landmarkType = "0">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "EggMap/ViewControllers/Maps/ClientSideOrderAvailabilityMapController.swift"
-            timestampString = "564885866.601171"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "347"
-            endingLineNumber = "347"
-            landmarkName = "unknown"
-            landmarkType = "0">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "EggMap/ViewControllers/Maps/ClientSideOrderAvailabilityMapController.swift"
-            timestampString = "564885866.601386"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "357"
-            endingLineNumber = "357"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            startingLineNumber = "423"
+            endingLineNumber = "423"
+            landmarkName = "draw3(origin:destination:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

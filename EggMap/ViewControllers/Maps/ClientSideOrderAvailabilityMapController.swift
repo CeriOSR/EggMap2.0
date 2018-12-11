@@ -129,6 +129,7 @@ class ClientSideOrderAvailabilityMapController: UIViewController, CLLocationMana
                 
                 //custom image for store
                 let storeMarker = GMSMarker()
+//                storeMarker.position = CLLocationCoordinate2D(latitude: 49.1844, longitude: -123.1052)
                 storeMarker.position = CLLocationCoordinate2D(latitude: 49.1844, longitude: -123.1052)
                 storeMarker.iconView = self.storeMarkerImage
                 storeMarker.title = "Store"
@@ -142,7 +143,9 @@ class ClientSideOrderAvailabilityMapController: UIViewController, CLLocationMana
 
 //                let location1 = CLLocation(latitude: 49.1721, longitude: -123.0764)
 //                let location2 = CLLocation(latitude: 49.1844, longitude: -123.1052)
-                self.drawPath2(origin: coordinates, destination: storeMarker.position)
+//                self.drawPath(startLocation: coordinates, endLocation: storeMarker.position)
+//                self.drawPath2(origin: coordinates, destination: storeMarker.position)
+                self.draw3(origin: coordinates, destination: storeMarker.position)
 
             }
         }
@@ -334,7 +337,7 @@ extension ClientSideOrderAvailabilityMapController: GMSMapViewDelegate {
         let prefTravel = "driving"
         let apiKey = "AIzaSyAOhiBw8mSPBmmAJQ_fjM79x7ruvMxFmxQ"
     
-        let url = URL(string: "https://maps.googleapis.com/maps/api/directions/json?origin=\(origin)&destination=\(destination)&mode=\(prefTravel)&key=" + apiKey)
+        let url = URL(string: "https://maps.googleapis.com/maps/api/directions/json?origin=\(origin)&destination=\(destination)&mode=\(prefTravel)&key=\(apiKey)")
     
         Alamofire.request(url!).responseJSON { response in
     
@@ -345,6 +348,7 @@ extension ClientSideOrderAvailabilityMapController: GMSMapViewDelegate {
             do {
                 let json = try JSON(data: response.data!)
                 let routes = json["routes"].arrayValue
+                print(routes.count)
                 // print route using Polyline
                 for route in routes
                 {
@@ -366,9 +370,10 @@ extension ClientSideOrderAvailabilityMapController: GMSMapViewDelegate {
     {
         let origin = "\(origin.latitude),\(origin.longitude)"
         let destination = "\(destination.latitude),\(destination.longitude)"
+        let apiKey = "AIzaSyAOhiBw8mSPBmmAJQ_fjM79x7ruvMxFmxQ"
         
-        
-        let url = "https://maps.googleapis.com/maps/api/directions/json?origin=\(origin)&destination=\(destination)&mode=driving&key=YOURKEY"
+//        let url = "https://maps.googleapis.com/maps/api/directions/json?origin=\(origin)&destination=\(destination)&mode=driving&key=AIzaSyAOhiBw8mSPBmmAJQ_fjM79x7ruvMxFmxQ"
+        guard let url = URL(string: "https://maps.googleapis.com/maps/api/directions/json?origin=\(origin)&destination=\(destination)&key=AIzaSyAOhiBw8mSPBmmAJQ_fjM79x7ruvMxFmxQ") else {return}
         
         Alamofire.request(url).responseJSON { response in
             print(response.request)  // original URL request
@@ -404,26 +409,25 @@ extension ClientSideOrderAvailabilityMapController: GMSMapViewDelegate {
         let destination = "\(destination.latitude),\(destination.longitude)"
         
         let prefTravel = "driving"
-        let apiKey = "AIzaSyAOhiBw8mSPBmmAJQ_fjM79x7ruvMxFmxQ"
+        let apiKey = "AIzaSyA8ebrZt_wFGskWjpsHD_xLDS-I580zYEU"
         
-        let url = URL(string: "https://maps.googleapis.com/maps/api/directions/json?origin=\(origin)&destination=\(destination)&mode=\(prefTravel)&key=" + apiKey)
+        let url = URL(string: "https://maps.googleapis.com/maps/api/directions/json?origin=\(origin)&destination=\(destination)&mode=\(prefTravel)&key=AIzaSyA8ebrZt_wFGskWjpsHD_xLDS-I580zYEU")
         
             let task = URLSession.shared.dataTask(with: url! as URL) { (data, response, error) -> Void in
         
                 do {
                     if data != nil {
                         let dic = try JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.mutableLeaves) as!  [String:AnyObject]
-                        //                        print(dic)
+                                                print(dic)
         
                         let status = dic["status"] as! String
                         var routesArray:String!
                         if status == "OK" {
                             routesArray = (((dic["routes"]! as! [Any])[0] as! [String:Any])["overview_polyline"] as! [String:Any])["points"] as? String
-                            //                            print("routesArray: \(String(describing: routesArray))")
                         }
         
                         DispatchQueue.main.async {
-                            let path = GMSPath.init(fromEncodedPath: routesArray!)
+                            guard let path = GMSPath.init(fromEncodedPath: routesArray!) else {return}
                             let singleLine = GMSPolyline.init(path: path)
                             singleLine.strokeWidth = 6.0
                             singleLine.strokeColor = .blue
