@@ -335,7 +335,7 @@ extension ClientSideOrderAvailabilityMapController: GMSMapViewDelegate {
         let destination = "\(endLocation.latitude),\(endLocation.longitude)"
         
         let prefTravel = "driving"
-        let apiKey = "AIzaSyAOhiBw8mSPBmmAJQ_fjM79x7ruvMxFmxQ"
+        let apiKey = "AIzaSyCDjc5onKz4Tvf_Z7uyVMHg7idums2JlN8"
     
         let url = URL(string: "https://maps.googleapis.com/maps/api/directions/json?origin=\(origin)&destination=\(destination)&mode=\(prefTravel)&key=\(apiKey)")
     
@@ -373,7 +373,7 @@ extension ClientSideOrderAvailabilityMapController: GMSMapViewDelegate {
         let apiKey = "AIzaSyAOhiBw8mSPBmmAJQ_fjM79x7ruvMxFmxQ"
         
 //        let url = "https://maps.googleapis.com/maps/api/directions/json?origin=\(origin)&destination=\(destination)&mode=driving&key=AIzaSyAOhiBw8mSPBmmAJQ_fjM79x7ruvMxFmxQ"
-        guard let url = URL(string: "https://maps.googleapis.com/maps/api/directions/json?origin=\(origin)&destination=\(destination)&key=AIzaSyAOhiBw8mSPBmmAJQ_fjM79x7ruvMxFmxQ") else {return}
+        guard let url = URL(string: "https://maps.googleapis.com/maps/api/directions/json?origin=\(origin)&destination=\(destination)&key=AIzaSyCDjc5onKz4Tvf_Z7uyVMHg7idums2JlN8") else {return}
         
         Alamofire.request(url).responseJSON { response in
             print(response.request)  // original URL request
@@ -411,7 +411,7 @@ extension ClientSideOrderAvailabilityMapController: GMSMapViewDelegate {
         let prefTravel = "driving"
         let apiKey = "AIzaSyA8ebrZt_wFGskWjpsHD_xLDS-I580zYEU"
         
-        let url = URL(string: "https://maps.googleapis.com/maps/api/directions/json?origin=\(origin)&destination=\(destination)&mode=\(prefTravel)&key=AIzaSyA8ebrZt_wFGskWjpsHD_xLDS-I580zYEU")
+        let url = URL(string: "https://maps.googleapis.com/maps/api/directions/json?origin=\(origin)&destination=\(destination)&mode=\(prefTravel)&key=AIzaSyCDjc5onKz4Tvf_Z7uyVMHg7idums2JlN8")
         
             let task = URLSession.shared.dataTask(with: url! as URL) { (data, response, error) -> Void in
         

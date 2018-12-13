@@ -15,7 +15,8 @@ import GooglePlaces
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    let apiKey = "AIzaSyAOhiBw8mSPBmmAJQ_fjM79x7ruvMxFmxQ"
+//    let apiKey = "AIzaSyAOhiBw8mSPBmmAJQ_fjM79x7ruvMxFmxQ"
+    let apiKey = "AIzaSyCDjc5onKz4Tvf_Z7uyVMHg7idums2JlN8"
     var userId: Int?
     
     
