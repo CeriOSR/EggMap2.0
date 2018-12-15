@@ -302,6 +302,7 @@ extension ClientSideOrderAvailabilityMapController: GMSMapViewDelegate {
             
             print("Store Profile")
             
+            
         }
         //return false so button event is still handled by delegate
         return false
@@ -442,8 +443,5 @@ extension ClientSideOrderAvailabilityMapController: GMSMapViewDelegate {
         
             task.resume()
     }
-
-
-    
 }
 

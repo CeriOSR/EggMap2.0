@@ -112,6 +112,18 @@
 		E0525E28215DABA90053CA15 /* WaitingForAgentsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0525E27215DABA90053CA15 /* WaitingForAgentsController.swift */; };
 		E0525E29215DABA90053CA15 /* WaitingForAgentsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0525E27215DABA90053CA15 /* WaitingForAgentsController.swift */; };
 		E0525E2A215DABA90053CA15 /* WaitingForAgentsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0525E27215DABA90053CA15 /* WaitingForAgentsController.swift */; };
+		E05E430F21C4E2C000D7ED82 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E05E430E21C4E2C000D7ED82 /* ChatViewController.swift */; };
+		E05E431021C4E2C000D7ED82 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E05E430E21C4E2C000D7ED82 /* ChatViewController.swift */; };
+		E05E431121C4E2C000D7ED82 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E05E430E21C4E2C000D7ED82 /* ChatViewController.swift */; };
+		E05E431321C4E34300D7ED82 /* ChatControllerFromCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E05E431221C4E34300D7ED82 /* ChatControllerFromCell.swift */; };
+		E05E431421C4E34300D7ED82 /* ChatControllerFromCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E05E431221C4E34300D7ED82 /* ChatControllerFromCell.swift */; };
+		E05E431521C4E34300D7ED82 /* ChatControllerFromCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E05E431221C4E34300D7ED82 /* ChatControllerFromCell.swift */; };
+		E05E431721C4E46800D7ED82 /* CollectionViewHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = E05E431621C4E46800D7ED82 /* CollectionViewHelpers.swift */; };
+		E05E431821C4E46800D7ED82 /* CollectionViewHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = E05E431621C4E46800D7ED82 /* CollectionViewHelpers.swift */; };
+		E05E431921C4E46800D7ED82 /* CollectionViewHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = E05E431621C4E46800D7ED82 /* CollectionViewHelpers.swift */; };
+		E05E431B21C4E57600D7ED82 /* ChatControllerToCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E05E431A21C4E57600D7ED82 /* ChatControllerToCell.swift */; };
+		E05E431C21C4E57600D7ED82 /* ChatControllerToCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E05E431A21C4E57600D7ED82 /* ChatControllerToCell.swift */; };
+		E05E431D21C4E57600D7ED82 /* ChatControllerToCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E05E431A21C4E57600D7ED82 /* ChatControllerToCell.swift */; };
 		E063365D216148BD00854FE2 /* FiveStarRating.swift in Sources */ = {isa = PBXBuildFile; fileRef = E063365C216148BD00854FE2 /* FiveStarRating.swift */; };
 		E063365E216148BD00854FE2 /* FiveStarRating.swift in Sources */ = {isa = PBXBuildFile; fileRef = E063365C216148BD00854FE2 /* FiveStarRating.swift */; };
 		E063365F216148BD00854FE2 /* FiveStarRating.swift in Sources */ = {isa = PBXBuildFile; fileRef = E063365C216148BD00854FE2 /* FiveStarRating.swift */; };
@@ -241,6 +253,10 @@
 		E04FFCF420F2B0AF006F3EC8 /* OrderSummaryScreenController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderSummaryScreenController.swift; sourceTree = "<group>"; };
 		E04FFCF920F2C60B006F3EC8 /* GMSMapController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GMSMapController.swift; sourceTree = "<group>"; };
 		E0525E27215DABA90053CA15 /* WaitingForAgentsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaitingForAgentsController.swift; sourceTree = "<group>"; };
+		E05E430E21C4E2C000D7ED82 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
+		E05E431221C4E34300D7ED82 /* ChatControllerFromCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatControllerFromCell.swift; sourceTree = "<group>"; };
+		E05E431621C4E46800D7ED82 /* CollectionViewHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewHelpers.swift; sourceTree = "<group>"; };
+		E05E431A21C4E57600D7ED82 /* ChatControllerToCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatControllerToCell.swift; sourceTree = "<group>"; };
 		E063365C216148BD00854FE2 /* FiveStarRating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiveStarRating.swift; sourceTree = "<group>"; };
 		E08FC0D22130BB7A00BBE654 /* MyProfileJSONModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileJSONModel.swift; sourceTree = "<group>"; };
 		E0CEC3B9212A80DD0062FC35 /* LogoutJSONModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutJSONModel.swift; sourceTree = "<group>"; };
@@ -331,6 +347,8 @@
 				E0F28BC72109A5880041E748 /* AgentProfileCell.swift */,
 				E01913BA212256E2001C384D /* AgentLocationCell.swift */,
 				ACF53D4B2172B21900BD36C1 /* ClientSlideUpViewCell.swift */,
+				E05E431221C4E34300D7ED82 /* ChatControllerFromCell.swift */,
+				E05E431A21C4E57600D7ED82 /* ChatControllerToCell.swift */,
 			);
 			path = CollectionViewCells;
 			sourceTree = "<group>";
@@ -423,6 +441,7 @@
 				E016A2022147742300BD70E2 /* LocalizedPListStringGetter.swift */,
 				ACE0ADCF216470CC0019D73B /* OrientationLockHelper.swift */,
 				E01A867A2186DFE4005211D2 /* UIAlertHelper.swift */,
+				E05E431621C4E46800D7ED82 /* CollectionViewHelpers.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -440,6 +459,7 @@
 				E0F28BCB210D43AA0041E748 /* WebViewController.swift */,
 				E0525E27215DABA90053CA15 /* WaitingForAgentsController.swift */,
 				E01A86762186AC68005211D2 /* RateUserController.swift */,
+				E05E430E21C4E2C000D7ED82 /* ChatViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -810,12 +830,16 @@
 				E0525E28215DABA90053CA15 /* WaitingForAgentsController.swift in Sources */,
 				E0F28BC82109A5880041E748 /* AgentProfileCell.swift in Sources */,
 				E0F28BCC210D43AA0041E748 /* WebViewController.swift in Sources */,
+				E05E431B21C4E57600D7ED82 /* ChatControllerToCell.swift in Sources */,
 				ACF53D5C217BABE400BD36C1 /* MapMarkerInfoWindow.swift in Sources */,
 				E04FFCFA20F2C60B006F3EC8 /* GMSMapController.swift in Sources */,
+				E05E431721C4E46800D7ED82 /* CollectionViewHelpers.swift in Sources */,
 				E010709520FEED0E00F06379 /* QRCodeScannerController.swift in Sources */,
+				E05E430F21C4E2C000D7ED82 /* ChatViewController.swift in Sources */,
 				ACF53D48216EC99A00BD36C1 /* ClientSlideUpView.swift in Sources */,
 				ACF53D3B21691FA900BD36C1 /* ClientSideOrderAvailabilityMapController.swift in Sources */,
 				E01913BB212256E2001C384D /* AgentLocationCell.swift in Sources */,
+				E05E431321C4E34300D7ED82 /* ChatControllerFromCell.swift in Sources */,
 				ACE0ADD0216470CC0019D73B /* OrientationLockHelper.swift in Sources */,
 				E010708820F59DB100F06379 /* KeychainPasswordItem.swift in Sources */,
 				E015AD6D212E1A6900F6A488 /* DeliveredOrders.swift in Sources */,
@@ -863,12 +887,16 @@
 				E0525E29215DABA90053CA15 /* WaitingForAgentsController.swift in Sources */,
 				E0F28BC92109A5880041E748 /* AgentProfileCell.swift in Sources */,
 				E0F28BCD210D43AA0041E748 /* WebViewController.swift in Sources */,
+				E05E431C21C4E57600D7ED82 /* ChatControllerToCell.swift in Sources */,
 				ACF53D5D217BABE400BD36C1 /* MapMarkerInfoWindow.swift in Sources */,
 				E010708D20F59DF900F06379 /* OrderSummaryScreenController.swift in Sources */,
+				E05E431821C4E46800D7ED82 /* CollectionViewHelpers.swift in Sources */,
 				E010709620FEED0E00F06379 /* QRCodeScannerController.swift in Sources */,
+				E05E431021C4E2C000D7ED82 /* ChatViewController.swift in Sources */,
 				ACF53D49216EC99A00BD36C1 /* ClientSlideUpView.swift in Sources */,
 				ACF53D3C21691FA900BD36C1 /* ClientSideOrderAvailabilityMapController.swift in Sources */,
 				E01913BC212256E2001C384D /* AgentLocationCell.swift in Sources */,
+				E05E431421C4E34300D7ED82 /* ChatControllerFromCell.swift in Sources */,
 				ACE0ADD1216470CC0019D73B /* OrientationLockHelper.swift in Sources */,
 				E04FFCEE20F2947C006F3EC8 /* UIDeviceHelpers.swift in Sources */,
 				E015AD6E212E1A6900F6A488 /* DeliveredOrders.swift in Sources */,
@@ -916,12 +944,16 @@
 				E0525E2A215DABA90053CA15 /* WaitingForAgentsController.swift in Sources */,
 				E0F28BCA2109A5880041E748 /* AgentProfileCell.swift in Sources */,
 				E0F28BCE210D43AA0041E748 /* WebViewController.swift in Sources */,
+				E05E431D21C4E57600D7ED82 /* ChatControllerToCell.swift in Sources */,
 				ACF53D5E217BABE400BD36C1 /* MapMarkerInfoWindow.swift in Sources */,
 				E010708E20F59DF900F06379 /* OrderSummaryScreenController.swift in Sources */,
+				E05E431921C4E46800D7ED82 /* CollectionViewHelpers.swift in Sources */,
 				E010709720FEED0E00F06379 /* QRCodeScannerController.swift in Sources */,
+				E05E431121C4E2C000D7ED82 /* ChatViewController.swift in Sources */,
 				ACF53D4A216EC99A00BD36C1 /* ClientSlideUpView.swift in Sources */,
 				ACF53D3D21691FA900BD36C1 /* ClientSideOrderAvailabilityMapController.swift in Sources */,
 				E01913BD212256E2001C384D /* AgentLocationCell.swift in Sources */,
+				E05E431521C4E34300D7ED82 /* ChatControllerFromCell.swift in Sources */,
 				ACE0ADD2216470CC0019D73B /* OrientationLockHelper.swift in Sources */,
 				E04FFCEF20F2947C006F3EC8 /* UIDeviceHelpers.swift in Sources */,
 				E015AD6F212E1A6900F6A488 /* DeliveredOrders.swift in Sources */,
