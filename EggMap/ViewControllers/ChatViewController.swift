@@ -18,6 +18,12 @@ class ChatViewController: UICollectionViewController {
         return view
     }()
     
+    let backgroundView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .white
+        return view
+    }()
+    
     let messageTextField: UITextField = {
         let tf = UITextField()
         //        tf.backgroundColor = .gray
@@ -40,16 +46,7 @@ class ChatViewController: UICollectionViewController {
     let messages = ["sup", "Hey there, are you ready to party all the way to hollywood hills? Its gonna be lit AF, fam! We gonna Fuck the place up!", "Hey! It’s Melissa…I am just wondering if Stefan has arrived?", "What you up to?", "Hi Rey, Louisa said you dropped by SD today. The show in Vegas is called ‘KA’. It plays at the MGM GRAND. Incredible must see. Cheers!", "sup", "Hey there, are you ready to party all the way to hollywood hills? Its gonna be lit AF, fam! We gonna Fuck the place up!", "Hey! It’s Melissa…I am just wondering if Stefan has arrived?", "What you up to?", "Hi Rey, Louisa said you dropped by SD today. The show in Vegas is called ‘KA’. It plays at the MGM GRAND. Incredible must see. Cheers!"]
     let dates = ["99-99-99, 99:99 AM", "99-99-99, 99:99 AM", "99-99-99, 99:99 AM", "99-99-99, 99:99 AM", "99-99-99, 99:99 AM", "99-99-99, 99:99 AM", "99-99-99, 99:99 AM", "99-99-99, 99:99 AM", "99-99-99, 99:99 AM", "99-99-99, 99:99 AM"]
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        title = "Gavin Benson"
-        self.view.backgroundColor = .white
-        collectionView.backgroundColor = .white
-        collectionView.keyboardDismissMode = .interactive
-        //        setupViews()
-        self.collectionView!.register(ChatControllerFromCell.self, forCellWithReuseIdentifier: reuseIdentifier)
-        
-    }
+    
     
     lazy var inputContainerView: UIView = {
         let containerView = UIView()
@@ -60,6 +57,16 @@ class ChatViewController: UICollectionViewController {
         return containerView
         
     }()
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        title = "Gavin Benson"
+        self.view.backgroundColor = .white
+        collectionView.backgroundColor = .white
+        collectionView.keyboardDismissMode = .interactive
+        self.collectionView!.register(ChatControllerFromCell.self, forCellWithReuseIdentifier: reuseIdentifier)
+        setupBackgroundView()
+    }
     
     //initiating a view that sticks to the top of the keyboard
     override var inputAccessoryView: UIView? {
@@ -95,7 +102,6 @@ class ChatViewController: UICollectionViewController {
     }
     
     private func setupContainerView(containerView: UIView) {
-        
         containerView.addSubview(lineView)
         containerView.addSubview(self.messageTextField)
         containerView.addSubview(self.micButton)
@@ -105,6 +111,12 @@ class ChatViewController: UICollectionViewController {
         self.messageTextField.anchor(lineView.bottomAnchor, left: containerView.leftAnchor, bottom: containerView.bottomAnchor, right: nil, topConstant: 0, leftConstant: 10, bottomConstant: 0, rightConstant: 0, widthConstant: ScreenSize.width * 0.7, heightConstant: 0)
         self.micButton.anchor(lineView.bottomAnchor, left: messageTextField.rightAnchor, bottom: containerView.bottomAnchor, right: nil, topConstant: 0, leftConstant: 8, bottomConstant: 0, rightConstant: 0, widthConstant: ScreenSize.width * 0.11, heightConstant: 0)
         self.sendButton.anchor(lineView.bottomAnchor, left: self.micButton.rightAnchor, bottom: containerView.bottomAnchor, right: containerView.rightAnchor, topConstant: 0, leftConstant: 8, bottomConstant: 0, rightConstant: 0, widthConstant: 0, heightConstant: 0)
+    }
+    
+    private func setupBackgroundView() {
+        view.addSubview(backgroundView)
+        backgroundView.anchor(nil, left: view.leftAnchor, bottom: view.bottomAnchor, right: view.rightAnchor, topConstant: 0, leftConstant: 0, bottomConstant: 0, rightConstant: 0, widthConstant: 0, heightConstant: ScreenSize.height * 0.09)
+
     }
     
 }

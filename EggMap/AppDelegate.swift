@@ -32,7 +32,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         
         userId = 1
-        let orderSummScreen = OrderSummaryScreenController()
+//        let orderSummScreen = OrderSummaryScreenController()
+        
+        //delete these 2 lines...for test only
+        let layout = UICollectionViewFlowLayout()
+        let orderSummScreen = ChatViewController(collectionViewLayout: layout)
+        
         let navOrderScreen = UINavigationController(rootViewController: orderSummScreen)
         window?.rootViewController = navOrderScreen
         
