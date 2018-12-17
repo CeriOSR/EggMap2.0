@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		41713474707B45ED4C832060 /* Pods_EggMapUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47B042699B6E5059F889F6F7 /* Pods_EggMapUITests.framework */; };
 		9F98EBBCD67AA5224CDEE331 /* Pods_EggMapTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E6318378071ACABBA27AB92 /* Pods_EggMapTests.framework */; };
+		AC7D089521C74A9E009F5D06 /* GMSHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC7D089421C74A9E009F5D06 /* GMSHelpers.swift */; };
+		AC7D089621C74A9E009F5D06 /* GMSHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC7D089421C74A9E009F5D06 /* GMSHelpers.swift */; };
+		AC7D089721C74A9E009F5D06 /* GMSHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC7D089421C74A9E009F5D06 /* GMSHelpers.swift */; };
 		ACE0ADD0216470CC0019D73B /* OrientationLockHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE0ADCF216470CC0019D73B /* OrientationLockHelper.swift */; };
 		ACE0ADD1216470CC0019D73B /* OrientationLockHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE0ADCF216470CC0019D73B /* OrientationLockHelper.swift */; };
 		ACE0ADD2216470CC0019D73B /* OrientationLockHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE0ADCF216470CC0019D73B /* OrientationLockHelper.swift */; };
@@ -199,6 +202,7 @@
 		7F9F256D3FFF1DD2B67E9E33 /* Pods-EggMapUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EggMapUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-EggMapUITests/Pods-EggMapUITests.release.xcconfig"; sourceTree = "<group>"; };
 		866AF5553FB9FD762C473449 /* Pods-EggMapTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EggMapTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EggMapTests/Pods-EggMapTests.debug.xcconfig"; sourceTree = "<group>"; };
 		8E6318378071ACABBA27AB92 /* Pods_EggMapTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EggMapTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AC7D089421C74A9E009F5D06 /* GMSHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GMSHelpers.swift; sourceTree = "<group>"; };
 		ACE0ADCF216470CC0019D73B /* OrientationLockHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrientationLockHelper.swift; sourceTree = "<group>"; };
 		ACF53D3A21691FA900BD36C1 /* ClientSideOrderAvailabilityMapController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientSideOrderAvailabilityMapController.swift; sourceTree = "<group>"; };
 		ACF53D3F216BD86600BD36C1 /* AgentSideListOfOrdersMapDisplayController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgentSideListOfOrdersMapDisplayController.swift; sourceTree = "<group>"; };
@@ -442,6 +446,7 @@
 				ACE0ADCF216470CC0019D73B /* OrientationLockHelper.swift */,
 				E01A867A2186DFE4005211D2 /* UIAlertHelper.swift */,
 				E05E431621C4E46800D7ED82 /* CollectionViewHelpers.swift */,
+				AC7D089421C74A9E009F5D06 /* GMSHelpers.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -823,6 +828,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E063365D216148BD00854FE2 /* FiveStarRating.swift in Sources */,
+				AC7D089521C74A9E009F5D06 /* GMSHelpers.swift in Sources */,
 				E016A2032147742300BD70E2 /* LocalizedPListStringGetter.swift in Sources */,
 				E04FFCED20F2947C006F3EC8 /* UIDeviceHelpers.swift in Sources */,
 				E0F97CAC212B2C9C007CC2AD /* GetLocationJSONModel.swift in Sources */,
@@ -880,6 +886,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E063365E216148BD00854FE2 /* FiveStarRating.swift in Sources */,
+				AC7D089621C74A9E009F5D06 /* GMSHelpers.swift in Sources */,
 				E016A2042147742300BD70E2 /* LocalizedPListStringGetter.swift in Sources */,
 				E04FFCFB20F2C60B006F3EC8 /* GMSMapController.swift in Sources */,
 				E0F97CAD212B67C7007CC2AD /* GetLocationJSONModel.swift in Sources */,
@@ -937,6 +944,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E063365F216148BD00854FE2 /* FiveStarRating.swift in Sources */,
+				AC7D089721C74A9E009F5D06 /* GMSHelpers.swift in Sources */,
 				E016A2052147742300BD70E2 /* LocalizedPListStringGetter.swift in Sources */,
 				E04FFCFC20F2C60B006F3EC8 /* GMSMapController.swift in Sources */,
 				E0F97CAE212B67C8007CC2AD /* GetLocationJSONModel.swift in Sources */,

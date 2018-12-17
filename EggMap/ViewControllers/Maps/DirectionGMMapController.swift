@@ -14,6 +14,8 @@ import CoreLocation
 
 class DirectionGMMapController: UIViewController, CLLocationManagerDelegate {
     
+    let kMapStyle = GMSHelpers().kMapStyle
+    
     let alert = UIAlertController()
     let slideUpView = ClientSlideUpView()
 
@@ -39,6 +41,16 @@ class DirectionGMMapController: UIViewController, CLLocationManagerDelegate {
         super.viewDidLoad()
         view.backgroundColor = .white
         setupViews()
+        
+        //remove POI using styling
+        do {
+            mapView.mapStyle = try GMSMapStyle(jsonString: kMapStyle)
+        } catch {
+            print("JSON String did not load")
+        }
+        
+        
+        
         locationManager.delegate = self
         locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingLocation()
