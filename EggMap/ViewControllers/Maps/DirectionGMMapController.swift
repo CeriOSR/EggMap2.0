@@ -14,7 +14,7 @@ import CoreLocation
 
 class DirectionGMMapController: UIViewController, CLLocationManagerDelegate {
     
-    let kMapStyle = GMSHelpers().kMapStyle
+    let gmsHelpers = GMSHelpers()
     
     let alert = UIAlertController()
     let slideUpView = ClientSlideUpView()
@@ -34,7 +34,7 @@ class DirectionGMMapController: UIViewController, CLLocationManagerDelegate {
     //            addressString = locationById.formAddressString(location: location)
     //        }
     //    }
-    let mapView = GMSMapView()
+    var mapView = GMSMapView()
     let locationManager = CLLocationManager()
     
     override func viewDidLoad() {
@@ -44,6 +44,7 @@ class DirectionGMMapController: UIViewController, CLLocationManagerDelegate {
         
         //remove POI using styling
         do {
+            let kMapStyle = gmsHelpers.kMapStyle
             mapView.mapStyle = try GMSMapStyle(jsonString: kMapStyle)
         } catch {
             print("JSON String did not load")
@@ -62,12 +63,39 @@ class DirectionGMMapController: UIViewController, CLLocationManagerDelegate {
         let camera = GMSCameraPosition.camera(withTarget: location.coordinate, zoom: 18)
         mapView.animate(to: camera)
         
+        //display userLoc
+        self.mapView.isMyLocationEnabled = true
+        
+        //display destination location
+//        guard let address = addressString else {return}
+//        let destCoords = geoCodedAddress(address: address)
+        
+        //test coords
+        let destCoords = CLLocationCoordinate2D(latitude: 37.7870, longitude: -122.4025)
+        let destMarker = GMSMarker(position: destCoords)
+        destMarker.title = "Museum of IceCream"
+        destMarker.map = self.mapView
+//        self.mapView.animate(toLocation: destCoords)
+        
+        gmsHelpers.drawPath(startLocation: center, endLocation: destCoords, mapView: self.mapView)
         
         
+//        geoCodeAddress(address: address, userPoint: center)
+    }
+    
+    func geoCodedAddress(address: String) -> CLLocationCoordinate2D {
+        var coordinates = CLLocationCoordinate2D()
+        let geocoder = CLGeocoder()
         
-        
-        guard let address = addressString else {return}
-        geoCodeAddress(address: address, userPoint: center)
+        geocoder.geocodeAddressString(address) { (placemarks, error) in
+            if error != nil {
+                print("GeoCoder: No Placemarks found!")
+            } else {
+                guard let unwrappedCoord = placemarks?.first?.location?.coordinate else {return}
+                coordinates = unwrappedCoord
+            }
+        }
+        return coordinates
     }
     
     private func geoCodeAddress(address: String, userPoint: CLLocationCoordinate2D) {
@@ -92,6 +120,15 @@ class DirectionGMMapController: UIViewController, CLLocationManagerDelegate {
                 newMarker.map = self.mapView
                 self.mapView.animate(toLocation: coordinates)
                 
+                
+                
+//                37.7870° N, 122.4052° W
+                let destCoords = CLLocationCoordinate2D(latitude: 37.7870, longitude: -122.4025)
+                let destinationMarker = GMSMarker(position: destCoords)
+                destinationMarker.title = "Museum of Ice Cream"
+                destinationMarker.map = self.mapView
+                
+//                self.gmsHelpers.drawPath(startLocation: coordinates, endLocation: destCoords).map = self.mapView
             }
         }
     }

@@ -84,6 +84,7 @@ class ClientSideOrderAvailabilityMapController: UIViewController, CLLocationMana
         locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingLocation()
         ClientSlideUpView.shared?.delegate = self
+        slideUpView.directionButton.setTitle("Contact", for: .normal)
         mapView.delegate = self
     }
     
@@ -119,7 +120,7 @@ class ClientSideOrderAvailabilityMapController: UIViewController, CLLocationMana
                 newMarker.iconView = self.agentMarkerImage
                 newMarker.title = address
                 newMarker.map = self.mapView
-//                self.mapView.animate(toLocation: coordinates)
+                self.mapView.animate(toLocation: coordinates)
                 
 //                let agentMarker = GMSMarker(position: coordinates)
 //                //custom image for marker
@@ -134,7 +135,7 @@ class ClientSideOrderAvailabilityMapController: UIViewController, CLLocationMana
                 storeMarker.iconView = self.storeMarkerImage
                 storeMarker.title = "Store"
                 storeMarker.map = self.mapView
-                self.mapView.animate(toLocation: storeMarker.position)
+//                self.mapView.animate(toLocation: storeMarker.position)
                 
                 //to display user's coordinates
                 //                    self.mapView.isMyLocationEnabled = true
@@ -145,7 +146,7 @@ class ClientSideOrderAvailabilityMapController: UIViewController, CLLocationMana
 //                let location2 = CLLocation(latitude: 49.1844, longitude: -123.1052)
 //                self.drawPath(startLocation: coordinates, endLocation: storeMarker.position)
 //                self.drawPath2(origin: coordinates, destination: storeMarker.position)
-                self.draw3(origin: coordinates, destination: storeMarker.position)
+//                self.draw3(origin: coordinates, destination: storeMarker.position)
 
             }
         }
@@ -231,6 +232,10 @@ extension ClientSideOrderAvailabilityMapController {
                 self.slideUpView.frame.origin.y = self.view.frame.maxY
             }) { (_) in
                 //completion handler
+                self.slideUpView.locationTypeImage.image = nil
+                self.slideUpView.locationNameLabel.text = nil
+                self.slideUpView.directionButton.setTitle("", for: .normal)
+//                self.slideUpView.starRating. = false
             }
         default:
             print("No Swipes")
@@ -286,9 +291,9 @@ extension ClientSideOrderAvailabilityMapController: GMSMapViewDelegate {
 
     //reset custom infoWindow whenever marker is tapped
     func mapView(_ mapView: GMSMapView, didTap marker: GMSMarker) -> Bool {
-        
         if marker.iconView == self.agentMarkerImage {
             print("Agent Profile")
+            slideUpView.directionButton.setTitle("Contact", for: .normal)
             self.slideUpView.locationTypeImage.isHidden = false
             self.slideUpView.locationNameLabel.isHidden = false
             self.slideUpView.starRating.isHidden = false
@@ -301,7 +306,16 @@ extension ClientSideOrderAvailabilityMapController: GMSMapViewDelegate {
         } else {
             
             print("Store Profile")
-            
+            slideUpView.directionButton.setTitle("Directions", for: .normal)
+            self.slideUpView.locationTypeImage.isHidden = false
+            self.slideUpView.locationNameLabel.isHidden = false
+            self.slideUpView.starRating.isHidden = false
+            self.slideUpView.datePicker.isHidden = true
+            UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.5, options: .curveEaseOut, animations: {
+                self.slideUpView.frame.origin.y = ScreenSize.height * 0.75
+            }) { (_) in
+                //completion handler
+            }
             
         }
         //return false so button event is still handled by delegate
@@ -358,7 +372,7 @@ extension ClientSideOrderAvailabilityMapController: GMSMapViewDelegate {
                     let path = GMSPath.init(fromEncodedPath: points!)
                     let polyline = GMSPolyline.init(path: path)
                     polyline.strokeWidth = 4
-                    polyline.strokeColor = UIColor.red
+                    polyline.strokeColor = UIColor.blue
                     polyline.map = self.mapView
                 }
             } catch let err {
