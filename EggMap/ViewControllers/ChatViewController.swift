@@ -113,6 +113,33 @@ class ChatViewController: UICollectionViewController {
     
     @objc func handleRightBarButtonTapped() {
         //CREATE AN ALERT HERE THAT SHOWS PRODUCT DETAILS, QRCODE ETC
+//        let alert = UIAlertController(title: "Prodct Code here", message: "Product details here and QRCode below", preferredStyle: .alert)
+//        let okConfirmAction = UIAlertAction(title: "Ok", style: .default) { (action) in
+//            alert.dismiss(animated: true, completion: {
+//                //handle completion here if any
+//            })
+//        }
+//        let qrImageView = UIImageView(frame: CGRect(x: 220, y: 10, width: 150, height: 150))
+//        qrImageView.image = #imageLiteral(resourceName: "EggMapDude").withRenderingMode(.alwaysOriginal)
+//
+//        alert.view.addSubview(qrImageView)
+//        alert.addAction(okConfirmAction)
+//        self.present(alert, animated: true) {
+//            //handle completion here
+//        }
+        
+        let showAlert = UIAlertController(title: "Demo Alert", message: nil, preferredStyle: .alert)
+        let imageView = UIImageView(frame: CGRect(x: 10, y: 50, width: 250, height: 230))
+        imageView.image = #imageLiteral(resourceName: "EggMapDude").withRenderingMode(.alwaysOriginal)
+        showAlert.view.addSubview(imageView)
+        let height = NSLayoutConstraint(item: showAlert.view, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 320)
+        let width = NSLayoutConstraint(item: showAlert.view, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 250)
+        showAlert.view.addConstraint(height)
+        showAlert.view.addConstraint(width)
+        showAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
+            // your actions here...
+        }))
+        self.present(showAlert, animated: true, completion: nil)
         
     }
     
