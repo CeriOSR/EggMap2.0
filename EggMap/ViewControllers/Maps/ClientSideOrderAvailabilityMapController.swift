@@ -285,7 +285,10 @@ extension ClientSideOrderAvailabilityMapController: handleViewButtonsDelegate {
             } else {
                 let layout = UICollectionViewFlowLayout()
                 let chatController = ChatViewController(collectionViewLayout: layout)
-                navigationController?.pushViewController(chatController, animated: true)
+                let nChatController = UINavigationController(rootViewController: chatController)
+                self.present(nChatController, animated: true) {
+                    //handle completion or prefetching here
+                }
             }
         }
         
