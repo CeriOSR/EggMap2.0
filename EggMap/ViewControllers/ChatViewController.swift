@@ -12,6 +12,9 @@ private let reuseIdentifier = "Cell"
 
 class ChatViewController: UICollectionViewController {
     
+    let localizer = LocalizedPListStringGetter()
+    var slideInMenu: SlideInMenu!
+    var blackScreen: UIView!
     let lineView: UIView = {
         let view = UIView()
         view.backgroundColor = .darkGray
@@ -46,8 +49,9 @@ class ChatViewController: UICollectionViewController {
         self.view.backgroundColor = .white
         collectionView.backgroundColor = .white
         collectionView.keyboardDismissMode = .interactive
-        //        setupViews()
+        setupSlideInMenu()
         self.collectionView!.register(ChatControllerFromCell.self, forCellWithReuseIdentifier: reuseIdentifier)
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "QR", style: .plain, target: self, action: #selector(handleRightBarButtonTapped))
         
     }
     
@@ -107,6 +111,11 @@ class ChatViewController: UICollectionViewController {
         self.sendButton.anchor(lineView.bottomAnchor, left: self.micButton.rightAnchor, bottom: containerView.bottomAnchor, right: containerView.rightAnchor, topConstant: 0, leftConstant: 8, bottomConstant: 0, rightConstant: 0, widthConstant: 0, heightConstant: 0)
     }
     
+    @objc func handleRightBarButtonTapped() {
+        //CREATE AN ALERT HERE THAT SHOWS PRODUCT DETAILS, QRCODE ETC
+        
+    }
+    
 }
 
 extension ChatViewController: UICollectionViewDelegateFlowLayout {
@@ -147,4 +156,115 @@ extension ChatViewController: UICollectionViewDelegateFlowLayout {
         return NSString(string: text).boundingRect(with: size, options: options, attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 16)], context: nil)
     }
     
+}
+
+//This has to do with the slide in menu only
+extension ChatViewController: SideBarViewDelegate {
+    
+    @objc func handleBlackScreenTap() {
+        hideMenu()
+    }
+    
+    @objc func handleMenuTapped() {
+        animateSlideInMenu()
+    }
+    
+    fileprivate func setupSlideInMenu() {
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: localizer.parseLocalizable().menu?.value, style: .plain, target: self, action: #selector(handleMenuTapped))
+        slideInMenu = SlideInMenu(frame: CGRect(x: 0, y: 0, width: 0, height: self.view.frame.height))
+        slideInMenu.delegate = self
+        slideInMenu.layer.zPosition = 100
+        slideInMenu.isUserInteractionEnabled = true
+        self.navigationController?.view.addSubview(slideInMenu)
+        
+        blackScreen = UIView(frame: self.view.bounds)
+        blackScreen.backgroundColor = UIColor(white: 0, alpha: 0.5)
+        blackScreen.isHidden = true
+        self.navigationController?.view.addSubview(blackScreen)
+        blackScreen.layer.zPosition = 99
+        blackScreen.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleBlackScreenTap)))
+    }
+    
+    fileprivate func animateSlideInMenu() {
+        UIView.animate(withDuration: 1, delay: 0.0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.5, options: .curveEaseOut, animations: {
+            //animate here
+            self.blackScreen.isHidden = false
+            self.slideInMenu.frame = CGRect(x: 0, y: 0, width: ScreenSize.width * 0.75, height: self.slideInMenu.frame.height)
+        }) { (_) in
+            //completion
+            self.blackScreen.frame = CGRect(x: self.slideInMenu.frame.width, y: 0, width: self.view.frame.width - self.slideInMenu.frame.width, height: self.view.bounds.height + 100)
+        }
+    }
+    
+    fileprivate func hideMenu() {
+        blackScreen.isHidden = true
+        blackScreen.frame = self.view.bounds
+        UIView.animate(withDuration: 1, delay: 0.0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.5, options: .curveEaseOut, animations: {
+            self.slideInMenu.frame = CGRect(x: 0, y: 0, width: 0, height: self.slideInMenu.frame.height)
+        }) { (_) in
+            //completion
+        }
+    }
+    
+    func sidebarDidSelect(row: Row) {
+        blackScreen.isHidden = true
+        blackScreen.frame = self.view.bounds
+        UIView.animate(withDuration: 0.3) {
+            self.slideInMenu.frame = CGRect(x: 0, y: 0, width: 0, height: self.slideInMenu.frame.height)
+        }
+        switch row {
+        case .editProfile:
+            
+            if LoginController.GlobalLoginIDs.userType == "1" {
+                let layout = UICollectionViewFlowLayout()
+                let clientProfileController = ClientProfileController(collectionViewLayout: layout)
+                let navProfileController = UINavigationController(rootViewController: clientProfileController)
+                present(navProfileController, animated: true) {
+                    //completion here, maybe pass some data
+                }
+            } else {
+                let layout = UICollectionViewFlowLayout()
+                let agentProfileController = AgentProfileController(collectionViewLayout: layout)
+                let navProfileController = UINavigationController(rootViewController: agentProfileController)
+                present(navProfileController, animated: true) {
+                    //completion here, maybe pass some data
+                }
+            }
+            
+            
+        case .orderSummary:
+            let orderSummaryController = OrderSummaryScreenController()
+            let navOrderSummController = UINavigationController(rootViewController: orderSummaryController)
+            present(navOrderSummController, animated: true) {
+                //completion here, maybe pass some data
+            }
+        case .xboMarketShop:
+            let webView = WebViewController()
+            navigationController?.pushViewController(webView, animated: true)
+        case .earningsSummary:
+            let webView = WebViewController()
+            navigationController?.pushViewController(webView, animated: true)
+        case .compensation:
+            let webView = WebViewController()
+            navigationController?.pushViewController(webView, animated: true)
+        case .scanTool:
+            let qrCodeScannerController = QRCodeScannerController()
+            //            let navQRController = UINavigationController(rootViewController: qrCodeScannerController)
+            //            present(navQRController, animated: true) {
+            //                //completion here. maybe pass data
+            //            }
+            navigationController?.pushViewController(qrCodeScannerController, animated: true)
+            
+        case .logout:
+            //log out client here
+            let logoutModel = LogoutModel()
+            logoutModel.fetchJsonLogout()
+            let loginController = LoginController()
+            present(loginController, animated: true) {
+                //try the log out here
+            }
+        case .none:
+            break
+        }
+    }
 }

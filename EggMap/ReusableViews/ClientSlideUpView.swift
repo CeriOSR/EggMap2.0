@@ -28,7 +28,7 @@ class ClientSlideUpView: UIView {
     lazy var directionButton: UIButton = {
         let button = UIButton(type: .system)
         //if the location is a store, title = "Direction" if the location is an agent, title = "Contact Agent"
-        button.setTitle("Direction", for: .normal)
+//        button.setTitle("Direction", for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.addTarget(self, action: #selector(handleContactAgentButtonPressed), for: .touchUpInside)
         return button

@@ -84,6 +84,7 @@ class ClientSideOrderAvailabilityMapController: UIViewController, CLLocationMana
         locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingLocation()
         ClientSlideUpView.shared?.delegate = self
+        slideUpView.directionButton.setTitle("Contact", for: .normal)
         mapView.delegate = self
     }
     
@@ -119,7 +120,7 @@ class ClientSideOrderAvailabilityMapController: UIViewController, CLLocationMana
                 newMarker.iconView = self.agentMarkerImage
                 newMarker.title = address
                 newMarker.map = self.mapView
-//                self.mapView.animate(toLocation: coordinates)
+                self.mapView.animate(toLocation: coordinates)
                 
 //                let agentMarker = GMSMarker(position: coordinates)
 //                //custom image for marker
@@ -134,7 +135,7 @@ class ClientSideOrderAvailabilityMapController: UIViewController, CLLocationMana
                 storeMarker.iconView = self.storeMarkerImage
                 storeMarker.title = "Store"
                 storeMarker.map = self.mapView
-                self.mapView.animate(toLocation: storeMarker.position)
+//                self.mapView.animate(toLocation: storeMarker.position)
                 
                 //to display user's coordinates
                 //                    self.mapView.isMyLocationEnabled = true
@@ -145,7 +146,7 @@ class ClientSideOrderAvailabilityMapController: UIViewController, CLLocationMana
 //                let location2 = CLLocation(latitude: 49.1844, longitude: -123.1052)
 //                self.drawPath(startLocation: coordinates, endLocation: storeMarker.position)
 //                self.drawPath2(origin: coordinates, destination: storeMarker.position)
-                self.draw3(origin: coordinates, destination: storeMarker.position)
+//                self.draw3(origin: coordinates, destination: storeMarker.position)
 
             }
         }
@@ -174,7 +175,7 @@ class ClientSideOrderAvailabilityMapController: UIViewController, CLLocationMana
         self.slideUpView.locationNameLabel.isHidden = true
         self.slideUpView.starRating.isHidden = true
         self.slideUpView.datePicker.isHidden = false
-        self.slideUpView.directionButton.titleLabel?.text = "Send"
+        self.slideUpView.directionButton.setTitle("Send", for: .normal)
         if navRightButtonBool == false {
             UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.5, options: .curveEaseOut, animations: {
                 print("slide up button pressed = \(self.navRightButtonBool)")
@@ -231,6 +232,10 @@ extension ClientSideOrderAvailabilityMapController {
                 self.slideUpView.frame.origin.y = self.view.frame.maxY
             }) { (_) in
                 //completion handler
+                self.slideUpView.locationTypeImage.image = nil
+                self.slideUpView.locationNameLabel.text = nil
+                self.slideUpView.directionButton.setTitle("", for: .normal)
+//                self.slideUpView.starRating. = false
             }
         default:
             print("No Swipes")
@@ -274,8 +279,17 @@ extension ClientSideOrderAvailabilityMapController: handleViewButtonsDelegate {
                 //completion handler here
             }
         } else {
-            let directionMap = DirectionGMMapController()
-            navigationController?.pushViewController(directionMap, animated: true)
+            if slideUpView.directionButton.title(for: .normal) == "Directions" {
+                let directionMap = DirectionGMMapController()
+                navigationController?.pushViewController(directionMap, animated: true)
+            } else {
+                let layout = UICollectionViewFlowLayout()
+                let chatController = ChatViewController(collectionViewLayout: layout)
+                let nChatController = UINavigationController(rootViewController: chatController)
+                self.present(nChatController, animated: true) {
+                    //handle completion or prefetching here
+                }
+            }
         }
         
     }
@@ -286,9 +300,9 @@ extension ClientSideOrderAvailabilityMapController: GMSMapViewDelegate {
 
     //reset custom infoWindow whenever marker is tapped
     func mapView(_ mapView: GMSMapView, didTap marker: GMSMarker) -> Bool {
-        
         if marker.iconView == self.agentMarkerImage {
             print("Agent Profile")
+            slideUpView.directionButton.setTitle("Contact", for: .normal)
             self.slideUpView.locationTypeImage.isHidden = false
             self.slideUpView.locationNameLabel.isHidden = false
             self.slideUpView.starRating.isHidden = false
@@ -301,7 +315,16 @@ extension ClientSideOrderAvailabilityMapController: GMSMapViewDelegate {
         } else {
             
             print("Store Profile")
-            
+            slideUpView.directionButton.setTitle("Directions", for: .normal)
+            self.slideUpView.locationTypeImage.isHidden = false
+            self.slideUpView.locationNameLabel.isHidden = false
+            self.slideUpView.starRating.isHidden = false
+            self.slideUpView.datePicker.isHidden = true
+            UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.5, options: .curveEaseOut, animations: {
+                self.slideUpView.frame.origin.y = ScreenSize.height * 0.75
+            }) { (_) in
+                //completion handler
+            }
             
         }
         //return false so button event is still handled by delegate
@@ -331,117 +354,117 @@ extension ClientSideOrderAvailabilityMapController: GMSMapViewDelegate {
         print("Info window button pressed...")
     }
     
-    private func drawPath(startLocation: CLLocationCoordinate2D, endLocation: CLLocationCoordinate2D) {
-        let origin = "\(startLocation.latitude),\(startLocation.longitude)"
-        let destination = "\(endLocation.latitude),\(endLocation.longitude)"
-        
-        let prefTravel = "driving"
-        let apiKey = "AIzaSyCDjc5onKz4Tvf_Z7uyVMHg7idums2JlN8"
-    
-        let url = URL(string: "https://maps.googleapis.com/maps/api/directions/json?origin=\(origin)&destination=\(destination)&mode=\(prefTravel)&key=\(apiKey)")
-    
-        Alamofire.request(url!).responseJSON { response in
-    
-            print(response.request as Any)  // original URL request
-            print(response.response as Any) // HTTP URL response
-            print(response.data as Any)     // server data
-            print(response.result as Any)   // result of response serialization
-            do {
-                let json = try JSON(data: response.data!)
-                let routes = json["routes"].arrayValue
-                print(routes.count)
-                // print route using Polyline
-                for route in routes
-                {
-                    let routeOverviewPolyline = route["overview_polyline"].dictionary
-                    let points = routeOverviewPolyline?["points"]?.stringValue
-                    let path = GMSPath.init(fromEncodedPath: points!)
-                    let polyline = GMSPolyline.init(path: path)
-                    polyline.strokeWidth = 4
-                    polyline.strokeColor = UIColor.red
-                    polyline.map = self.mapView
-                }
-            } catch let err {
-                print(err)
-            }
-        }
-    }
-    
-    func drawPath2(origin: CLLocationCoordinate2D, destination: CLLocationCoordinate2D)
-    {
-        let origin = "\(origin.latitude),\(origin.longitude)"
-        let destination = "\(destination.latitude),\(destination.longitude)"
-        let apiKey = "AIzaSyAOhiBw8mSPBmmAJQ_fjM79x7ruvMxFmxQ"
-        
-//        let url = "https://maps.googleapis.com/maps/api/directions/json?origin=\(origin)&destination=\(destination)&mode=driving&key=AIzaSyAOhiBw8mSPBmmAJQ_fjM79x7ruvMxFmxQ"
-        guard let url = URL(string: "https://maps.googleapis.com/maps/api/directions/json?origin=\(origin)&destination=\(destination)&key=AIzaSyCDjc5onKz4Tvf_Z7uyVMHg7idums2JlN8") else {return}
-        
-        Alamofire.request(url).responseJSON { response in
-            print(response.request)  // original URL request
-            print(response.response) // HTTP URL response
-            print(response.data)     // server data
-            print(response.result)   // result of response serialization
-            
-            let json = try! JSON(data: response.data!)
-            let routes = json["routes"].arrayValue
-            
-            //remove this after test
-            print(routes.count)
-            
-            for route in routes
-            {
-                let routeOverviewPolyline = route["overview_polyline"].dictionary
-                let points = routeOverviewPolyline?["points"]?.stringValue
-                let path = GMSMutablePath.init(fromEncodedPath: points!)
-                let polyline = GMSPolyline.init(path: path)
-                polyline.map = self.mapView
-            }
-        }
-    }
-    
-    private func draw3(origin: CLLocationCoordinate2D, destination: CLLocationCoordinate2D) {
-            //Here you need to set your origin and destination points and mode
-//            let url = NSURL(string: "https://maps.googleapis.com/maps/api/directions/json?origin=Machilipatnam&destination=Vijayawada&mode=driving")
-        
-            //OR if you want to use latitude and longitude for source and destination
-//            let url = NSURL(string: "\("https://maps.googleapis.com/maps/api/directions/json")?origin=\("17.521100"),\("78.452854")&destination=\("15.1393932"),\("76.9214428")")
-        
-        let origin = "\(origin.latitude),\(origin.longitude)"
-        let destination = "\(destination.latitude),\(destination.longitude)"
-        
-        let prefTravel = "driving"
-        let apiKey = "AIzaSyA8ebrZt_wFGskWjpsHD_xLDS-I580zYEU"
-        
-        let url = URL(string: "https://maps.googleapis.com/maps/api/directions/json?origin=\(origin)&destination=\(destination)&mode=\(prefTravel)&key=AIzaSyCDjc5onKz4Tvf_Z7uyVMHg7idums2JlN8")
-        
-            let task = URLSession.shared.dataTask(with: url! as URL) { (data, response, error) -> Void in
-        
-                do {
-                    if data != nil {
-                        let dic = try JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.mutableLeaves) as!  [String:AnyObject]
-                                                print(dic)
-        
-                        let status = dic["status"] as! String
-                        var routesArray:String!
-                        if status == "OK" {
-                            routesArray = (((dic["routes"]! as! [Any])[0] as! [String:Any])["overview_polyline"] as! [String:Any])["points"] as? String
-                        }
-        
-                        DispatchQueue.main.async {
-                            guard let path = GMSPath.init(fromEncodedPath: routesArray!) else {return}
-                            let singleLine = GMSPolyline.init(path: path)
-                            singleLine.strokeWidth = 6.0
-                            singleLine.strokeColor = .blue
-                            singleLine.map = self.mapView
-                        }
-        
-                    }
-                } catch {
-                    print("Error")
-                }
-            }
-        
-            task.resume()
-    }
 }
 
+//private func drawPath(startLocation: CLLocationCoordinate2D, endLocation: CLLocationCoordinate2D) {
+//    let origin = "\(startLocation.latitude),\(startLocation.longitude)"
+//    let destination = "\(endLocation.latitude),\(endLocation.longitude)"
+//
+//    let prefTravel = "driving"
+//    let apiKey = "AIzaSyCDjc5onKz4Tvf_Z7uyVMHg7idums2JlN8"
+//
+//    let url = URL(string: "https://maps.googleapis.com/maps/api/directions/json?origin=\(origin)&destination=\(destination)&mode=\(prefTravel)&key=\(apiKey)")
+//
+//    Alamofire.request(url!).responseJSON { response in
+//
+//        print(response.request as Any)  // original URL request
+//        print(response.response as Any) // HTTP URL response
+//        print(response.data as Any)     // server data
+//        print(response.result as Any)   // result of response serialization
+//        do {
+//            let json = try JSON(data: response.data!)
+//            let routes = json["routes"].arrayValue
+//            print(routes.count)
+//            // print route using Polyline
+//            for route in routes
+//            {
+//                let routeOverviewPolyline = route["overview_polyline"].dictionary
+//                let points = routeOverviewPolyline?["points"]?.stringValue
+//                let path = GMSPath.init(fromEncodedPath: points!)
+//                let polyline = GMSPolyline.init(path: path)
+//                polyline.strokeWidth = 4
+//                polyline.strokeColor = UIColor.blue
+//                polyline.map = self.mapView
+//            }
+//        } catch let err {
+//            print(err)
+//        }
+//    }
+//}
+//
+//func drawPath2(origin: CLLocationCoordinate2D, destination: CLLocationCoordinate2D)
+//{
+//    let origin = "\(origin.latitude),\(origin.longitude)"
+//    let destination = "\(destination.latitude),\(destination.longitude)"
+//    let apiKey = "AIzaSyAOhiBw8mSPBmmAJQ_fjM79x7ruvMxFmxQ"
+//
+//    //        let url = "https://maps.googleapis.com/maps/api/directions/json?origin=\(origin)&destination=\(destination)&mode=driving&key=AIzaSyAOhiBw8mSPBmmAJQ_fjM79x7ruvMxFmxQ"
+//    guard let url = URL(string: "https://maps.googleapis.com/maps/api/directions/json?origin=\(origin)&destination=\(destination)&key=AIzaSyCDjc5onKz4Tvf_Z7uyVMHg7idums2JlN8") else {return}
+//
+//    Alamofire.request(url).responseJSON { response in
+//        print(response.request)  // original URL request
+//        print(response.response) // HTTP URL response
+//        print(response.data)     // server data
+//        print(response.result)   // result of response serialization
+//
+//        let json = try! JSON(data: response.data!)
+//        let routes = json["routes"].arrayValue
+//
+//        //remove this after test
+//        print(routes.count)
+//
+//        for route in routes
+//        {
+//            let routeOverviewPolyline = route["overview_polyline"].dictionary
+//            let points = routeOverviewPolyline?["points"]?.stringValue
+//            let path = GMSMutablePath.init(fromEncodedPath: points!)
+//            let polyline = GMSPolyline.init(path: path)
+//            polyline.map = self.mapView
+//        }
+//    }
+//}
+//
+//private func draw3(origin: CLLocationCoordinate2D, destination: CLLocationCoordinate2D) {
+//    //Here you need to set your origin and destination points and mode
+//    //            let url = NSURL(string: "https://maps.googleapis.com/maps/api/directions/json?origin=Machilipatnam&destination=Vijayawada&mode=driving")
+//
+//    //OR if you want to use latitude and longitude for source and destination
+//    //            let url = NSURL(string: "\("https://maps.googleapis.com/maps/api/directions/json")?origin=\("17.521100"),\("78.452854")&destination=\("15.1393932"),\("76.9214428")")
+//
+//    let origin = "\(origin.latitude),\(origin.longitude)"
+//    let destination = "\(destination.latitude),\(destination.longitude)"
+//
+//    let prefTravel = "driving"
+//    let apiKey = "AIzaSyA8ebrZt_wFGskWjpsHD_xLDS-I580zYEU"
+//
+//    let url = URL(string: "https://maps.googleapis.com/maps/api/directions/json?origin=\(origin)&destination=\(destination)&mode=\(prefTravel)&key=AIzaSyCDjc5onKz4Tvf_Z7uyVMHg7idums2JlN8")
+//
+//    let task = URLSession.shared.dataTask(with: url! as URL) { (data, response, error) -> Void in
+//
+//        do {
+//            if data != nil {
+//                let dic = try JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.mutableLeaves) as!  [String:AnyObject]
+//                print(dic)
+//
+//                let status = dic["status"] as! String
+//                var routesArray:String!
+//                if status == "OK" {
+//                    routesArray = (((dic["routes"]! as! [Any])[0] as! [String:Any])["overview_polyline"] as! [String:Any])["points"] as? String
+//                }
+//
+//                DispatchQueue.main.async {
+//                    guard let path = GMSPath.init(fromEncodedPath: routesArray!) else {return}
+//                    let singleLine = GMSPolyline.init(path: path)
+//                    singleLine.strokeWidth = 6.0
+//                    singleLine.strokeColor = .blue
+//                    singleLine.map = self.mapView
+//                }
+//
+//            }
+//        } catch {
+//            print("Error")
+//        }
+//    }
+//
+//    task.resume()
+//}
