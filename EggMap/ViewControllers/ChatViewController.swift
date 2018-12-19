@@ -30,19 +30,19 @@ class ChatViewController: UICollectionViewController {
     lazy var messageTextField: UITextField = {
         let tf = UITextField()
         //        tf.backgroundColor = .gray
-        tf.placeholder = self.localization.parseLocalizable().enterMessage?.value
+        tf.placeholder = self.localizer.parseLocalizable().enterMessage?.value
         return tf
     }()
     
     lazy var sendButton : UIButton = {
         let button = UIButton(type: .system)
-        button.setTitle(localization.parseLocalizable().send?.value, for: .normal)
+        button.setTitle(localizer.parseLocalizable().send?.value, for: .normal)
         return button
     }()
     
     lazy var micButton : UIButton = {
         let button = UIButton(type: .system)
-        button.setTitle(localization.parseLocalizable().mic?.value, for: .normal)
+        button.setTitle(localizer.parseLocalizable().mic?.value, for: .normal)
         return button
     }()
     
