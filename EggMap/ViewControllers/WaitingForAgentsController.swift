@@ -175,6 +175,7 @@ class WaitingForAgentsController: UIViewController {
         
     }
     
+    //redundant, fix this
     @objc func handleRightBarButtonTapped() {
         let alert = UIAlertController(title: "Abort order?", message: "Unless absolutely necessary, we do not encourage aborting an order that is currently processed.", preferredStyle: .alert)
         alert.addTextField { (textField) in

@@ -29,4 +29,29 @@ extension UIAlertController {
 //            //completion handler here
 //        }
     }
+    
+    func alertActionThreeButtons(title: String, message: String, actionOne: String, actionTwo: String, actionThree: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alert.addTextField { (textField) in
+            textField.placeholder = "Enter reason for aborting order."
+        }
+        let firstAction = UIAlertAction(title: actionOne, style: .default) { (action) in
+            self.dismiss(animated: true, completion: {
+                //completion handler here
+            })
+        }
+        let secondAction = UIAlertAction(title: actionThree, style: .default) { (action) in
+            //handle action here
+        }
+        let cancel = UIAlertAction(title: actionTwo, style: .default) { (action) in
+            alert.dismiss(animated: true, completion: nil)
+        }
+        alert.addAction(cancel)
+        alert.addAction(firstAction)
+        alert.addAction(secondAction)
+        present(alert, animated: true) {
+            //completion handler here
+        }
+    }
+    
 }

@@ -19,8 +19,23 @@ class OrderSummaryScreenController: UIViewController {
     var readyOrders = [UndeliveredOrder]() {
         didSet{
             DispatchQueue.main.async {
-                print("Undelivered orders: \(self.readyOrders)")
-                self.orderSummaryCollectionView.reloadData()
+                if self.readyOrders.count == 1 {
+                    //guard let id = readyOrders[indexPath.item].id else {return}
+                    //test id, delete later use line above
+                    let id = "73DBE3A6-6783-4A98-A681-B9020E864080"
+
+                    let gmsMapController = ClientSideOrderAvailabilityMapController()
+                    let locationDetailsById = GetLocationDetailsByIDJSON()
+                    locationDetailsById.getLocationAndScheduleDetailsById(id: id) { (locationDetails) in
+                        print(locationDetails)
+                        let addressString = locationDetailsById.formAddressString(location: locationDetails)
+                        gmsMapController.addressString = addressString
+                    }
+                    self.navigationController?.pushViewController(gmsMapController, animated: true)
+                } else {
+                    print("Undelivered orders: \(self.readyOrders)")
+                    self.orderSummaryCollectionView.reloadData()
+                }
             }
         }
     }
@@ -190,11 +205,16 @@ extension OrderSummaryScreenController: UICollectionViewDelegate, UICollectionVi
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        
+        if listOptionSegmentedController.selectedSegmentIndex == 1 {
+            let layout = UICollectionViewFlowLayout()
+            let chatController = ChatViewController(collectionViewLayout: layout)
+            navigationController?.pushViewController(chatController, animated: true)
+        } else {
+
 //        guard let id = readyOrders[indexPath.item].id else {return}
-        //test ID
+        //test ID delete later use line above
         let id = "73DBE3A6-6783-4A98-A681-B9020E864080"
-        
+
         let gmsMapController = ClientSideOrderAvailabilityMapController()
         let locationDetailsById = GetLocationDetailsByIDJSON()
         locationDetailsById.getLocationAndScheduleDetailsById(id: id) { (locationDetails) in
@@ -203,6 +223,7 @@ extension OrderSummaryScreenController: UICollectionViewDelegate, UICollectionVi
             gmsMapController.addressString = addressString
         }
         navigationController?.pushViewController(gmsMapController, animated: true)
+        }
     }
 }
 
