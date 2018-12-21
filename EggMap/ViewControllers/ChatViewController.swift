@@ -30,11 +30,20 @@ class ChatViewController: UICollectionViewController {
     lazy var messageTextField: UITextField = {
         let tf = UITextField()
         tf.backgroundColor = .gray
-        tf.placeholder = "enter message"
+        tf.placeholder = localizer.parseLocalizable().enterMessage?.value
         tf.layer.borderColor = UIColor.darkGray.cgColor
         tf.layer.borderWidth = 1
         tf.layer.cornerRadius = 4
         return tf
+    }()
+    
+    lazy var mapButton : UIButton = {
+        let button = UIButton(type: .system)
+        //rename to map
+        button.setTitle(localizer.parseLocalizable().send?.value, for: .normal)
+        button.setTitle("Map", for: .normal)
+        button.addTarget(self, action: #selector(mapButtonTapped), for: .touchUpInside)
+        return button
     }()
     
     lazy var sendButton : UIButton = {
@@ -58,6 +67,7 @@ class ChatViewController: UICollectionViewController {
         self.view.backgroundColor = .white
         collectionView.backgroundColor = .white
         collectionView.keyboardDismissMode = .interactive
+        setupBackgroundView()
         setupSlideInMenu()
         self.collectionView!.register(ChatControllerFromCell.self, forCellWithReuseIdentifier: reuseIdentifier)
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "QR", style: .plain, target: self, action: #selector(handleRightBarButtonTapped))
@@ -112,11 +122,13 @@ class ChatViewController: UICollectionViewController {
         containerView.addSubview(self.messageTextField)
         containerView.addSubview(self.micButton)
         containerView.addSubview(self.sendButton)
+        containerView.addSubview(self.mapButton)
         
         lineView.anchor(containerView.topAnchor, left: containerView.leftAnchor, bottom: nil, right: containerView.rightAnchor, topConstant: 0, leftConstant: 0, bottomConstant: 0, rightConstant: 0, widthConstant: 0, heightConstant: 1)
-        self.messageTextField.anchor(lineView.bottomAnchor, left: containerView.leftAnchor, bottom: containerView.bottomAnchor, right: nil, topConstant: 0, leftConstant: 10, bottomConstant: 0, rightConstant: 0, widthConstant: ScreenSize.width * 0.65, heightConstant: 0)
-        self.micButton.anchor(lineView.bottomAnchor, left: messageTextField.rightAnchor, bottom: containerView.bottomAnchor, right: nil, topConstant: 0, leftConstant: 8, bottomConstant: 0, rightConstant: 0, widthConstant: ScreenSize.width * 0.15, heightConstant: 0)
-        self.sendButton.anchor(lineView.bottomAnchor, left: self.micButton.rightAnchor, bottom: containerView.bottomAnchor, right: containerView.rightAnchor, topConstant: 0, leftConstant: 8, bottomConstant: 0, rightConstant: 4, widthConstant: 0, heightConstant: 0)
+        self.messageTextField.anchor(lineView.bottomAnchor, left: containerView.leftAnchor, bottom: nil, right: nil, topConstant: 0, leftConstant: 10, bottomConstant: 0, rightConstant: 0, widthConstant: ScreenSize.width * 0.65, heightConstant: containerView.frame.height * 0.5)
+        self.micButton.anchor(lineView.bottomAnchor, left: messageTextField.rightAnchor, bottom: nil, right: nil, topConstant: 0, leftConstant: 8, bottomConstant: 0, rightConstant: 0, widthConstant: ScreenSize.width * 0.15, heightConstant: containerView.frame.height * 0.5)
+        self.sendButton.anchor(lineView.bottomAnchor, left: self.micButton.rightAnchor, bottom: nil, right: containerView.rightAnchor, topConstant: 0, leftConstant: 8, bottomConstant: 0, rightConstant: 4, widthConstant: 0, heightConstant: containerView.frame.height * 0.5)
+        self.mapButton.anchor(messageTextField.bottomAnchor, left: containerView.leftAnchor, bottom: containerView.bottomAnchor, right: containerView.rightAnchor, topConstant: 0, leftConstant: 0, bottomConstant: 0, rightConstant: 0, widthConstant: 0, heightConstant: 0)
     }
     
     private func setupBackgroundView() {
@@ -155,6 +167,11 @@ class ChatViewController: UICollectionViewController {
         }))
         self.present(showAlert, animated: true, completion: nil)
         
+    }
+    
+    @objc func mapButtonTapped() {
+        let pickLocationController = PickLocationController()
+        navigationController?.pushViewController(pickLocationController, animated: true)
     }
     
 }
