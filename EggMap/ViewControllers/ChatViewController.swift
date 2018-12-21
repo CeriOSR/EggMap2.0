@@ -23,8 +23,11 @@ class ChatViewController: UICollectionViewController {
     
     let messageTextField: UITextField = {
         let tf = UITextField()
-        //        tf.backgroundColor = .gray
+        tf.backgroundColor = .gray
         tf.placeholder = "enter message"
+        tf.layer.borderColor = UIColor.darkGray.cgColor
+        tf.layer.borderWidth = 1
+        tf.layer.cornerRadius = 4
         return tf
     }()
     
@@ -57,7 +60,7 @@ class ChatViewController: UICollectionViewController {
     
     lazy var inputContainerView: UIView = {
         let containerView = UIView()
-        containerView.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: ScreenSize.height * 0.09)
+        containerView.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: ScreenSize.height * 0.13)
         containerView.translatesAutoresizingMaskIntoConstraints = false
         containerView.backgroundColor = .white
         setupContainerView(containerView: containerView)
@@ -85,12 +88,12 @@ class ChatViewController: UICollectionViewController {
     
     @objc func keyboardWillAppear() {
         //Do something here
-        inputContainerView.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: ScreenSize.height * 0.07)
+        inputContainerView.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: ScreenSize.height * 0.12)
     }
     
     @objc func keyboardWillDisappear() {
         //Do something here
-        inputContainerView.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: ScreenSize.height * 0.09)
+        inputContainerView.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: ScreenSize.height * 0.12)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
