@@ -26,13 +26,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow()
         window?.makeKeyAndVisible()
         
-//        let rateTheUser = RateUserController()
-//        let navRate = UINavigationController(rootViewController: rateTheUser)
-//        window?.rootViewController = navRate
+        let rateTheUser = RateUserController()
+        let navRate = UINavigationController(rootViewController: rateTheUser)
+        window?.rootViewController = navRate
         
         
         userId = 1
         let orderSummScreen = OrderSummaryScreenController()
+        
+//        //delete these 2 lines...for test only
+//        let layout = UICollectionViewFlowLayout()
+//        let orderSummScreen = ChatViewController(collectionViewLayout: layout)
+        
         let navOrderScreen = UINavigationController(rootViewController: orderSummScreen)
         window?.rootViewController = navOrderScreen
         

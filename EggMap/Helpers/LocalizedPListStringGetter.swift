@@ -12,9 +12,9 @@ struct Localizer: Decodable {
     
 }
 
-struct LocalizerPlist : Decodable{
+struct LocalizationPlist : Decodable{
     private enum CodingKeys: String, CodingKey {
-        case username, password, rememberMe, login, menu, readyForPickup, delivered, editProfile, orderSummary, xboMarketShop, earningsSummary, scanTool, logout, location, tapHere, status, available, unavailable, editHours, monday, tuesday, wednesday, thursday, friday, saturday, sunday, close, email, phone, address, copy, retake, qrCode
+        case username, password, rememberMe, login, menu, readyForPickup, delivered, editProfile, orderSummary, xboMarketShop, earningsSummary, scanTool, logout, location, tapHere, status, available, unavailable, editHours, monday, tuesday, wednesday, thursday, friday, saturday, sunday, close, email, phone, address, copy, retake, qrCode, enterMessage, mic, send
     }
     let username: Username?
     let password: Password?
@@ -49,6 +49,9 @@ struct LocalizerPlist : Decodable{
     let copy: Copy?
     let retake: Retake?
     let qrCode: QRCode?
+    let enterMessage: EnterMessage?
+    let mic: Mic?
+    let send: Send?
 }
 
 struct Username: Decodable {
@@ -315,26 +318,50 @@ struct QRCode: Decodable {
     let comment: String?
 }
 
+struct EnterMessage: Decodable {
+    private enum CodingKeys: String, CodingKey {
+        case value, comment
+    }
+    let value: String?
+    let comment: String?
+}
+
+struct Mic: Decodable {
+    private enum CodingKeys: String, CodingKey {
+        case value, comment
+    }
+    let value: String?
+    let comment: String?
+}
+
+struct Send: Decodable {
+    private enum CodingKeys: String, CodingKey {
+        case value, comment
+    }
+    let value: String?
+    let comment: String?
+}
+
 
 class LocalizedPListStringGetter {
     static let shareInstance = LocalizedPListStringGetter()
     
-    func parseLocalizable() -> LocalizerPlist {
+    func parseLocalizable() -> LocalizationPlist {
         if let path = Bundle.main.url(forResource: "Localizable", withExtension: "plist") {
             do {
                 let data = try Data(contentsOf: path)
                 let decoder = PropertyListDecoder()
-                let decodedPlist = try decoder.decode(LocalizerPlist.self, from: data)
+                let decodedPlist = try decoder.decode(LocalizationPlist.self, from: data)
                 print("PRINT THIS SHIT!!!!: ", decodedPlist)
                 return decodedPlist
                 
             } catch let err {
                 print(err)
-                return LocalizerPlist(username: Username(value: "", comment: ""), password: Password(value: "", comment: ""), rememberMe: RememberMe(value: "", comment: ""), login: Login(value: "", comment: ""), menu: Menu(value: "", comment: ""), readyForPickup: ReadyForPickup(value: "", comment: ""), delivered: Delivered(value: "", comment: ""), editProfile: EditProfile(value: "", comment: ""), orderSummary: OrderSummary(value: "", comment: ""), xboMarketShop: XBOMarketShop(value: "", comment: ""), earningsSummary: EarningsSummary(value: "", comment: ""), scanTool: ScanTool(value: "", comment: ""), logout: Logout(value: "", comment: ""), location: LocationText(value: "", comment: ""), tapHere: TapHere(value: "", comment: ""), status: Status(value: "", comment: ""), available: Available(value: "", comment: ""), unavailable: Unavailable(value: "", comment: ""), editHours: EditHours(value: "", comment: ""), monday: Monday(value: "", comment: ""), tuesday: Tuesday(value: "", comment: ""), wednesday: Wednesday(value: "", comment: ""), thursday: Thursday(value: "", comment: ""), friday: Friday(value: "", comment: ""), saturday: Saturday(value: "", comment: ""), sunday: Sunday(value: "", comment: ""), close: Close(value: "", comment: ""), email: Email(value: "", comment: ""), phone: Phone(value: "", comment: ""), address: Address(value: "", comment: ""), copy: Copy(value: "", comment: ""), retake: Retake(value: "", comment: ""), qrCode: QRCode(value: "", comment: ""))
+                return LocalizationPlist(username: Username(value: "", comment: ""), password: Password(value: "", comment: ""), rememberMe: RememberMe(value: "", comment: ""), login: Login(value: "", comment: ""), menu: Menu(value: "", comment: ""), readyForPickup: ReadyForPickup(value: "", comment: ""), delivered: Delivered(value: "", comment: ""), editProfile: EditProfile(value: "", comment: ""), orderSummary: OrderSummary(value: "", comment: ""), xboMarketShop: XBOMarketShop(value: "", comment: ""), earningsSummary: EarningsSummary(value: "", comment: ""), scanTool: ScanTool(value: "", comment: ""), logout: Logout(value: "", comment: ""), location: LocationText(value: "", comment: ""), tapHere: TapHere(value: "", comment: ""), status: Status(value: "", comment: ""), available: Available(value: "", comment: ""), unavailable: Unavailable(value: "", comment: ""), editHours: EditHours(value: "", comment: ""), monday: Monday(value: "", comment: ""), tuesday: Tuesday(value: "", comment: ""), wednesday: Wednesday(value: "", comment: ""), thursday: Thursday(value: "", comment: ""), friday: Friday(value: "", comment: ""), saturday: Saturday(value: "", comment: ""), sunday: Sunday(value: "", comment: ""), close: Close(value: "", comment: ""), email: Email(value: "", comment: ""), phone: Phone(value: "", comment: ""), address: Address(value: "", comment: ""), copy: Copy(value: "", comment: ""), retake: Retake(value: "", comment: ""), qrCode: QRCode(value: "", comment: ""), enterMessage: EnterMessage(value: "", comment: ""), mic: Mic(value: "", comment: ""), send: Send(value: "", comment: ""))
 
             }
             
         }
-        return LocalizerPlist(username: Username(value: "", comment: ""), password: Password(value: "", comment: ""), rememberMe: RememberMe(value: "", comment: ""), login: Login(value: "", comment: ""), menu: Menu(value: "", comment: ""), readyForPickup: ReadyForPickup(value: "", comment: ""), delivered: Delivered(value: "", comment: ""), editProfile: EditProfile(value: "", comment: ""), orderSummary: OrderSummary(value: "", comment: ""), xboMarketShop: XBOMarketShop(value: "", comment: ""), earningsSummary: EarningsSummary(value: "", comment: ""), scanTool: ScanTool(value: "", comment: ""), logout: Logout(value: "", comment: ""), location: LocationText(value: "", comment: ""), tapHere: TapHere(value: "", comment: ""), status: Status(value: "", comment: ""), available: Available(value: "", comment: ""), unavailable: Unavailable(value: "", comment: ""), editHours: EditHours(value: "", comment: ""), monday: Monday(value: "", comment: ""), tuesday: Tuesday(value: "", comment: ""), wednesday: Wednesday(value: "", comment: ""), thursday: Thursday(value: "", comment: ""), friday: Friday(value: "", comment: ""), saturday: Saturday(value: "", comment: ""), sunday: Sunday(value: "", comment: ""), close: Close(value: "", comment: ""), email: Email(value: "", comment: ""), phone: Phone(value: "", comment: ""), address: Address(value: "", comment: ""), copy: Copy(value: "", comment: ""), retake: Retake(value: "", comment: ""), qrCode: QRCode(value: "", comment: ""))
+        return LocalizationPlist(username: Username(value: "", comment: ""), password: Password(value: "", comment: ""), rememberMe: RememberMe(value: "", comment: ""), login: Login(value: "", comment: ""), menu: Menu(value: "", comment: ""), readyForPickup: ReadyForPickup(value: "", comment: ""), delivered: Delivered(value: "", comment: ""), editProfile: EditProfile(value: "", comment: ""), orderSummary: OrderSummary(value: "", comment: ""), xboMarketShop: XBOMarketShop(value: "", comment: ""), earningsSummary: EarningsSummary(value: "", comment: ""), scanTool: ScanTool(value: "", comment: ""), logout: Logout(value: "", comment: ""), location: LocationText(value: "", comment: ""), tapHere: TapHere(value: "", comment: ""), status: Status(value: "", comment: ""), available: Available(value: "", comment: ""), unavailable: Unavailable(value: "", comment: ""), editHours: EditHours(value: "", comment: ""), monday: Monday(value: "", comment: ""), tuesday: Tuesday(value: "", comment: ""), wednesday: Wednesday(value: "", comment: ""), thursday: Thursday(value: "", comment: ""), friday: Friday(value: "", comment: ""), saturday: Saturday(value: "", comment: ""), sunday: Sunday(value: "", comment: ""), close: Close(value: "", comment: ""), email: Email(value: "", comment: ""), phone: Phone(value: "", comment: ""), address: Address(value: "", comment: ""), copy: Copy(value: "", comment: ""), retake: Retake(value: "", comment: ""), qrCode: QRCode(value: "", comment: ""), enterMessage: EnterMessage(value: "", comment: ""), mic: Mic(value: "", comment: ""), send: Send(value: "", comment: ""))
     }
 }

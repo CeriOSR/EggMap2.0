@@ -233,5 +233,26 @@
 		<key>comment</key>
 		<string>alert title of alert controller in the QR view controller</string>
 	</dict>
+	<key>enterMessage</key>
+	<dict>
+		<key>value</key>
+		<string>Enter Message</string>
+		<key>comment</key>
+		<string>placeholder in chat textField</string>
+	</dict>
+	<key>mic</key>
+	<dict>
+		<key>value</key>
+		<string>Mic</string>
+		<key>comment</key>
+		<string>button name in the chat input accessorieView</string>
+	</dict>
+	<key>send</key>
+	<dict>
+		<key>value</key>
+		<string>Send</string>
+		<key>comment</key>
+		<string>button name in the chat input accesorieView</string>
+	</dict>
 </dict>
 </plist>

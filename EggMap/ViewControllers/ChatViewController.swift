@@ -21,7 +21,13 @@ class ChatViewController: UICollectionViewController {
         return view
     }()
     
-    let messageTextField: UITextField = {
+    let backgroundView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .white
+        return view
+    }()
+    
+    lazy var messageTextField: UITextField = {
         let tf = UITextField()
         tf.backgroundColor = .gray
         tf.placeholder = "enter message"
@@ -31,15 +37,15 @@ class ChatViewController: UICollectionViewController {
         return tf
     }()
     
-    let sendButton : UIButton = {
+    lazy var sendButton : UIButton = {
         let button = UIButton(type: .system)
-        button.setTitle("Send", for: .normal)
+        button.setTitle(localizer.parseLocalizable().send?.value, for: .normal)
         return button
     }()
     
-    let micButton : UIButton = {
+    lazy var micButton : UIButton = {
         let button = UIButton(type: .system)
-        button.setTitle("Mic", for: .normal)
+        button.setTitle(localizer.parseLocalizable().mic?.value, for: .normal)
         return button
     }()
     
@@ -102,16 +108,21 @@ class ChatViewController: UICollectionViewController {
     }
     
     private func setupContainerView(containerView: UIView) {
-        
         containerView.addSubview(lineView)
         containerView.addSubview(self.messageTextField)
         containerView.addSubview(self.micButton)
         containerView.addSubview(self.sendButton)
         
         lineView.anchor(containerView.topAnchor, left: containerView.leftAnchor, bottom: nil, right: containerView.rightAnchor, topConstant: 0, leftConstant: 0, bottomConstant: 0, rightConstant: 0, widthConstant: 0, heightConstant: 1)
-        self.messageTextField.anchor(lineView.bottomAnchor, left: containerView.leftAnchor, bottom: containerView.bottomAnchor, right: nil, topConstant: 0, leftConstant: 10, bottomConstant: 0, rightConstant: 0, widthConstant: ScreenSize.width * 0.7, heightConstant: 0)
-        self.micButton.anchor(lineView.bottomAnchor, left: messageTextField.rightAnchor, bottom: containerView.bottomAnchor, right: nil, topConstant: 0, leftConstant: 8, bottomConstant: 0, rightConstant: 0, widthConstant: ScreenSize.width * 0.11, heightConstant: 0)
-        self.sendButton.anchor(lineView.bottomAnchor, left: self.micButton.rightAnchor, bottom: containerView.bottomAnchor, right: containerView.rightAnchor, topConstant: 0, leftConstant: 8, bottomConstant: 0, rightConstant: 0, widthConstant: 0, heightConstant: 0)
+        self.messageTextField.anchor(lineView.bottomAnchor, left: containerView.leftAnchor, bottom: containerView.bottomAnchor, right: nil, topConstant: 0, leftConstant: 10, bottomConstant: 0, rightConstant: 0, widthConstant: ScreenSize.width * 0.65, heightConstant: 0)
+        self.micButton.anchor(lineView.bottomAnchor, left: messageTextField.rightAnchor, bottom: containerView.bottomAnchor, right: nil, topConstant: 0, leftConstant: 8, bottomConstant: 0, rightConstant: 0, widthConstant: ScreenSize.width * 0.15, heightConstant: 0)
+        self.sendButton.anchor(lineView.bottomAnchor, left: self.micButton.rightAnchor, bottom: containerView.bottomAnchor, right: containerView.rightAnchor, topConstant: 0, leftConstant: 8, bottomConstant: 0, rightConstant: 4, widthConstant: 0, heightConstant: 0)
+    }
+    
+    private func setupBackgroundView() {
+        view.addSubview(backgroundView)
+        backgroundView.anchor(nil, left: view.leftAnchor, bottom: view.bottomAnchor, right: view.rightAnchor, topConstant: 0, leftConstant: 0, bottomConstant: 0, rightConstant: 0, widthConstant: 0, heightConstant: ScreenSize.height * 0.09)
+
     }
     
     @objc func handleRightBarButtonTapped() {
