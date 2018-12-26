@@ -29,9 +29,21 @@ class ChatViewController: UICollectionViewController {
     
     lazy var messageTextField: UITextField = {
         let tf = UITextField()
-        //        tf.backgroundColor = .gray
-        tf.placeholder = self.localizer.parseLocalizable().enterMessage?.value
+        tf.backgroundColor = .gray
+        tf.placeholder = localizer.parseLocalizable().enterMessage?.value
+        tf.layer.borderColor = UIColor.darkGray.cgColor
+        tf.layer.borderWidth = 1
+        tf.layer.cornerRadius = 4
         return tf
+    }()
+    
+    lazy var mapButton : UIButton = {
+        let button = UIButton(type: .system)
+        //rename to map
+        button.setTitle(localizer.parseLocalizable().send?.value, for: .normal)
+        button.setTitle("Map", for: .normal)
+        button.addTarget(self, action: #selector(mapButtonTapped), for: .touchUpInside)
+        return button
     }()
     
     lazy var sendButton : UIButton = {
@@ -55,6 +67,7 @@ class ChatViewController: UICollectionViewController {
         self.view.backgroundColor = .white
         collectionView.backgroundColor = .white
         collectionView.keyboardDismissMode = .interactive
+        setupBackgroundView()
         setupSlideInMenu()
         self.collectionView!.register(ChatControllerFromCell.self, forCellWithReuseIdentifier: reuseIdentifier)
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "QR", style: .plain, target: self, action: #selector(handleRightBarButtonTapped))
@@ -63,7 +76,7 @@ class ChatViewController: UICollectionViewController {
     
     lazy var inputContainerView: UIView = {
         let containerView = UIView()
-        containerView.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: ScreenSize.height * 0.09)
+        containerView.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: ScreenSize.height * 0.13)
         containerView.translatesAutoresizingMaskIntoConstraints = false
         containerView.backgroundColor = .white
         setupBackgroundView()
@@ -92,12 +105,12 @@ class ChatViewController: UICollectionViewController {
     
     @objc func keyboardWillAppear() {
         //Do something here
-        inputContainerView.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: ScreenSize.height * 0.07)
+        inputContainerView.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: ScreenSize.height * 0.12)
     }
     
     @objc func keyboardWillDisappear() {
         //Do something here
-        inputContainerView.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: ScreenSize.height * 0.09)
+        inputContainerView.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: ScreenSize.height * 0.12)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -110,11 +123,13 @@ class ChatViewController: UICollectionViewController {
         containerView.addSubview(self.messageTextField)
         containerView.addSubview(self.micButton)
         containerView.addSubview(self.sendButton)
+        containerView.addSubview(self.mapButton)
         
         lineView.anchor(containerView.topAnchor, left: containerView.leftAnchor, bottom: nil, right: containerView.rightAnchor, topConstant: 0, leftConstant: 0, bottomConstant: 0, rightConstant: 0, widthConstant: 0, heightConstant: 1)
-        self.messageTextField.anchor(lineView.bottomAnchor, left: containerView.leftAnchor, bottom: containerView.bottomAnchor, right: nil, topConstant: 0, leftConstant: 10, bottomConstant: 0, rightConstant: 0, widthConstant: ScreenSize.width * 0.65, heightConstant: 0)
-        self.micButton.anchor(lineView.bottomAnchor, left: messageTextField.rightAnchor, bottom: containerView.bottomAnchor, right: nil, topConstant: 0, leftConstant: 8, bottomConstant: 0, rightConstant: 0, widthConstant: ScreenSize.width * 0.15, heightConstant: 0)
-        self.sendButton.anchor(lineView.bottomAnchor, left: self.micButton.rightAnchor, bottom: containerView.bottomAnchor, right: containerView.rightAnchor, topConstant: 0, leftConstant: 8, bottomConstant: 0, rightConstant: 4, widthConstant: 0, heightConstant: 0)
+        self.messageTextField.anchor(lineView.bottomAnchor, left: containerView.leftAnchor, bottom: nil, right: nil, topConstant: 0, leftConstant: 10, bottomConstant: 0, rightConstant: 0, widthConstant: ScreenSize.width * 0.65, heightConstant: containerView.frame.height * 0.5)
+        self.micButton.anchor(lineView.bottomAnchor, left: messageTextField.rightAnchor, bottom: nil, right: nil, topConstant: 0, leftConstant: 8, bottomConstant: 0, rightConstant: 0, widthConstant: ScreenSize.width * 0.15, heightConstant: containerView.frame.height * 0.5)
+        self.sendButton.anchor(lineView.bottomAnchor, left: self.micButton.rightAnchor, bottom: nil, right: containerView.rightAnchor, topConstant: 0, leftConstant: 8, bottomConstant: 0, rightConstant: 4, widthConstant: 0, heightConstant: containerView.frame.height * 0.5)
+        self.mapButton.anchor(messageTextField.bottomAnchor, left: containerView.leftAnchor, bottom: containerView.bottomAnchor, right: containerView.rightAnchor, topConstant: 0, leftConstant: 0, bottomConstant: 0, rightConstant: 0, widthConstant: 0, heightConstant: 0)
     }
     
     private func setupBackgroundView() {
@@ -125,25 +140,24 @@ class ChatViewController: UICollectionViewController {
     
     @objc func handleRightBarButtonTapped() {
         //CREATE AN ALERT HERE THAT SHOWS PRODUCT DETAILS, QRCODE ETC
-        //CREATE AN ALERT HERE THAT SHOWS PRODUCT DETAILS, QRCODE ETC
-        //        let alert = UIAlertController(title: "Prodct Code here", message: "Product details here and QRCode below", preferredStyle: .alert)
-        //        let okConfirmAction = UIAlertAction(title: "Ok", style: .default) { (action) in
-        //            alert.dismiss(animated: true, completion: {
-        //                //handle completion here if any
-        //            })
-        //        }
-        //        let qrImageView = UIImageView(frame: CGRect(x: 220, y: 10, width: 150, height: 150))
-        //        qrImageView.image = #imageLiteral(resourceName: "EggMapDude").withRenderingMode(.alwaysOriginal)
-        //
-        //        alert.view.addSubview(qrImageView)
-        //        alert.addAction(okConfirmAction)
-        //        self.present(alert, animated: true) {
-        //            //handle completion here
-        //        }
+//        let alert = UIAlertController(title: "Prodct Code here", message: "Product details here and QRCode below", preferredStyle: .alert)
+//        let okConfirmAction = UIAlertAction(title: "Ok", style: .default) { (action) in
+//            alert.dismiss(animated: true, completion: {
+//                //handle completion here if any
+//            })
+//        }
+//        let qrImageView = UIImageView(frame: CGRect(x: 220, y: 10, width: 150, height: 150))
+//        qrImageView.image = #imageLiteral(resourceName: "EggMapDude").withRenderingMode(.alwaysOriginal)
+//
+//        alert.view.addSubview(qrImageView)
+//        alert.addAction(okConfirmAction)
+//        self.present(alert, animated: true) {
+//            //handle completion here
+//        }
         
         let showAlert = UIAlertController(title: "Demo Alert", message: nil, preferredStyle: .alert)
         let imageView = UIImageView(frame: CGRect(x: 10, y: 50, width: 250, height: 230))
-        imageView.image = #imageLiteral(resourceName: "EggMapIcon copy").withRenderingMode(.alwaysOriginal)
+        imageView.image = #imageLiteral(resourceName: "EggMapDude").withRenderingMode(.alwaysOriginal)
         showAlert.view.addSubview(imageView)
         let height = NSLayoutConstraint(item: showAlert.view, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 320)
         let width = NSLayoutConstraint(item: showAlert.view, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 250)
@@ -154,7 +168,11 @@ class ChatViewController: UICollectionViewController {
         }))
         self.present(showAlert, animated: true, completion: nil)
         
-        
+    }
+    
+    @objc func mapButtonTapped() {
+        let pickLocationController = PickLocationController()
+        navigationController?.pushViewController(pickLocationController, animated: true)
     }
     
 }

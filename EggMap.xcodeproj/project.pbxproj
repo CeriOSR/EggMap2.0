@@ -12,6 +12,9 @@
 		AC7D089521C74A9E009F5D06 /* GMSHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC7D089421C74A9E009F5D06 /* GMSHelpers.swift */; };
 		AC7D089621C74A9E009F5D06 /* GMSHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC7D089421C74A9E009F5D06 /* GMSHelpers.swift */; };
 		AC7D089721C74A9E009F5D06 /* GMSHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC7D089421C74A9E009F5D06 /* GMSHelpers.swift */; };
+		AC7D089921CC958E009F5D06 /* PickLocationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC7D089821CC958E009F5D06 /* PickLocationController.swift */; };
+		AC7D089A21CC958E009F5D06 /* PickLocationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC7D089821CC958E009F5D06 /* PickLocationController.swift */; };
+		AC7D089B21CC958E009F5D06 /* PickLocationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC7D089821CC958E009F5D06 /* PickLocationController.swift */; };
 		ACE0ADD0216470CC0019D73B /* OrientationLockHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE0ADCF216470CC0019D73B /* OrientationLockHelper.swift */; };
 		ACE0ADD1216470CC0019D73B /* OrientationLockHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE0ADCF216470CC0019D73B /* OrientationLockHelper.swift */; };
 		ACE0ADD2216470CC0019D73B /* OrientationLockHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE0ADCF216470CC0019D73B /* OrientationLockHelper.swift */; };
@@ -203,6 +206,7 @@
 		866AF5553FB9FD762C473449 /* Pods-EggMapTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EggMapTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EggMapTests/Pods-EggMapTests.debug.xcconfig"; sourceTree = "<group>"; };
 		8E6318378071ACABBA27AB92 /* Pods_EggMapTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EggMapTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC7D089421C74A9E009F5D06 /* GMSHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GMSHelpers.swift; sourceTree = "<group>"; };
+		AC7D089821CC958E009F5D06 /* PickLocationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickLocationController.swift; sourceTree = "<group>"; };
 		ACE0ADCF216470CC0019D73B /* OrientationLockHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrientationLockHelper.swift; sourceTree = "<group>"; };
 		ACF53D3A21691FA900BD36C1 /* ClientSideOrderAvailabilityMapController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientSideOrderAvailabilityMapController.swift; sourceTree = "<group>"; };
 		ACF53D3F216BD86600BD36C1 /* AgentSideListOfOrdersMapDisplayController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgentSideListOfOrdersMapDisplayController.swift; sourceTree = "<group>"; };
@@ -338,6 +342,7 @@
 				ACF53D3F216BD86600BD36C1 /* AgentSideListOfOrdersMapDisplayController.swift */,
 				ACF53D532176514700BD36C1 /* LocationAndDatePickerController.swift */,
 				ACF53D572176EBF800BD36C1 /* DirectionGMMapController.swift */,
+				AC7D089821CC958E009F5D06 /* PickLocationController.swift */,
 			);
 			path = Maps;
 			sourceTree = "<group>";
@@ -834,6 +839,7 @@
 				E0F97CAC212B2C9C007CC2AD /* GetLocationJSONModel.swift in Sources */,
 				E04FFCF520F2B0AF006F3EC8 /* OrderSummaryScreenController.swift in Sources */,
 				E0525E28215DABA90053CA15 /* WaitingForAgentsController.swift in Sources */,
+				AC7D089921CC958E009F5D06 /* PickLocationController.swift in Sources */,
 				E0F28BC82109A5880041E748 /* AgentProfileCell.swift in Sources */,
 				E0F28BCC210D43AA0041E748 /* WebViewController.swift in Sources */,
 				E05E431B21C4E57600D7ED82 /* ChatControllerToCell.swift in Sources */,
@@ -892,6 +898,7 @@
 				E0F97CAD212B67C7007CC2AD /* GetLocationJSONModel.swift in Sources */,
 				E04FFCE920F29265006F3EC8 /* UIColorExtensions.swift in Sources */,
 				E0525E29215DABA90053CA15 /* WaitingForAgentsController.swift in Sources */,
+				AC7D089A21CC958E009F5D06 /* PickLocationController.swift in Sources */,
 				E0F28BC92109A5880041E748 /* AgentProfileCell.swift in Sources */,
 				E0F28BCD210D43AA0041E748 /* WebViewController.swift in Sources */,
 				E05E431C21C4E57600D7ED82 /* ChatControllerToCell.swift in Sources */,
@@ -950,6 +957,7 @@
 				E0F97CAE212B67C8007CC2AD /* GetLocationJSONModel.swift in Sources */,
 				E04FFCEA20F29265006F3EC8 /* UIColorExtensions.swift in Sources */,
 				E0525E2A215DABA90053CA15 /* WaitingForAgentsController.swift in Sources */,
+				AC7D089B21CC958E009F5D06 /* PickLocationController.swift in Sources */,
 				E0F28BCA2109A5880041E748 /* AgentProfileCell.swift in Sources */,
 				E0F28BCE210D43AA0041E748 /* WebViewController.swift in Sources */,
 				E05E431D21C4E57600D7ED82 /* ChatControllerToCell.swift in Sources */,
