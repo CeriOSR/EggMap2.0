@@ -38,7 +38,7 @@ class ClientSideOrderAvailabilityMapController: UIViewController, CLLocationMana
         let image = UIImageView()
         //give it a frame/cgrect for it to show up
         image.frame = CGRect(x: 0, y: 0, width: ScreenSize.height * 0.05, height: ScreenSize.height * 0.05)
-        let img = UIImage(named: "Cartoon Egg")?.withRenderingMode(.alwaysTemplate)
+        let img = UIImage(named: "Cartoon Egg")?.withRenderingMode(.alwaysOriginal)
         image.image = img
         //DONT KNOW IF WE NEED THIS AT ALL YET
 //        image.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleStoreMarkerTapped)))

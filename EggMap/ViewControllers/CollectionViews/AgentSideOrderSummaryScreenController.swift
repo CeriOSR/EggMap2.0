@@ -1,14 +1,14 @@
 //
-//  OrderSummaryScreenController.swift
+//  AgentSideOrderSummaryScreenController.swift
 //  EggMap
 //
-//  Created by Rey Cerio on 2018-07-08.
+//  Created by Mei on 2018-12-26.
 //  Copyright © 2018 Rey Cerio. All rights reserved.
 //
 
 import UIKit
 
-class OrderSummaryScreenController: UIViewController {
+class AgentSideOrderSummaryScreenController: UIViewController {
     
     let localizer = LocalizedPListStringGetter()
     var slideInMenu: SlideInMenu!
@@ -23,7 +23,7 @@ class OrderSummaryScreenController: UIViewController {
                     //guard let id = readyOrders[indexPath.item].id else {return}
                     //test id, delete later use line above
                     let id = "73DBE3A6-6783-4A98-A681-B9020E864080"
-
+                    
                     let gmsMapController = ClientSideOrderAvailabilityMapController()
                     let locationDetailsById = GetLocationDetailsByIDJSON()
                     locationDetailsById.getLocationAndScheduleDetailsById(id: id) { (locationDetails) in
@@ -80,7 +80,7 @@ class OrderSummaryScreenController: UIViewController {
         super.viewDidLoad()
         checkIfUserHasCredentials()
         view.backgroundColor = .white
-        self.orderSummaryCollectionView.register(OrderSummaryCell.self, forCellWithReuseIdentifier: cellId)
+        self.orderSummaryCollectionView.register(AgentSideOrderSummaryCell.self, forCellWithReuseIdentifier: cellId)
         setupViews()
     }
     
@@ -120,7 +120,7 @@ class OrderSummaryScreenController: UIViewController {
         view.addSubview(orderSummaryView)
         setupSlideInMenu()
         listOptionSegmentedController.anchor(view.safeAreaLayoutGuide.topAnchor, left: view.safeAreaLayoutGuide.leftAnchor, bottom: nil, right: view.safeAreaLayoutGuide.rightAnchor, topConstant: 0, leftConstant: 0, bottomConstant: 0, rightConstant: 0, widthConstant: 0, heightConstant: ScreenSize.height * 0.07)
-
+        
         orderSummaryView.anchor(listOptionSegmentedController.bottomAnchor, left: view.safeAreaLayoutGuide.leftAnchor, bottom: view.safeAreaLayoutGuide.bottomAnchor, right: view.safeAreaLayoutGuide.rightAnchor, topConstant: ScreenSize.height * 0.001, leftConstant: 0, bottomConstant: 0, rightConstant: 0, widthConstant: 0, heightConstant: 0)
         
         setupOrderSummaryView()
@@ -147,12 +147,12 @@ class OrderSummaryScreenController: UIViewController {
         }
     }
     
-//    private func fetchClientLocation(id: String) {
-//        let locationDetailsById = GetLocationDetailsByIDJSON()
-//        locationDetailsById.getLocationAndScheduleDetailsById(id: id) { (locationDetails) in
-//            <#code#>
-//        }
-//    }
+    //    private func fetchClientLocation(id: String) {
+    //        let locationDetailsById = GetLocationDetailsByIDJSON()
+    //        locationDetailsById.getLocationAndScheduleDetailsById(id: id) { (locationDetails) in
+    //            <#code#>
+    //        }
+    //    }
     
     //change this to didselect to show where the availability is...
     @objc func handleMapButtonTapped() {
@@ -161,7 +161,7 @@ class OrderSummaryScreenController: UIViewController {
     }
 }
 
-extension OrderSummaryScreenController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+extension AgentSideOrderSummaryScreenController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
@@ -176,25 +176,25 @@ extension OrderSummaryScreenController: UICollectionViewDelegate, UICollectionVi
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = orderSummaryCollectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! OrderSummaryCell
-
+        let cell = orderSummaryCollectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! AgentSideOrderSummaryCell
+        
         let readyOrder: UndeliveredOrder?
         let finishedOrder: DeliveredOrder?
         
         if self.listOptionSegmentedController.selectedSegmentIndex == 0 {
-            readyOrder = readyOrders[indexPath.item]
-            cell.orderLabel.text = readyOrder?.contractNo
-            cell.dateLabel.text = readyOrder?.memo
-            cell.statusLabel.text = readyOrder?.policyStatusName
-            cell.productLabel.text = readyOrder?.id
-            cell.rateBtn.isHidden = true
+//            readyOrder = readyOrders[indexPath.item]
+//            cell.orderLabel.text = readyOrder?.contractNo
+//            cell.dateLabel.text = readyOrder?.memo
+//            cell.statusLabel.text = readyOrder?.policyStatusName
+//            cell.productLabel.text = readyOrder?.id
+//            cell.rateBtn.isHidden = true
         } else {
-            finishedOrder = finishedOrders[indexPath.item]
-            cell.orderLabel.text = finishedOrder?.contractNo
-            cell.dateLabel.text = finishedOrder?.memo
-            cell.statusLabel.text = finishedOrder?.policyStatusName
-            cell.productLabel.text = finishedOrder?.id
-            cell.rateBtn.isHidden = false
+//            finishedOrder = finishedOrders[indexPath.item]
+//            cell.orderLabel.text = finishedOrder?.contractNo
+//            cell.dateLabel.text = finishedOrder?.memo
+//            cell.statusLabel.text = finishedOrder?.policyStatusName
+//            cell.productLabel.text = finishedOrder?.id
+//            cell.rateBtn.isHidden = false
         }
         return cell
     }
@@ -210,25 +210,25 @@ extension OrderSummaryScreenController: UICollectionViewDelegate, UICollectionVi
             let chatController = ChatViewController(collectionViewLayout: layout)
             navigationController?.pushViewController(chatController, animated: true)
         } else {
-
-//        guard let id = readyOrders[indexPath.item].id else {return}
-        //test ID delete later use line above
-        let id = "73DBE3A6-6783-4A98-A681-B9020E864080"
-
-        let gmsMapController = ClientSideOrderAvailabilityMapController()
-        let locationDetailsById = GetLocationDetailsByIDJSON()
-        locationDetailsById.getLocationAndScheduleDetailsById(id: id) { (locationDetails) in
-            print(locationDetails)
-            let addressString = locationDetailsById.formAddressString(location: locationDetails)
-            gmsMapController.addressString = addressString
-        }
-        navigationController?.pushViewController(gmsMapController, animated: true)
+            
+            //        guard let id = readyOrders[indexPath.item].id else {return}
+            //test ID delete later use line above
+            let id = "73DBE3A6-6783-4A98-A681-B9020E864080"
+            
+            let gmsMapController = ClientSideOrderAvailabilityMapController()
+            let locationDetailsById = GetLocationDetailsByIDJSON()
+            locationDetailsById.getLocationAndScheduleDetailsById(id: id) { (locationDetails) in
+                print(locationDetails)
+                let addressString = locationDetailsById.formAddressString(location: locationDetails)
+                gmsMapController.addressString = addressString
+            }
+            navigationController?.pushViewController(gmsMapController, animated: true)
         }
     }
 }
 
 //This has to do with the slide in menu only
-extension OrderSummaryScreenController: SideBarViewDelegate {
+extension AgentSideOrderSummaryScreenController: SideBarViewDelegate {
     
     @objc func handleBlackScreenTap() {
         hideMenu()
@@ -302,7 +302,7 @@ extension OrderSummaryScreenController: SideBarViewDelegate {
             
             
         case .orderSummary:
-            let orderSummaryController = OrderSummaryScreenController()
+            let orderSummaryController = ClientSideOrderSummaryScreenController()
             let navOrderSummController = UINavigationController(rootViewController: orderSummaryController)
             present(navOrderSummController, animated: true) {
                 //completion here, maybe pass some data
@@ -318,19 +318,25 @@ extension OrderSummaryScreenController: SideBarViewDelegate {
             navigationController?.pushViewController(webView, animated: true)
         case .scanTool:
             let qrCodeScannerController = QRCodeScannerController()
-//            let navQRController = UINavigationController(rootViewController: qrCodeScannerController)
-//            present(navQRController, animated: true) {
-//                //completion here. maybe pass data
-//            }
+            //            let navQRController = UINavigationController(rootViewController: qrCodeScannerController)
+            //            present(navQRController, animated: true) {
+            //                //completion here. maybe pass data
+            //            }
             navigationController?.pushViewController(qrCodeScannerController, animated: true)
             
         case .logout:
             //log out client here
             let logoutModel = LogoutModel()
             logoutModel.fetchJsonLogout()
+            UserDefaults.standard.removeObject(forKey: "uid")
+            UserDefaults.standard.removeObject(forKey: "uuid")
+            UserDefaults.standard.removeObject(forKey: "userType")
             let loginController = LoginController()
             present(loginController, animated: true) {
-                //try the log out here
+                LoginController.GlobalLoginIDs.locationId = ""
+                LoginController.GlobalLoginIDs.uid = ""
+                LoginController.GlobalLoginIDs.uuid = ""
+                LoginController.GlobalLoginIDs.userType = ""
             }
         case .none:
             break

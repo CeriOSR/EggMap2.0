@@ -32,7 +32,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         
         userId = 1
-        let orderSummScreen = OrderSummaryScreenController()
+        let orderSummScreen = ClientSideOrderSummaryScreenController()
         
 //        //delete these 2 lines...for test only
 //        let layout = UICollectionViewFlowLayout()

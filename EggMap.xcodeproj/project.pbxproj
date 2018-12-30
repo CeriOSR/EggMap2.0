@@ -9,12 +9,21 @@
 /* Begin PBXBuildFile section */
 		41713474707B45ED4C832060 /* Pods_EggMapUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47B042699B6E5059F889F6F7 /* Pods_EggMapUITests.framework */; };
 		9F98EBBCD67AA5224CDEE331 /* Pods_EggMapTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E6318378071ACABBA27AB92 /* Pods_EggMapTests.framework */; };
+		AC69667B21D83952004E0D78 /* UserDefaultsHelpers++.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC69667A21D83952004E0D78 /* UserDefaultsHelpers++.swift */; };
+		AC69667C21D83952004E0D78 /* UserDefaultsHelpers++.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC69667A21D83952004E0D78 /* UserDefaultsHelpers++.swift */; };
+		AC69667D21D83952004E0D78 /* UserDefaultsHelpers++.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC69667A21D83952004E0D78 /* UserDefaultsHelpers++.swift */; };
 		AC7D089521C74A9E009F5D06 /* GMSHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC7D089421C74A9E009F5D06 /* GMSHelpers.swift */; };
 		AC7D089621C74A9E009F5D06 /* GMSHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC7D089421C74A9E009F5D06 /* GMSHelpers.swift */; };
 		AC7D089721C74A9E009F5D06 /* GMSHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC7D089421C74A9E009F5D06 /* GMSHelpers.swift */; };
 		AC7D089921CC958E009F5D06 /* PickLocationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC7D089821CC958E009F5D06 /* PickLocationController.swift */; };
 		AC7D089A21CC958E009F5D06 /* PickLocationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC7D089821CC958E009F5D06 /* PickLocationController.swift */; };
 		AC7D089B21CC958E009F5D06 /* PickLocationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC7D089821CC958E009F5D06 /* PickLocationController.swift */; };
+		ACD3DCFB21D4592D007609FA /* AgentSideOrderSummaryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD3DCFA21D4592D007609FA /* AgentSideOrderSummaryCell.swift */; };
+		ACD3DCFC21D4592D007609FA /* AgentSideOrderSummaryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD3DCFA21D4592D007609FA /* AgentSideOrderSummaryCell.swift */; };
+		ACD3DCFD21D4592D007609FA /* AgentSideOrderSummaryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD3DCFA21D4592D007609FA /* AgentSideOrderSummaryCell.swift */; };
+		ACD3DD0021D460B2007609FA /* AgentSideOrderSummaryScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD3DCFF21D460B2007609FA /* AgentSideOrderSummaryScreenController.swift */; };
+		ACD3DD0121D460B2007609FA /* AgentSideOrderSummaryScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD3DCFF21D460B2007609FA /* AgentSideOrderSummaryScreenController.swift */; };
+		ACD3DD0221D460B2007609FA /* AgentSideOrderSummaryScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD3DCFF21D460B2007609FA /* AgentSideOrderSummaryScreenController.swift */; };
 		ACE0ADD0216470CC0019D73B /* OrientationLockHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE0ADCF216470CC0019D73B /* OrientationLockHelper.swift */; };
 		ACE0ADD1216470CC0019D73B /* OrientationLockHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE0ADCF216470CC0019D73B /* OrientationLockHelper.swift */; };
 		ACE0ADD2216470CC0019D73B /* OrientationLockHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE0ADCF216470CC0019D73B /* OrientationLockHelper.swift */; };
@@ -51,17 +60,17 @@
 		E010708A20F59DB100F06379 /* KeychainPasswordItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E010708720F59DB100F06379 /* KeychainPasswordItem.swift */; };
 		E010708B20F59DF500F06379 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04FFCB720F0762F006F3EC8 /* LoginController.swift */; };
 		E010708C20F59DF600F06379 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04FFCB720F0762F006F3EC8 /* LoginController.swift */; };
-		E010708D20F59DF900F06379 /* OrderSummaryScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04FFCF420F2B0AF006F3EC8 /* OrderSummaryScreenController.swift */; };
-		E010708E20F59DF900F06379 /* OrderSummaryScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04FFCF420F2B0AF006F3EC8 /* OrderSummaryScreenController.swift */; };
+		E010708D20F59DF900F06379 /* ClientSideOrderSummaryScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04FFCF420F2B0AF006F3EC8 /* ClientSideOrderSummaryScreenController.swift */; };
+		E010708E20F59DF900F06379 /* ClientSideOrderSummaryScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04FFCF420F2B0AF006F3EC8 /* ClientSideOrderSummaryScreenController.swift */; };
 		E010709520FEED0E00F06379 /* QRCodeScannerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E010709420FEED0E00F06379 /* QRCodeScannerController.swift */; };
 		E010709620FEED0E00F06379 /* QRCodeScannerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E010709420FEED0E00F06379 /* QRCodeScannerController.swift */; };
 		E010709720FEED0E00F06379 /* QRCodeScannerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E010709420FEED0E00F06379 /* QRCodeScannerController.swift */; };
 		E010709A2100001100F06379 /* BaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E01070992100001100F06379 /* BaseCell.swift */; };
 		E010709B2100001100F06379 /* BaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E01070992100001100F06379 /* BaseCell.swift */; };
 		E010709C2100001100F06379 /* BaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E01070992100001100F06379 /* BaseCell.swift */; };
-		E010709E2100008C00F06379 /* OrderSummaryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E010709D2100008C00F06379 /* OrderSummaryCell.swift */; };
-		E010709F2100008C00F06379 /* OrderSummaryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E010709D2100008C00F06379 /* OrderSummaryCell.swift */; };
-		E01070A02100008C00F06379 /* OrderSummaryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E010709D2100008C00F06379 /* OrderSummaryCell.swift */; };
+		E010709E2100008C00F06379 /* ClientSideOrderSummaryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E010709D2100008C00F06379 /* ClientSideOrderSummaryCell.swift */; };
+		E010709F2100008C00F06379 /* ClientSideOrderSummaryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E010709D2100008C00F06379 /* ClientSideOrderSummaryCell.swift */; };
+		E01070A02100008C00F06379 /* ClientSideOrderSummaryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E010709D2100008C00F06379 /* ClientSideOrderSummaryCell.swift */; };
 		E015AD6D212E1A6900F6A488 /* DeliveredOrders.swift in Sources */ = {isa = PBXBuildFile; fileRef = E015AD6B212E1A6900F6A488 /* DeliveredOrders.swift */; };
 		E015AD6E212E1A6900F6A488 /* DeliveredOrders.swift in Sources */ = {isa = PBXBuildFile; fileRef = E015AD6B212E1A6900F6A488 /* DeliveredOrders.swift */; };
 		E015AD6F212E1A6900F6A488 /* DeliveredOrders.swift in Sources */ = {isa = PBXBuildFile; fileRef = E015AD6B212E1A6900F6A488 /* DeliveredOrders.swift */; };
@@ -111,7 +120,7 @@
 		E04FFCED20F2947C006F3EC8 /* UIDeviceHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04FFCEC20F2947C006F3EC8 /* UIDeviceHelpers.swift */; };
 		E04FFCEE20F2947C006F3EC8 /* UIDeviceHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04FFCEC20F2947C006F3EC8 /* UIDeviceHelpers.swift */; };
 		E04FFCEF20F2947C006F3EC8 /* UIDeviceHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04FFCEC20F2947C006F3EC8 /* UIDeviceHelpers.swift */; };
-		E04FFCF520F2B0AF006F3EC8 /* OrderSummaryScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04FFCF420F2B0AF006F3EC8 /* OrderSummaryScreenController.swift */; };
+		E04FFCF520F2B0AF006F3EC8 /* ClientSideOrderSummaryScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04FFCF420F2B0AF006F3EC8 /* ClientSideOrderSummaryScreenController.swift */; };
 		E04FFCFA20F2C60B006F3EC8 /* GMSMapController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04FFCF920F2C60B006F3EC8 /* GMSMapController.swift */; };
 		E04FFCFB20F2C60B006F3EC8 /* GMSMapController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04FFCF920F2C60B006F3EC8 /* GMSMapController.swift */; };
 		E04FFCFC20F2C60B006F3EC8 /* GMSMapController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04FFCF920F2C60B006F3EC8 /* GMSMapController.swift */; };
@@ -205,8 +214,11 @@
 		7F9F256D3FFF1DD2B67E9E33 /* Pods-EggMapUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EggMapUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-EggMapUITests/Pods-EggMapUITests.release.xcconfig"; sourceTree = "<group>"; };
 		866AF5553FB9FD762C473449 /* Pods-EggMapTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EggMapTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EggMapTests/Pods-EggMapTests.debug.xcconfig"; sourceTree = "<group>"; };
 		8E6318378071ACABBA27AB92 /* Pods_EggMapTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EggMapTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AC69667A21D83952004E0D78 /* UserDefaultsHelpers++.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaultsHelpers++.swift"; sourceTree = "<group>"; };
 		AC7D089421C74A9E009F5D06 /* GMSHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GMSHelpers.swift; sourceTree = "<group>"; };
 		AC7D089821CC958E009F5D06 /* PickLocationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickLocationController.swift; sourceTree = "<group>"; };
+		ACD3DCFA21D4592D007609FA /* AgentSideOrderSummaryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgentSideOrderSummaryCell.swift; sourceTree = "<group>"; };
+		ACD3DCFF21D460B2007609FA /* AgentSideOrderSummaryScreenController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgentSideOrderSummaryScreenController.swift; sourceTree = "<group>"; };
 		ACE0ADCF216470CC0019D73B /* OrientationLockHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrientationLockHelper.swift; sourceTree = "<group>"; };
 		ACF53D3A21691FA900BD36C1 /* ClientSideOrderAvailabilityMapController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientSideOrderAvailabilityMapController.swift; sourceTree = "<group>"; };
 		ACF53D3F216BD86600BD36C1 /* AgentSideListOfOrdersMapDisplayController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgentSideListOfOrdersMapDisplayController.swift; sourceTree = "<group>"; };
@@ -221,7 +233,7 @@
 		E010708F20F5B28F00F06379 /* EggMap.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = EggMap.entitlements; sourceTree = "<group>"; };
 		E010709420FEED0E00F06379 /* QRCodeScannerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeScannerController.swift; sourceTree = "<group>"; };
 		E01070992100001100F06379 /* BaseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCell.swift; sourceTree = "<group>"; };
-		E010709D2100008C00F06379 /* OrderSummaryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderSummaryCell.swift; sourceTree = "<group>"; };
+		E010709D2100008C00F06379 /* ClientSideOrderSummaryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientSideOrderSummaryCell.swift; sourceTree = "<group>"; };
 		E015AD6B212E1A6900F6A488 /* DeliveredOrders.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeliveredOrders.swift; sourceTree = "<group>"; };
 		E015AD6C212E1A6900F6A488 /* LocationandScheduleDetailsByID.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationandScheduleDetailsByID.swift; sourceTree = "<group>"; };
 		E016A1E72147648600BD70E2 /* LocalizedStringGetter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizedStringGetter.swift; sourceTree = "<group>"; };
@@ -258,7 +270,7 @@
 		E04FFCE320F291C2006F3EC8 /* UIViewAnchors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewAnchors.swift; sourceTree = "<group>"; };
 		E04FFCE720F29265006F3EC8 /* UIColorExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtensions.swift; sourceTree = "<group>"; };
 		E04FFCEC20F2947C006F3EC8 /* UIDeviceHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIDeviceHelpers.swift; sourceTree = "<group>"; };
-		E04FFCF420F2B0AF006F3EC8 /* OrderSummaryScreenController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderSummaryScreenController.swift; sourceTree = "<group>"; };
+		E04FFCF420F2B0AF006F3EC8 /* ClientSideOrderSummaryScreenController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientSideOrderSummaryScreenController.swift; sourceTree = "<group>"; };
 		E04FFCF920F2C60B006F3EC8 /* GMSMapController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GMSMapController.swift; sourceTree = "<group>"; };
 		E0525E27215DABA90053CA15 /* WaitingForAgentsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaitingForAgentsController.swift; sourceTree = "<group>"; };
 		E05E430E21C4E2C000D7ED82 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
@@ -334,6 +346,16 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		ACD3DCFE21D4600E007609FA /* CollectionViews */ = {
+			isa = PBXGroup;
+			children = (
+				E05E430E21C4E2C000D7ED82 /* ChatViewController.swift */,
+				E04FFCF420F2B0AF006F3EC8 /* ClientSideOrderSummaryScreenController.swift */,
+				ACD3DCFF21D460B2007609FA /* AgentSideOrderSummaryScreenController.swift */,
+			);
+			path = CollectionViews;
+			sourceTree = "<group>";
+		};
 		ACF53D3E21691FD500BD36C1 /* Maps */ = {
 			isa = PBXGroup;
 			children = (
@@ -351,13 +373,14 @@
 			isa = PBXGroup;
 			children = (
 				E01070992100001100F06379 /* BaseCell.swift */,
-				E010709D2100008C00F06379 /* OrderSummaryCell.swift */,
+				E010709D2100008C00F06379 /* ClientSideOrderSummaryCell.swift */,
 				E0F28BC32109A5710041E748 /* ClientProfileCell.swift */,
 				E0F28BC72109A5880041E748 /* AgentProfileCell.swift */,
 				E01913BA212256E2001C384D /* AgentLocationCell.swift */,
 				ACF53D4B2172B21900BD36C1 /* ClientSlideUpViewCell.swift */,
 				E05E431221C4E34300D7ED82 /* ChatControllerFromCell.swift */,
 				E05E431A21C4E57600D7ED82 /* ChatControllerToCell.swift */,
+				ACD3DCFA21D4592D007609FA /* AgentSideOrderSummaryCell.swift */,
 			);
 			path = CollectionViewCells;
 			sourceTree = "<group>";
@@ -452,6 +475,7 @@
 				E01A867A2186DFE4005211D2 /* UIAlertHelper.swift */,
 				E05E431621C4E46800D7ED82 /* CollectionViewHelpers.swift */,
 				AC7D089421C74A9E009F5D06 /* GMSHelpers.swift */,
+				AC69667A21D83952004E0D78 /* UserDefaultsHelpers++.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -459,9 +483,9 @@
 		E04FFCF820F2C5C8006F3EC8 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				ACD3DCFE21D4600E007609FA /* CollectionViews */,
 				ACF53D3E21691FD500BD36C1 /* Maps */,
 				E04FFCB720F0762F006F3EC8 /* LoginController.swift */,
-				E04FFCF420F2B0AF006F3EC8 /* OrderSummaryScreenController.swift */,
 				E010709420FEED0E00F06379 /* QRCodeScannerController.swift */,
 				E0F28BAF21082A350041E748 /* AgentProfileController.swift */,
 				E0F28BBB21083FEE0041E748 /* ClientProfileController.swift */,
@@ -469,7 +493,6 @@
 				E0F28BCB210D43AA0041E748 /* WebViewController.swift */,
 				E0525E27215DABA90053CA15 /* WaitingForAgentsController.swift */,
 				E01A86762186AC68005211D2 /* RateUserController.swift */,
-				E05E430E21C4E2C000D7ED82 /* ChatViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -837,12 +860,13 @@
 				E016A2032147742300BD70E2 /* LocalizedPListStringGetter.swift in Sources */,
 				E04FFCED20F2947C006F3EC8 /* UIDeviceHelpers.swift in Sources */,
 				E0F97CAC212B2C9C007CC2AD /* GetLocationJSONModel.swift in Sources */,
-				E04FFCF520F2B0AF006F3EC8 /* OrderSummaryScreenController.swift in Sources */,
+				E04FFCF520F2B0AF006F3EC8 /* ClientSideOrderSummaryScreenController.swift in Sources */,
 				E0525E28215DABA90053CA15 /* WaitingForAgentsController.swift in Sources */,
 				AC7D089921CC958E009F5D06 /* PickLocationController.swift in Sources */,
 				E0F28BC82109A5880041E748 /* AgentProfileCell.swift in Sources */,
 				E0F28BCC210D43AA0041E748 /* WebViewController.swift in Sources */,
 				E05E431B21C4E57600D7ED82 /* ChatControllerToCell.swift in Sources */,
+				AC69667B21D83952004E0D78 /* UserDefaultsHelpers++.swift in Sources */,
 				ACF53D5C217BABE400BD36C1 /* MapMarkerInfoWindow.swift in Sources */,
 				E04FFCFA20F2C60B006F3EC8 /* GMSMapController.swift in Sources */,
 				E05E431721C4E46800D7ED82 /* CollectionViewHelpers.swift in Sources */,
@@ -855,7 +879,7 @@
 				ACE0ADD0216470CC0019D73B /* OrientationLockHelper.swift in Sources */,
 				E010708820F59DB100F06379 /* KeychainPasswordItem.swift in Sources */,
 				E015AD6D212E1A6900F6A488 /* DeliveredOrders.swift in Sources */,
-				E010709E2100008C00F06379 /* OrderSummaryCell.swift in Sources */,
+				E010709E2100008C00F06379 /* ClientSideOrderSummaryCell.swift in Sources */,
 				E0F28BC42109A5710041E748 /* ClientProfileCell.swift in Sources */,
 				ACF53D582176EBF800BD36C1 /* DirectionGMMapController.swift in Sources */,
 				E0F28BB421082BD70041E748 /* ClientProfileView.swift in Sources */,
@@ -866,6 +890,7 @@
 				E01A86772186AC68005211D2 /* RateUserController.swift in Sources */,
 				E04FFCB820F0762F006F3EC8 /* LoginController.swift in Sources */,
 				E0F28BBC21083FEE0041E748 /* ClientProfileController.swift in Sources */,
+				ACD3DD0021D460B2007609FA /* AgentSideOrderSummaryScreenController.swift in Sources */,
 				E0F28BB021082A350041E748 /* AgentProfileController.swift in Sources */,
 				ACF53D542176514700BD36C1 /* LocationAndDatePickerController.swift in Sources */,
 				E0CEC3BA212A80DD0062FC35 /* LogoutJSONModel.swift in Sources */,
@@ -878,6 +903,7 @@
 				ACF53D40216BD86600BD36C1 /* AgentSideListOfOrdersMapDisplayController.swift in Sources */,
 				E04C6C922129177D00EFEE09 /* LoginJSONModel.swift in Sources */,
 				E015AD70212E1A6900F6A488 /* LocationandScheduleDetailsByID.swift in Sources */,
+				ACD3DCFB21D4592D007609FA /* AgentSideOrderSummaryCell.swift in Sources */,
 				E0F28BA42103DEEB0041E748 /* SlideInMenu.swift in Sources */,
 				E0F28BC021097F3F0041E748 /* AgentLocationsController.swift in Sources */,
 				E010709A2100001100F06379 /* BaseCell.swift in Sources */,
@@ -902,8 +928,9 @@
 				E0F28BC92109A5880041E748 /* AgentProfileCell.swift in Sources */,
 				E0F28BCD210D43AA0041E748 /* WebViewController.swift in Sources */,
 				E05E431C21C4E57600D7ED82 /* ChatControllerToCell.swift in Sources */,
+				AC69667C21D83952004E0D78 /* UserDefaultsHelpers++.swift in Sources */,
 				ACF53D5D217BABE400BD36C1 /* MapMarkerInfoWindow.swift in Sources */,
-				E010708D20F59DF900F06379 /* OrderSummaryScreenController.swift in Sources */,
+				E010708D20F59DF900F06379 /* ClientSideOrderSummaryScreenController.swift in Sources */,
 				E05E431821C4E46800D7ED82 /* CollectionViewHelpers.swift in Sources */,
 				E010709620FEED0E00F06379 /* QRCodeScannerController.swift in Sources */,
 				E05E431021C4E2C000D7ED82 /* ChatViewController.swift in Sources */,
@@ -914,7 +941,7 @@
 				ACE0ADD1216470CC0019D73B /* OrientationLockHelper.swift in Sources */,
 				E04FFCEE20F2947C006F3EC8 /* UIDeviceHelpers.swift in Sources */,
 				E015AD6E212E1A6900F6A488 /* DeliveredOrders.swift in Sources */,
-				E010709F2100008C00F06379 /* OrderSummaryCell.swift in Sources */,
+				E010709F2100008C00F06379 /* ClientSideOrderSummaryCell.swift in Sources */,
 				E0F28BC52109A5710041E748 /* ClientProfileCell.swift in Sources */,
 				ACF53D592176EBF800BD36C1 /* DirectionGMMapController.swift in Sources */,
 				E0F28BB521082BD70041E748 /* ClientProfileView.swift in Sources */,
@@ -925,6 +952,7 @@
 				E01A86782186AC68005211D2 /* RateUserController.swift in Sources */,
 				E04FFCCB20F07633006F3EC8 /* EggMapTests.swift in Sources */,
 				E0F28BBD21083FEE0041E748 /* ClientProfileController.swift in Sources */,
+				ACD3DD0121D460B2007609FA /* AgentSideOrderSummaryScreenController.swift in Sources */,
 				E0F28BB121082A350041E748 /* AgentProfileController.swift in Sources */,
 				ACF53D552176514700BD36C1 /* LocationAndDatePickerController.swift in Sources */,
 				E0CEC3BB212A80DD0062FC35 /* LogoutJSONModel.swift in Sources */,
@@ -937,6 +965,7 @@
 				ACF53D41216BD86600BD36C1 /* AgentSideListOfOrdersMapDisplayController.swift in Sources */,
 				E04C6C932129177D00EFEE09 /* LoginJSONModel.swift in Sources */,
 				E015AD71212E1A6900F6A488 /* LocationandScheduleDetailsByID.swift in Sources */,
+				ACD3DCFC21D4592D007609FA /* AgentSideOrderSummaryCell.swift in Sources */,
 				E0F28BA52103DEEB0041E748 /* SlideInMenu.swift in Sources */,
 				E0F28BC121097F3F0041E748 /* AgentLocationsController.swift in Sources */,
 				E010709B2100001100F06379 /* BaseCell.swift in Sources */,
@@ -961,8 +990,9 @@
 				E0F28BCA2109A5880041E748 /* AgentProfileCell.swift in Sources */,
 				E0F28BCE210D43AA0041E748 /* WebViewController.swift in Sources */,
 				E05E431D21C4E57600D7ED82 /* ChatControllerToCell.swift in Sources */,
+				AC69667D21D83952004E0D78 /* UserDefaultsHelpers++.swift in Sources */,
 				ACF53D5E217BABE400BD36C1 /* MapMarkerInfoWindow.swift in Sources */,
-				E010708E20F59DF900F06379 /* OrderSummaryScreenController.swift in Sources */,
+				E010708E20F59DF900F06379 /* ClientSideOrderSummaryScreenController.swift in Sources */,
 				E05E431921C4E46800D7ED82 /* CollectionViewHelpers.swift in Sources */,
 				E010709720FEED0E00F06379 /* QRCodeScannerController.swift in Sources */,
 				E05E431121C4E2C000D7ED82 /* ChatViewController.swift in Sources */,
@@ -973,7 +1003,7 @@
 				ACE0ADD2216470CC0019D73B /* OrientationLockHelper.swift in Sources */,
 				E04FFCEF20F2947C006F3EC8 /* UIDeviceHelpers.swift in Sources */,
 				E015AD6F212E1A6900F6A488 /* DeliveredOrders.swift in Sources */,
-				E01070A02100008C00F06379 /* OrderSummaryCell.swift in Sources */,
+				E01070A02100008C00F06379 /* ClientSideOrderSummaryCell.swift in Sources */,
 				E0F28BC62109A5710041E748 /* ClientProfileCell.swift in Sources */,
 				ACF53D5A2176EBF800BD36C1 /* DirectionGMMapController.swift in Sources */,
 				E0F28BB621082BD70041E748 /* ClientProfileView.swift in Sources */,
@@ -984,6 +1014,7 @@
 				E01A86792186AC68005211D2 /* RateUserController.swift in Sources */,
 				E04FFCD620F07633006F3EC8 /* EggMapUITests.swift in Sources */,
 				E0F28BBE21083FEE0041E748 /* ClientProfileController.swift in Sources */,
+				ACD3DD0221D460B2007609FA /* AgentSideOrderSummaryScreenController.swift in Sources */,
 				E0F28BB221082A350041E748 /* AgentProfileController.swift in Sources */,
 				ACF53D562176514700BD36C1 /* LocationAndDatePickerController.swift in Sources */,
 				E0CEC3BC212A80DD0062FC35 /* LogoutJSONModel.swift in Sources */,
@@ -996,6 +1027,7 @@
 				ACF53D42216BD86600BD36C1 /* AgentSideListOfOrdersMapDisplayController.swift in Sources */,
 				E04C6C942129177D00EFEE09 /* LoginJSONModel.swift in Sources */,
 				E015AD72212E1A6900F6A488 /* LocationandScheduleDetailsByID.swift in Sources */,
+				ACD3DCFD21D4592D007609FA /* AgentSideOrderSummaryCell.swift in Sources */,
 				E0F28BA62103DEEB0041E748 /* SlideInMenu.swift in Sources */,
 				E0F28BC221097F3F0041E748 /* AgentLocationsController.swift in Sources */,
 				E010709C2100001100F06379 /* BaseCell.swift in Sources */,

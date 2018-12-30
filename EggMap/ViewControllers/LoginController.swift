@@ -8,11 +8,18 @@
 
 import UIKit
 import CoreData
-//import realmSwift
 
 struct KeychainConfiguration {
+    static let share = KeychainConfiguration()
     static let serviceName = "EggMap"
     static let accessGroup: String? = nil
+}
+
+struct DefaultKeys {
+    static let shared = DefaultKeys()
+    static let uid = "uid"
+    static let uuid = "uuid"
+    static let userType = "userType"
 }
 
 class LoginController: UIViewController {
@@ -143,7 +150,7 @@ class LoginController: UIViewController {
     }
     
     private func presentClientScreen() {
-        let orderSummController = OrderSummaryScreenController()
+        let orderSummController = ClientSideOrderSummaryScreenController()
         let navOrderSummController = UINavigationController(rootViewController: orderSummController)
         present(navOrderSummController, animated: true) {
             
@@ -189,9 +196,9 @@ class LoginController: UIViewController {
                         self.showLoginFailedAlert(message: "Unable to fetch the User type.")
                         return
                     }
-                    UserDefaults.standard.set(uid, forKey: "uid")
-                    UserDefaults.standard.set(uuid, forKey: "uuid")
-                    UserDefaults.standard.set(userType, forKey: "userType")
+                    UserDefaults.standard.set(uid, forKey: DefaultKeys.uid)
+                    UserDefaults.standard.set(uuid, forKey: DefaultKeys.uuid)
+                    UserDefaults.standard.set(userType, forKey: DefaultKeys.userType)
                     GlobalLoginIDs.uid = uid
                     GlobalLoginIDs.uuid = uuid
                     GlobalLoginIDs.userType = userType

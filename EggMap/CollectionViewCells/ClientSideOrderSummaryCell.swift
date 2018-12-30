@@ -8,7 +8,7 @@
 
 import UIKit
 
-class OrderSummaryCell: BaseCell {
+class ClientSideOrderSummaryCell: BaseCell {
     
     let orderLabel = UILabel()
     let dateLabel = UILabel()

@@ -279,7 +279,7 @@ extension AgentProfileController: SideBarViewDelegate {
                 }
             }
         case .orderSummary:
-            let orderSummaryController = OrderSummaryScreenController()
+            let orderSummaryController = ClientSideOrderSummaryScreenController()
             let navOrderSummController = UINavigationController(rootViewController: orderSummaryController)
             present(navOrderSummController, animated: true) {
                 //completion here, maybe pass some data
@@ -305,9 +305,17 @@ extension AgentProfileController: SideBarViewDelegate {
 //            }
         case .logout:
             //log out client here
+            let logoutModel = LogoutModel()
+            logoutModel.fetchJsonLogout()
+            UserDefaults.standard.removeObject(forKey: "uid")
+            UserDefaults.standard.removeObject(forKey: "uuid")
+            UserDefaults.standard.removeObject(forKey: "userType")
             let loginController = LoginController()
             present(loginController, animated: true) {
-                //try the log out here
+                LoginController.GlobalLoginIDs.locationId = ""
+                LoginController.GlobalLoginIDs.uid = ""
+                LoginController.GlobalLoginIDs.uuid = ""
+                LoginController.GlobalLoginIDs.userType = ""
             }
         case .none:
             break

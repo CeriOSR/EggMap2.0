@@ -146,7 +146,7 @@ class DirectionGMMapController: UIViewController, CLLocationManagerDelegate {
             textField.placeholder = "Enter reason for aborting order."
         }
         let action = UIAlertAction(title: "OK", style: .default) { (action) in
-            let orderSummaryController = OrderSummaryScreenController()
+            let orderSummaryController = ClientSideOrderSummaryScreenController()
             let navOrderSummary = UINavigationController(rootViewController: orderSummaryController)
             self.present(navOrderSummary, animated: true, completion: nil)
         }
