@@ -296,13 +296,7 @@ extension AgentProfileController: SideBarViewDelegate {
             present(navQRController, animated: true) {
                 //completion here. maybe pass data
             }
-//        case .clientProfile:
-//            let layout = UICollectionViewFlowLayout()
-//            let clientProfileController = ClientProfileController(collectionViewLayout: layout)
-//            let navProfileController = UINavigationController(rootViewController: clientProfileController)
-//            present(navProfileController, animated: true) {
-//                //completion here, maybe pass some data
-//            }
+
         case .logout:
             //log out client here
             let logoutModel = LogoutModel()

@@ -9,7 +9,8 @@
 import UIKit
 
 class ClientSlideUpView: UIView {
-    
+ 
+    /// We might implement a bigger view later with images
 //    let cellId = "cellId"
     
 //    lazy var collectionView: UICollectionView = {
@@ -110,6 +111,8 @@ class ClientSlideUpView: UIView {
 protocol handleViewButtonsDelegate {
     func handleContactButtonPressed(sender: UIButton)
 }
+
+// MARK: - We might implement a bigger view later with images.
 
 //extension ClientSlideUpView: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
 //    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

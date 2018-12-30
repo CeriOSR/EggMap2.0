@@ -318,10 +318,6 @@ extension ClientSideOrderSummaryScreenController: SideBarViewDelegate {
             navigationController?.pushViewController(webView, animated: true)
         case .scanTool:
             let qrCodeScannerController = QRCodeScannerController()
-//            let navQRController = UINavigationController(rootViewController: qrCodeScannerController)
-//            present(navQRController, animated: true) {
-//                //completion here. maybe pass data
-//            }
             navigationController?.pushViewController(qrCodeScannerController, animated: true)
             
         case .logout:

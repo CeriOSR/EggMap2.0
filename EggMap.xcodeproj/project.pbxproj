@@ -42,18 +42,12 @@
 		ACF53D4C2172B21900BD36C1 /* ClientSlideUpViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF53D4B2172B21900BD36C1 /* ClientSlideUpViewCell.swift */; };
 		ACF53D4D2172B21900BD36C1 /* ClientSlideUpViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF53D4B2172B21900BD36C1 /* ClientSlideUpViewCell.swift */; };
 		ACF53D4E2172B21900BD36C1 /* ClientSlideUpViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF53D4B2172B21900BD36C1 /* ClientSlideUpViewCell.swift */; };
-		ACF53D5021756BD200BD36C1 /* ClientSlideInCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF53D4F21756BD200BD36C1 /* ClientSlideInCollectionView.swift */; };
-		ACF53D5121756BD200BD36C1 /* ClientSlideInCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF53D4F21756BD200BD36C1 /* ClientSlideInCollectionView.swift */; };
-		ACF53D5221756BD200BD36C1 /* ClientSlideInCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF53D4F21756BD200BD36C1 /* ClientSlideInCollectionView.swift */; };
 		ACF53D542176514700BD36C1 /* LocationAndDatePickerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF53D532176514700BD36C1 /* LocationAndDatePickerController.swift */; };
 		ACF53D552176514700BD36C1 /* LocationAndDatePickerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF53D532176514700BD36C1 /* LocationAndDatePickerController.swift */; };
 		ACF53D562176514700BD36C1 /* LocationAndDatePickerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF53D532176514700BD36C1 /* LocationAndDatePickerController.swift */; };
 		ACF53D582176EBF800BD36C1 /* DirectionGMMapController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF53D572176EBF800BD36C1 /* DirectionGMMapController.swift */; };
 		ACF53D592176EBF800BD36C1 /* DirectionGMMapController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF53D572176EBF800BD36C1 /* DirectionGMMapController.swift */; };
 		ACF53D5A2176EBF800BD36C1 /* DirectionGMMapController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF53D572176EBF800BD36C1 /* DirectionGMMapController.swift */; };
-		ACF53D5C217BABE400BD36C1 /* MapMarkerInfoWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF53D5B217BABE400BD36C1 /* MapMarkerInfoWindow.swift */; };
-		ACF53D5D217BABE400BD36C1 /* MapMarkerInfoWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF53D5B217BABE400BD36C1 /* MapMarkerInfoWindow.swift */; };
-		ACF53D5E217BABE400BD36C1 /* MapMarkerInfoWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF53D5B217BABE400BD36C1 /* MapMarkerInfoWindow.swift */; };
 		B441DFFBFB7AF08FC5C1010A /* Pods_EggMap.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B8BF09F0E07BAB471345C8D /* Pods_EggMap.framework */; };
 		E010708820F59DB100F06379 /* KeychainPasswordItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E010708720F59DB100F06379 /* KeychainPasswordItem.swift */; };
 		E010708920F59DB100F06379 /* KeychainPasswordItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E010708720F59DB100F06379 /* KeychainPasswordItem.swift */; };
@@ -225,10 +219,8 @@
 		ACF53D43216D31F500BD36C1 /* FiveStarRatingNonInteractiveImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiveStarRatingNonInteractiveImage.swift; sourceTree = "<group>"; };
 		ACF53D47216EC99A00BD36C1 /* ClientSlideUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientSlideUpView.swift; sourceTree = "<group>"; };
 		ACF53D4B2172B21900BD36C1 /* ClientSlideUpViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientSlideUpViewCell.swift; sourceTree = "<group>"; };
-		ACF53D4F21756BD200BD36C1 /* ClientSlideInCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientSlideInCollectionView.swift; sourceTree = "<group>"; };
 		ACF53D532176514700BD36C1 /* LocationAndDatePickerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationAndDatePickerController.swift; sourceTree = "<group>"; };
 		ACF53D572176EBF800BD36C1 /* DirectionGMMapController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectionGMMapController.swift; sourceTree = "<group>"; };
-		ACF53D5B217BABE400BD36C1 /* MapMarkerInfoWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapMarkerInfoWindow.swift; sourceTree = "<group>"; };
 		E010708720F59DB100F06379 /* KeychainPasswordItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainPasswordItem.swift; sourceTree = "<group>"; };
 		E010708F20F5B28F00F06379 /* EggMap.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = EggMap.entitlements; sourceTree = "<group>"; };
 		E010709420FEED0E00F06379 /* QRCodeScannerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeScannerController.swift; sourceTree = "<group>"; };
@@ -506,8 +498,6 @@
 				E063365C216148BD00854FE2 /* FiveStarRating.swift */,
 				ACF53D43216D31F500BD36C1 /* FiveStarRatingNonInteractiveImage.swift */,
 				ACF53D47216EC99A00BD36C1 /* ClientSlideUpView.swift */,
-				ACF53D4F21756BD200BD36C1 /* ClientSlideInCollectionView.swift */,
-				ACF53D5B217BABE400BD36C1 /* MapMarkerInfoWindow.swift */,
 			);
 			path = ReusableViews;
 			sourceTree = "<group>";
@@ -867,7 +857,6 @@
 				E0F28BCC210D43AA0041E748 /* WebViewController.swift in Sources */,
 				E05E431B21C4E57600D7ED82 /* ChatControllerToCell.swift in Sources */,
 				AC69667B21D83952004E0D78 /* UserDefaultsHelpers++.swift in Sources */,
-				ACF53D5C217BABE400BD36C1 /* MapMarkerInfoWindow.swift in Sources */,
 				E04FFCFA20F2C60B006F3EC8 /* GMSMapController.swift in Sources */,
 				E05E431721C4E46800D7ED82 /* CollectionViewHelpers.swift in Sources */,
 				E010709520FEED0E00F06379 /* QRCodeScannerController.swift in Sources */,
@@ -907,7 +896,6 @@
 				E0F28BA42103DEEB0041E748 /* SlideInMenu.swift in Sources */,
 				E0F28BC021097F3F0041E748 /* AgentLocationsController.swift in Sources */,
 				E010709A2100001100F06379 /* BaseCell.swift in Sources */,
-				ACF53D5021756BD200BD36C1 /* ClientSlideInCollectionView.swift in Sources */,
 				E01A867B2186DFE4005211D2 /* UIAlertHelper.swift in Sources */,
 				E04FFCE820F29265006F3EC8 /* UIColorExtensions.swift in Sources */,
 			);
@@ -929,7 +917,6 @@
 				E0F28BCD210D43AA0041E748 /* WebViewController.swift in Sources */,
 				E05E431C21C4E57600D7ED82 /* ChatControllerToCell.swift in Sources */,
 				AC69667C21D83952004E0D78 /* UserDefaultsHelpers++.swift in Sources */,
-				ACF53D5D217BABE400BD36C1 /* MapMarkerInfoWindow.swift in Sources */,
 				E010708D20F59DF900F06379 /* ClientSideOrderSummaryScreenController.swift in Sources */,
 				E05E431821C4E46800D7ED82 /* CollectionViewHelpers.swift in Sources */,
 				E010709620FEED0E00F06379 /* QRCodeScannerController.swift in Sources */,
@@ -969,7 +956,6 @@
 				E0F28BA52103DEEB0041E748 /* SlideInMenu.swift in Sources */,
 				E0F28BC121097F3F0041E748 /* AgentLocationsController.swift in Sources */,
 				E010709B2100001100F06379 /* BaseCell.swift in Sources */,
-				ACF53D5121756BD200BD36C1 /* ClientSlideInCollectionView.swift in Sources */,
 				E01A867C2186DFE4005211D2 /* UIAlertHelper.swift in Sources */,
 				E010708B20F59DF500F06379 /* LoginController.swift in Sources */,
 			);
@@ -991,7 +977,6 @@
 				E0F28BCE210D43AA0041E748 /* WebViewController.swift in Sources */,
 				E05E431D21C4E57600D7ED82 /* ChatControllerToCell.swift in Sources */,
 				AC69667D21D83952004E0D78 /* UserDefaultsHelpers++.swift in Sources */,
-				ACF53D5E217BABE400BD36C1 /* MapMarkerInfoWindow.swift in Sources */,
 				E010708E20F59DF900F06379 /* ClientSideOrderSummaryScreenController.swift in Sources */,
 				E05E431921C4E46800D7ED82 /* CollectionViewHelpers.swift in Sources */,
 				E010709720FEED0E00F06379 /* QRCodeScannerController.swift in Sources */,
@@ -1031,7 +1016,6 @@
 				E0F28BA62103DEEB0041E748 /* SlideInMenu.swift in Sources */,
 				E0F28BC221097F3F0041E748 /* AgentLocationsController.swift in Sources */,
 				E010709C2100001100F06379 /* BaseCell.swift in Sources */,
-				ACF53D5221756BD200BD36C1 /* ClientSlideInCollectionView.swift in Sources */,
 				E01A867D2186DFE4005211D2 /* UIAlertHelper.swift in Sources */,
 				E010708C20F59DF600F06379 /* LoginController.swift in Sources */,
 			);

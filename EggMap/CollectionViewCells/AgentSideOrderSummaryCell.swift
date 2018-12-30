@@ -25,7 +25,7 @@ class AgentSideOrderSummaryCell: BaseCell {
     
     let chatBtn: UIButton = {
         let btn = UIButton(type: .system)
-        btn.setTitle("Abort", for: .normal)
+        btn.setTitle("Chat", for: .normal)
         return btn
     }()
     

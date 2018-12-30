@@ -157,6 +157,14 @@ class LoginController: UIViewController {
         }
     }
     
+    private func presentAgentScreen() {
+        let orderSummController = AgentSideOrderSummaryScreenController()
+        let navOrderSummController = UINavigationController(rootViewController: orderSummController)
+        present(navOrderSummController, animated: true) {
+            
+        }
+    }
+    
     fileprivate func login() {
         
         guard let newAccountName = userIdTextField.text, let newPassword = passwordTextField.text, !newAccountName.isEmpty, !newPassword.isEmpty else {
@@ -230,32 +238,38 @@ class LoginController: UIViewController {
     }
     
     private func saveUserToUserDefaultsAndKeychain(username: String, password: String) {
-            if GlobalLoginIDs.uid == "" && GlobalLoginIDs.uuid == "" {
-                self.showLoginFailedAlert(message: "Unable to fetch login credentials from server.")
-            } else {
-                let hasLoginKey = UserDefaults.standard.bool(forKey: "hasLoginKey")
-                DispatchQueue.main.async {
-                    if !hasLoginKey && self.userIdTextField.hasText {
-                        UserDefaults.standard.set(self.userIdTextField.text, forKey: "username")
-                    }
-                    //created a new KeychainPasswordItem with serviceName, newAccountName and accessGroup
-                    if self.remSwitch.isOn {
-                        do {
-                            //new account, create a new keychain item with account name.
-                            let passwordItem = KeychainPasswordItem(service: KeychainConfiguration.serviceName, account: username, accessGroup: KeychainConfiguration.accessGroup)
-                            //save the password for the new item
-                            try passwordItem.savePassword(password)
-                            // set the hasLoginKey in UserDefaults to true to indicate password has been saved to the keychain.
-                            UserDefaults.standard.set(true, forKey: "hasLoginKey")
-                        } catch {
-                            fatalError("Error updating keychain: \(error)")
-                        }
-                    }
+        if GlobalLoginIDs.uid == "" && GlobalLoginIDs.uuid == "" {
+            self.showLoginFailedAlert(message: "Unable to fetch login credentials from server.")
+        } else {
+            let hasLoginKey = UserDefaults.standard.bool(forKey: "hasLoginKey")
+            DispatchQueue.main.async {
+                if !hasLoginKey && self.userIdTextField.hasText {
+                    UserDefaults.standard.set(self.userIdTextField.text, forKey: "username")
                 }
-                DispatchQueue.main.async {
-                    self.presentClientScreen()
+                //created a new KeychainPasswordItem with serviceName, newAccountName and accessGroup
+                if self.remSwitch.isOn {
+                    do {
+                        //new account, create a new keychain item with account name.
+                        let passwordItem = KeychainPasswordItem(service: KeychainConfiguration.serviceName, account: username, accessGroup: KeychainConfiguration.accessGroup)
+                        //save the password for the new item
+                        try passwordItem.savePassword(password)
+                        // set the hasLoginKey in UserDefaults to true to indicate password has been saved to the keychain.
+                        UserDefaults.standard.set(true, forKey: "hasLoginKey")
+                    } catch {
+                        fatalError("Error updating keychain: \(error)")
+                    }
                 }
             }
+            DispatchQueue.main.async {
+                let defaults = UserDefaults.standard
+                guard let userType = defaults.string(forKey: DefaultKeys.userType) else {return}
+                if userType == "1" {
+                    self.presentClientScreen()
+                } else {
+                    self.presentAgentScreen()
+                }
+            }
+        }
     }
     
     fileprivate func checkLogin(username: String, password: String) -> Bool {
