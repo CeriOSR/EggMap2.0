@@ -60,8 +60,8 @@ class AgentSideOrderSummaryScreenController: UIViewController {
     
     lazy var listOptionSegmentedController: UISegmentedControl = {
         let ready = localizer.parseLocalizable().readyForPickup?.value
-        let delivered = localizer.parseLocalizable().delivered?.value
-        let segmentController = UISegmentedControl(items: [ready ?? "Ready For Pickup", delivered ?? "Delivered"])
+        let delivered = localizer.parseLocalizable().ordersTaken?.value
+        let segmentController = UISegmentedControl(items: [ready ?? "Ready For Pickup", delivered ?? "Orders Taken"])
         segmentController.selectedSegmentIndex = 0
         segmentController.addTarget(self, action: #selector(handleSegmentValueChanged), for: .valueChanged)
         return segmentController
@@ -115,7 +115,8 @@ class AgentSideOrderSummaryScreenController: UIViewController {
     }
     
     fileprivate func setupViews() {
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Map", style: .plain, target: self, action: #selector(handleMapButtonTapped))
+        let map = localizer.parseLocalizable().map?.value
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: map ?? "Map", style: .plain, target: self, action: #selector(handleMapButtonTapped))
         view.addSubview(listOptionSegmentedController)
         view.addSubview(orderSummaryView)
         setupSlideInMenu()
@@ -178,6 +179,7 @@ extension AgentSideOrderSummaryScreenController: UICollectionViewDelegate, UICol
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = orderSummaryCollectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! AgentSideOrderSummaryCell
         
+        //change these to ready orders and taken orders
         let readyOrder: UndeliveredOrder?
         let finishedOrder: DeliveredOrder?
         
@@ -206,23 +208,29 @@ extension AgentSideOrderSummaryScreenController: UICollectionViewDelegate, UICol
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         if listOptionSegmentedController.selectedSegmentIndex == 1 {
-            let layout = UICollectionViewFlowLayout()
-            let chatController = ChatViewController(collectionViewLayout: layout)
-            navigationController?.pushViewController(chatController, animated: true)
+//            let layout = UICollectionViewFlowLayout()
+//            let chatController = ChatViewController(collectionViewLayout: layout)
+//            navigationController?.pushViewController(chatController, animated: true)
         } else {
             
             //        guard let id = readyOrders[indexPath.item].id else {return}
             //test ID delete later use line above
             let id = "73DBE3A6-6783-4A98-A681-B9020E864080"
             
-            let gmsMapController = ClientSideOrderAvailabilityMapController()
-            let locationDetailsById = GetLocationDetailsByIDJSON()
-            locationDetailsById.getLocationAndScheduleDetailsById(id: id) { (locationDetails) in
-                print(locationDetails)
-                let addressString = locationDetailsById.formAddressString(location: locationDetails)
-                gmsMapController.addressString = addressString
+            let alert = UIAlertController(title: "Take Order", message: "Do you want to take this order?", preferredStyle: .alert)
+            let take = UIAlertAction(title: "Ok", style: .default) { (action) in
+                //send to database and move to Orders Taken
             }
-            navigationController?.pushViewController(gmsMapController, animated: true)
+            let cancel = UIAlertAction(title: "Cancel", style: .default) { (action) in
+                alert.dismiss(animated: true, completion: {
+                    //handle completion here if needed.
+                })
+            }
+            alert.addAction(take)
+            alert.addAction(cancel)
+            self.present(alert, animated: true) {
+                //handle completion of alert presentation here if needed.
+            }
         }
     }
 }
