@@ -19,7 +19,6 @@ class AgentSideOrderSummaryCell: BaseCell {
     
     let abortButton: UIButton = {
         let btn = UIButton(type: .system)
-        btn.setTitle("Abort", for: .normal)
         return btn
     }()
     

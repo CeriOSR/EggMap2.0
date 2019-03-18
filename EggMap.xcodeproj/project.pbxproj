@@ -27,9 +27,9 @@
 		ACE0ADD0216470CC0019D73B /* OrientationLockHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE0ADCF216470CC0019D73B /* OrientationLockHelper.swift */; };
 		ACE0ADD1216470CC0019D73B /* OrientationLockHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE0ADCF216470CC0019D73B /* OrientationLockHelper.swift */; };
 		ACE0ADD2216470CC0019D73B /* OrientationLockHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE0ADCF216470CC0019D73B /* OrientationLockHelper.swift */; };
-		ACF53D3B21691FA900BD36C1 /* ClientSideOrderAvailabilityMapController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF53D3A21691FA900BD36C1 /* ClientSideOrderAvailabilityMapController.swift */; };
-		ACF53D3C21691FA900BD36C1 /* ClientSideOrderAvailabilityMapController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF53D3A21691FA900BD36C1 /* ClientSideOrderAvailabilityMapController.swift */; };
-		ACF53D3D21691FA900BD36C1 /* ClientSideOrderAvailabilityMapController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF53D3A21691FA900BD36C1 /* ClientSideOrderAvailabilityMapController.swift */; };
+		ACF53D3B21691FA900BD36C1 /* OrderListMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF53D3A21691FA900BD36C1 /* OrderListMapViewController.swift */; };
+		ACF53D3C21691FA900BD36C1 /* OrderListMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF53D3A21691FA900BD36C1 /* OrderListMapViewController.swift */; };
+		ACF53D3D21691FA900BD36C1 /* OrderListMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF53D3A21691FA900BD36C1 /* OrderListMapViewController.swift */; };
 		ACF53D40216BD86600BD36C1 /* AgentSideListOfOrdersMapDisplayController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF53D3F216BD86600BD36C1 /* AgentSideListOfOrdersMapDisplayController.swift */; };
 		ACF53D41216BD86600BD36C1 /* AgentSideListOfOrdersMapDisplayController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF53D3F216BD86600BD36C1 /* AgentSideListOfOrdersMapDisplayController.swift */; };
 		ACF53D42216BD86600BD36C1 /* AgentSideListOfOrdersMapDisplayController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF53D3F216BD86600BD36C1 /* AgentSideListOfOrdersMapDisplayController.swift */; };
@@ -214,7 +214,7 @@
 		ACD3DCFA21D4592D007609FA /* AgentSideOrderSummaryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgentSideOrderSummaryCell.swift; sourceTree = "<group>"; };
 		ACD3DCFF21D460B2007609FA /* AgentSideOrderSummaryScreenController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgentSideOrderSummaryScreenController.swift; sourceTree = "<group>"; };
 		ACE0ADCF216470CC0019D73B /* OrientationLockHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrientationLockHelper.swift; sourceTree = "<group>"; };
-		ACF53D3A21691FA900BD36C1 /* ClientSideOrderAvailabilityMapController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientSideOrderAvailabilityMapController.swift; sourceTree = "<group>"; };
+		ACF53D3A21691FA900BD36C1 /* OrderListMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderListMapViewController.swift; sourceTree = "<group>"; };
 		ACF53D3F216BD86600BD36C1 /* AgentSideListOfOrdersMapDisplayController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgentSideListOfOrdersMapDisplayController.swift; sourceTree = "<group>"; };
 		ACF53D43216D31F500BD36C1 /* FiveStarRatingNonInteractiveImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiveStarRatingNonInteractiveImage.swift; sourceTree = "<group>"; };
 		ACF53D47216EC99A00BD36C1 /* ClientSlideUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientSlideUpView.swift; sourceTree = "<group>"; };
@@ -352,7 +352,7 @@
 			isa = PBXGroup;
 			children = (
 				E04FFCF920F2C60B006F3EC8 /* GMSMapController.swift */,
-				ACF53D3A21691FA900BD36C1 /* ClientSideOrderAvailabilityMapController.swift */,
+				ACF53D3A21691FA900BD36C1 /* OrderListMapViewController.swift */,
 				ACF53D3F216BD86600BD36C1 /* AgentSideListOfOrdersMapDisplayController.swift */,
 				ACF53D532176514700BD36C1 /* LocationAndDatePickerController.swift */,
 				ACF53D572176EBF800BD36C1 /* DirectionGMMapController.swift */,
@@ -862,7 +862,7 @@
 				E010709520FEED0E00F06379 /* QRCodeScannerController.swift in Sources */,
 				E05E430F21C4E2C000D7ED82 /* ChatViewController.swift in Sources */,
 				ACF53D48216EC99A00BD36C1 /* ClientSlideUpView.swift in Sources */,
-				ACF53D3B21691FA900BD36C1 /* ClientSideOrderAvailabilityMapController.swift in Sources */,
+				ACF53D3B21691FA900BD36C1 /* OrderListMapViewController.swift in Sources */,
 				E01913BB212256E2001C384D /* AgentLocationCell.swift in Sources */,
 				E05E431321C4E34300D7ED82 /* ChatControllerFromCell.swift in Sources */,
 				ACE0ADD0216470CC0019D73B /* OrientationLockHelper.swift in Sources */,
@@ -922,7 +922,7 @@
 				E010709620FEED0E00F06379 /* QRCodeScannerController.swift in Sources */,
 				E05E431021C4E2C000D7ED82 /* ChatViewController.swift in Sources */,
 				ACF53D49216EC99A00BD36C1 /* ClientSlideUpView.swift in Sources */,
-				ACF53D3C21691FA900BD36C1 /* ClientSideOrderAvailabilityMapController.swift in Sources */,
+				ACF53D3C21691FA900BD36C1 /* OrderListMapViewController.swift in Sources */,
 				E01913BC212256E2001C384D /* AgentLocationCell.swift in Sources */,
 				E05E431421C4E34300D7ED82 /* ChatControllerFromCell.swift in Sources */,
 				ACE0ADD1216470CC0019D73B /* OrientationLockHelper.swift in Sources */,
@@ -982,7 +982,7 @@
 				E010709720FEED0E00F06379 /* QRCodeScannerController.swift in Sources */,
 				E05E431121C4E2C000D7ED82 /* ChatViewController.swift in Sources */,
 				ACF53D4A216EC99A00BD36C1 /* ClientSlideUpView.swift in Sources */,
-				ACF53D3D21691FA900BD36C1 /* ClientSideOrderAvailabilityMapController.swift in Sources */,
+				ACF53D3D21691FA900BD36C1 /* OrderListMapViewController.swift in Sources */,
 				E01913BD212256E2001C384D /* AgentLocationCell.swift in Sources */,
 				E05E431521C4E34300D7ED82 /* ChatControllerFromCell.swift in Sources */,
 				ACE0ADD2216470CC0019D73B /* OrientationLockHelper.swift in Sources */,

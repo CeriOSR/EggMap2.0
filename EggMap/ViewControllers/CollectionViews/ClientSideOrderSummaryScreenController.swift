@@ -24,7 +24,7 @@ class ClientSideOrderSummaryScreenController: UIViewController {
                     //test id, delete later use line above
                     let id = "73DBE3A6-6783-4A98-A681-B9020E864080"
 
-                    let gmsMapController = ClientSideOrderAvailabilityMapController()
+                    let gmsMapController = OrderListMapViewController()
                     let locationDetailsById = GetLocationDetailsByIDJSON()
                     locationDetailsById.getLocationAndScheduleDetailsById(id: id) { (locationDetails) in
                         print(locationDetails)
@@ -215,7 +215,7 @@ extension ClientSideOrderSummaryScreenController: UICollectionViewDelegate, UICo
         //test ID delete later use line above
         let id = "73DBE3A6-6783-4A98-A681-B9020E864080"
 
-        let gmsMapController = ClientSideOrderAvailabilityMapController()
+        let gmsMapController = OrderListMapViewController()
         let locationDetailsById = GetLocationDetailsByIDJSON()
         locationDetailsById.getLocationAndScheduleDetailsById(id: id) { (locationDetails) in
             print(locationDetails)

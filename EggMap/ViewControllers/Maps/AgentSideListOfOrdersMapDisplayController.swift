@@ -12,6 +12,7 @@ import GoogleMaps
 import MapKit
 import CoreLocation
 
+///MIGHT DELETE THIS LATER BECAUSE CLIENT AND AGENT CAN USE ORDERLISTMAPVIEWCONTROLLER TO DISPLAY LIST OF AVAILABILITY...
 class AgentSideListOfOrdersMapDisplayController: UIViewController, CLLocationManagerDelegate {
     
     lazy var slideUpView = ClientSlideUpView(frame: CGRect(x: 0, y: self.view.frame.maxY, width: self.view.frame.width, height: self.view.frame.height))

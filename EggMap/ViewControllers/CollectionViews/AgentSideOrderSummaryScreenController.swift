@@ -14,6 +14,7 @@ class AgentSideOrderSummaryScreenController: UIViewController {
     var slideInMenu: SlideInMenu!
     var blackScreen: UIView!
     var userType = LoginController.GlobalLoginIDs.userType
+    let alerts = EggMapAlerts()
     
     let cellId = "cellId"
     var readyOrders = [UndeliveredOrder]() {
@@ -24,7 +25,7 @@ class AgentSideOrderSummaryScreenController: UIViewController {
                     //test id, delete later use line above
                     let id = "73DBE3A6-6783-4A98-A681-B9020E864080"
                     
-                    let gmsMapController = ClientSideOrderAvailabilityMapController()
+                    let gmsMapController = OrderListMapViewController()
                     let locationDetailsById = GetLocationDetailsByIDJSON()
                     locationDetailsById.getLocationAndScheduleDetailsById(id: id) { (locationDetails) in
                         print(locationDetails)
@@ -160,6 +161,12 @@ class AgentSideOrderSummaryScreenController: UIViewController {
         let waitingForAgentsController = WaitingForAgentsController()
         navigationController?.pushViewController(waitingForAgentsController, animated: true)
     }
+    
+    private func segueToChatController() {
+        let layout = UICollectionViewFlowLayout()
+        let chatController = ChatViewController(collectionViewLayout: layout)
+        navigationController?.pushViewController(chatController, animated: true)
+    }
 }
 
 extension AgentSideOrderSummaryScreenController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
@@ -169,36 +176,47 @@ extension AgentSideOrderSummaryScreenController: UICollectionViewDelegate, UICol
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if listOptionSegmentedController.selectedSegmentIndex == 0 {
-            return readyOrders.count
-        } else {
-            return finishedOrders.count
-        }
+        return 3
+//        if listOptionSegmentedController.selectedSegmentIndex == 0 {
+//            return readyOrders.count
+//        } else {
+//            return finishedOrders.count
+//        }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = orderSummaryCollectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! AgentSideOrderSummaryCell
         
         //change these to ready orders and taken orders
-        let readyOrder: UndeliveredOrder?
-        let finishedOrder: DeliveredOrder?
+//        let readyOrder: UndeliveredOrder?
+//        let finishedOrder: DeliveredOrder?
+        
         
         if self.listOptionSegmentedController.selectedSegmentIndex == 0 {
-//            readyOrder = readyOrders[indexPath.item]
-//            cell.orderLabel.text = readyOrder?.contractNo
-//            cell.dateLabel.text = readyOrder?.memo
-//            cell.statusLabel.text = readyOrder?.policyStatusName
-//            cell.productLabel.text = readyOrder?.id
-//            cell.rateBtn.isHidden = true
+            cell.hourglassImageView.isHidden = true
+            cell.chatBtn.isHidden = true
+            cell.abortButton.setTitle("Accept", for: .normal)
         } else {
-//            finishedOrder = finishedOrders[indexPath.item]
-//            cell.orderLabel.text = finishedOrder?.contractNo
-//            cell.dateLabel.text = finishedOrder?.memo
-//            cell.statusLabel.text = finishedOrder?.policyStatusName
-//            cell.productLabel.text = finishedOrder?.id
-//            cell.rateBtn.isHidden = false
+            cell.hourglassImageView.isHidden = false
+            cell.chatBtn.isHidden = false
+            cell.abortButton.setTitle("Abort", for: .normal)
+
         }
+        cell.abortButton.addTarget(self, action: #selector(handleAbortAcceptButtonTapped(sender:)), for: .touchUpInside)
+        cell.chatBtn.addTarget(self, action: #selector(handleCellChatBtnTapped), for: .touchUpInside)
         return cell
+    }
+    
+    @objc func handleAbortAcceptButtonTapped(sender: UIButton) {
+        if sender.titleLabel?.text == "Abort" {
+            alerts.abortOrderAlert(sender: self)
+        } else {
+            alerts.acceptOrderAlert(sender: self)
+        }
+    }
+    
+    @objc func handleCellChatBtnTapped(sender: UIButton) {
+        segueToChatController()
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -217,20 +235,7 @@ extension AgentSideOrderSummaryScreenController: UICollectionViewDelegate, UICol
             //test ID delete later use line above
             let id = "73DBE3A6-6783-4A98-A681-B9020E864080"
             
-            let alert = UIAlertController(title: "Take Order", message: "Do you want to take this order?", preferredStyle: .alert)
-            let take = UIAlertAction(title: "Ok", style: .default) { (action) in
-                //send to database and move to Orders Taken
-            }
-            let cancel = UIAlertAction(title: "Cancel", style: .default) { (action) in
-                alert.dismiss(animated: true, completion: {
-                    //handle completion here if needed.
-                })
-            }
-            alert.addAction(take)
-            alert.addAction(cancel)
-            self.present(alert, animated: true) {
-                //handle completion of alert presentation here if needed.
-            }
+            
         }
     }
 }

@@ -214,7 +214,7 @@ class WaitingForAgentsController: UIViewController {
     @objc func handleRequestViewTapped() {
         print("Segue back to map to change delivery options")
         let id = "73DBE3A6-6783-4A98-A681-B9020E864080"
-        let gmsMapController = ClientSideOrderAvailabilityMapController()
+        let gmsMapController = OrderListMapViewController()
         let locationDetailsById = GetLocationDetailsByIDJSON()
         locationDetailsById.getLocationAndScheduleDetailsById(id: id) { (locationDetails) in
             print(locationDetails)

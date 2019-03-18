@@ -14,13 +14,13 @@ import CoreLocation
 import SwiftyJSON
 import Alamofire
 
-class ClientSideOrderAvailabilityMapController: UIViewController, CLLocationManagerDelegate {
+class OrderListMapViewController: UIViewController, CLLocationManagerDelegate {
     
     //GMMAP variables
     var tappedMarker = GMSMarker()
-    var customInfoWindow : MapMarkerInfoWindow?
+//    var customInfoWindow : MapMarkerInfoWindow?
     
-    var slideInFromRightView : ClientSlideInCollectionView!
+    var slideInFromRightView : ClientSlideUpView!
     var slideUpView: ClientSlideUpView!
     
     lazy var agentMarkerImage: UIImageView = {
@@ -106,6 +106,11 @@ class ClientSideOrderAvailabilityMapController: UIViewController, CLLocationMana
                 //put an alert here for no placemarks found
                 print("GEOCODER: No Placemarks Found!")
             } else {
+                
+                ///DISPLAY LIST OF CLIENTS WITH ORDERS HERE FOR AGENTSIDE
+                ///DISPLAY LIST OF AGENTS HERE FOR CLIENTSIDE
+                ///USE AN ARRAY OF COORDINATES OR GEOCODED ADDRESSES
+                
                 guard let unwrappedCoord = placemarks?.first?.location?.coordinate else {return}
                 coordinates = unwrappedCoord
                 
@@ -208,7 +213,7 @@ class ClientSideOrderAvailabilityMapController: UIViewController, CLLocationMana
 }
 
 //slide up view
-extension ClientSideOrderAvailabilityMapController {
+extension OrderListMapViewController {
     
     private func setupSlideUpView() {
         slideUpView = ClientSlideUpView(frame: CGRect(x: 0, y: self.view.frame.maxY, width: self.view.frame.width, height: self.view.frame.height))
@@ -244,10 +249,10 @@ extension ClientSideOrderAvailabilityMapController {
 }
 
 //slide in from the left side collectionView
-extension ClientSideOrderAvailabilityMapController {
+extension OrderListMapViewController {
     
     private func setupSlideInColletionView() {
-        slideInFromRightView = ClientSlideInCollectionView(frame: CGRect(x: 0, y: self.optionSegmentController.frame.maxY, width: 0, height: self.view.frame.height))
+        slideInFromRightView = ClientSlideUpView(frame: CGRect(x: 0, y: self.optionSegmentController.frame.maxY, width: 0, height: self.view.frame.height))
         view.addSubview(slideInFromRightView)
     }
     
@@ -269,7 +274,7 @@ extension ClientSideOrderAvailabilityMapController {
     }
 }
 
-extension ClientSideOrderAvailabilityMapController: handleViewButtonsDelegate {
+extension OrderListMapViewController: handleViewButtonsDelegate {
     func handleContactButtonPressed(sender: UIButton) {
         print("View Button has been pressed")
         if slideUpView.directionButton.titleLabel?.text == "Send" {
@@ -296,7 +301,7 @@ extension ClientSideOrderAvailabilityMapController: handleViewButtonsDelegate {
 }
 
 //tap markers
-extension ClientSideOrderAvailabilityMapController: GMSMapViewDelegate {
+extension OrderListMapViewController: GMSMapViewDelegate {
 
     //reset custom infoWindow whenever marker is tapped
     func mapView(_ mapView: GMSMapView, didTap marker: GMSMarker) -> Bool {
@@ -334,10 +339,10 @@ extension ClientSideOrderAvailabilityMapController: GMSMapViewDelegate {
     
     //make the custom infoWindow follow the camera
     func mapView(_ mapView: GMSMapView, didChange position: GMSCameraPosition) {
+        //was used to display custom marker infowindow...we may not use this in the future.
         if tappedMarker.userData != nil {
             //location of tapped marker here
             let location = CLLocationCoordinate2D(latitude: tappedMarker.position.latitude, longitude: tappedMarker.position.longitude)
-            customInfoWindow?.center = mapView.projection.point(for: location)
         }
     }
     
